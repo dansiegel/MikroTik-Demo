@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:behaviors="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+             xmlns:mvvm="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             mvvm:ViewModelLocator.AutowireViewModel="true"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:NavigationPage.PrefersLargeTitles="true"
+             ios:Page.UseSafeArea="true"
+             Title="{Binding Title}"
+             x:Class="ModemConfigurator.Views.InterfaceWirelessPage">
+  <ContentPage.ToolbarItems>
+    <ToolbarItem Icon="add.png" 
+                 Text="Add"
+                 Command="{Binding AddItemCommand}" />
+  </ContentPage.ToolbarItems>
+  <ListView ItemsSource="{Binding Items}"
+              HasUnevenRows="true">
+    <ListView.Behaviors>
+      <behaviors:EventToCommandBehavior EventName="ItemTapped"
+                                        EventArgsParameterPath="Item"
+                                        Command="{Binding ItemSelectedCommand}" />
+    </ListView.Behaviors>
+    <ListView.Header>
+      <Frame BackgroundColor="Teal">
+        <Label Text="interface/wireless"
+               FontSize="Large"
+               TextColor="WhiteSmoke" />
+      </Frame>
+    </ListView.Header>
+    <ListView.ItemTemplate>
+      <DataTemplate>
+        <ViewCell>
+          <FlexLayout Padding="20,0"
+                      Wrap="Wrap">
+            <Label Text="Id" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Id}" FlexLayout.Basis="50%" />
+            <Label Text="AdaptiveNoiseImmunity" FlexLayout.Basis="50%" />
+            <Label Text="{Binding AdaptiveNoiseImmunity}" FlexLayout.Basis="50%" />
+            <Label Text="AllowSharedkey" FlexLayout.Basis="50%" />
+            <Label Text="{Binding AllowSharedkey}" FlexLayout.Basis="50%" />
+            <Label Text="AntennaGain" FlexLayout.Basis="50%" />
+            <Label Text="{Binding AntennaGain}" FlexLayout.Basis="50%" />
+            <Label Text="AntennaMode" FlexLayout.Basis="50%" />
+            <Label Text="{Binding AntennaMode}" FlexLayout.Basis="50%" />
+            <Label Text="Area" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Area}" FlexLayout.Basis="50%" />
+            <Label Text="Arp" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Arp}" FlexLayout.Basis="50%" />
+            <Label Text="Band" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Band}" FlexLayout.Basis="50%" />
+            <Label Text="BasicRatesAG" FlexLayout.Basis="50%" />
+            <Label Text="{Binding BasicRatesAG}" FlexLayout.Basis="50%" />
+            <Label Text="BasicRatesB" FlexLayout.Basis="50%" />
+            <Label Text="{Binding BasicRatesB}" FlexLayout.Basis="50%" />
+            <Label Text="BridgeMode" FlexLayout.Basis="50%" />
+            <Label Text="{Binding BridgeMode}" FlexLayout.Basis="50%" />
+            <Label Text="BurstTime" FlexLayout.Basis="50%" />
+            <Label Text="{Binding BurstTime}" FlexLayout.Basis="50%" />
+            <Label Text="ChannelWidth" FlexLayout.Basis="50%" />
+            <Label Text="{Binding ChannelWidth}" FlexLayout.Basis="50%" />
+            <Label Text="Comment" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Comment}" FlexLayout.Basis="50%" />
+            <Label Text="Compression" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Compression}" FlexLayout.Basis="50%" />
+            <Label Text="Country" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Country}" FlexLayout.Basis="50%" />
+            <Label Text="DefaultApTxLimit" FlexLayout.Basis="50%" />
+            <Label Text="{Binding DefaultApTxLimit}" FlexLayout.Basis="50%" />
+            <Label Text="DefaultAuthentication" FlexLayout.Basis="50%" />
+            <Label Text="{Binding DefaultAuthentication}" FlexLayout.Basis="50%" />
+            <Label Text="DefaultClientTxLimit" FlexLayout.Basis="50%" />
+            <Label Text="{Binding DefaultClientTxLimit}" FlexLayout.Basis="50%" />
+            <Label Text="DefaultForwarding" FlexLayout.Basis="50%" />
+            <Label Text="{Binding DefaultForwarding}" FlexLayout.Basis="50%" />
+            <Label Text="DfsMode" FlexLayout.Basis="50%" />
+            <Label Text="{Binding DfsMode}" FlexLayout.Basis="50%" />
+            <Label Text="DisableRunningCheck" FlexLayout.Basis="50%" />
+            <Label Text="{Binding DisableRunningCheck}" FlexLayout.Basis="50%" />
+            <Label Text="Disabled" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Disabled}" FlexLayout.Basis="50%" />
+            <Label Text="DisconnectTimeout" FlexLayout.Basis="50%" />
+            <Label Text="{Binding DisconnectTimeout}" FlexLayout.Basis="50%" />
+            <Label Text="Distance" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Distance}" FlexLayout.Basis="50%" />
+            <Label Text="FrameLifetime" FlexLayout.Basis="50%" />
+            <Label Text="{Binding FrameLifetime}" FlexLayout.Basis="50%" />
+            <Label Text="Frequency" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Frequency}" FlexLayout.Basis="50%" />
+            <Label Text="FrequencyMode" FlexLayout.Basis="50%" />
+            <Label Text="{Binding FrequencyMode}" FlexLayout.Basis="50%" />
+            <Label Text="FrequencyOffset" FlexLayout.Basis="50%" />
+            <Label Text="{Binding FrequencyOffset}" FlexLayout.Basis="50%" />
+            <Label Text="HideSsid" FlexLayout.Basis="50%" />
+            <Label Text="{Binding HideSsid}" FlexLayout.Basis="50%" />
+            <Label Text="HtAmpduPriorities" FlexLayout.Basis="50%" />
+            <Label Text="{Binding HtAmpduPriorities}" FlexLayout.Basis="50%" />
+            <Label Text="HtAmsduLimit" FlexLayout.Basis="50%" />
+            <Label Text="{Binding HtAmsduLimit}" FlexLayout.Basis="50%" />
+            <Label Text="HtAmsduThreshold" FlexLayout.Basis="50%" />
+            <Label Text="{Binding HtAmsduThreshold}" FlexLayout.Basis="50%" />
+            <Label Text="HtBasicMcs" FlexLayout.Basis="50%" />
+            <Label Text="{Binding HtBasicMcs}" FlexLayout.Basis="50%" />
+            <Label Text="HtGuardInterval" FlexLayout.Basis="50%" />
+            <Label Text="{Binding HtGuardInterval}" FlexLayout.Basis="50%" />
+            <Label Text="HtRxchains" FlexLayout.Basis="50%" />
+            <Label Text="{Binding HtRxchains}" FlexLayout.Basis="50%" />
+            <Label Text="HtSupportedMcs" FlexLayout.Basis="50%" />
+            <Label Text="{Binding HtSupportedMcs}" FlexLayout.Basis="50%" />
+            <Label Text="HtTxchains" FlexLayout.Basis="50%" />
+            <Label Text="{Binding HtTxchains}" FlexLayout.Basis="50%" />
+            <Label Text="HwFragmentationThreshold" FlexLayout.Basis="50%" />
+            <Label Text="{Binding HwFragmentationThreshold}" FlexLayout.Basis="50%" />
+            <Label Text="HwProtectionMode" FlexLayout.Basis="50%" />
+            <Label Text="{Binding HwProtectionMode}" FlexLayout.Basis="50%" />
+            <Label Text="HwProtectionThreshold" FlexLayout.Basis="50%" />
+            <Label Text="{Binding HwProtectionThreshold}" FlexLayout.Basis="50%" />
+            <Label Text="HwRetries" FlexLayout.Basis="50%" />
+            <Label Text="{Binding HwRetries}" FlexLayout.Basis="50%" />
+            <Label Text="L2mtu" FlexLayout.Basis="50%" />
+            <Label Text="{Binding L2mtu}" FlexLayout.Basis="50%" />
+            <Label Text="MacAddress" FlexLayout.Basis="50%" />
+            <Label Text="{Binding MacAddress}" FlexLayout.Basis="50%" />
+            <Label Text="MasterInterface" FlexLayout.Basis="50%" />
+            <Label Text="{Binding MasterInterface}" FlexLayout.Basis="50%" />
+            <Label Text="MaxStationCount" FlexLayout.Basis="50%" />
+            <Label Text="{Binding MaxStationCount}" FlexLayout.Basis="50%" />
+            <Label Text="Mode" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Mode}" FlexLayout.Basis="50%" />
+            <Label Text="Mtu" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Mtu}" FlexLayout.Basis="50%" />
+            <Label Text="MulticastHelper" FlexLayout.Basis="50%" />
+            <Label Text="{Binding MulticastHelper}" FlexLayout.Basis="50%" />
+            <Label Text="Name" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Name}" FlexLayout.Basis="50%" />
+            <Label Text="NoiseFloorThreshold" FlexLayout.Basis="50%" />
+            <Label Text="{Binding NoiseFloorThreshold}" FlexLayout.Basis="50%" />
+            <Label Text="Nv2CellRadius" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Nv2CellRadius}" FlexLayout.Basis="50%" />
+            <Label Text="Nv2NoiseFloorOffset" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Nv2NoiseFloorOffset}" FlexLayout.Basis="50%" />
+            <Label Text="Nv2PresharedKey" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Nv2PresharedKey}" FlexLayout.Basis="50%" />
+            <Label Text="Nv2Qos" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Nv2Qos}" FlexLayout.Basis="50%" />
+            <Label Text="Nv2QueueCount" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Nv2QueueCount}" FlexLayout.Basis="50%" />
+            <Label Text="Nv2Security" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Nv2Security}" FlexLayout.Basis="50%" />
+            <Label Text="OnFailRetryTime" FlexLayout.Basis="50%" />
+            <Label Text="{Binding OnFailRetryTime}" FlexLayout.Basis="50%" />
+            <Label Text="PeriodicCalibration" FlexLayout.Basis="50%" />
+            <Label Text="{Binding PeriodicCalibration}" FlexLayout.Basis="50%" />
+            <Label Text="PeriodicCalibrationInterval" FlexLayout.Basis="50%" />
+            <Label Text="{Binding PeriodicCalibrationInterval}" FlexLayout.Basis="50%" />
+            <Label Text="PreambleMode" FlexLayout.Basis="50%" />
+            <Label Text="{Binding PreambleMode}" FlexLayout.Basis="50%" />
+            <Label Text="PrismCardtype" FlexLayout.Basis="50%" />
+            <Label Text="{Binding PrismCardtype}" FlexLayout.Basis="50%" />
+            <Label Text="ProprietaryExtension" FlexLayout.Basis="50%" />
+            <Label Text="{Binding ProprietaryExtension}" FlexLayout.Basis="50%" />
+            <Label Text="RadioName" FlexLayout.Basis="50%" />
+            <Label Text="{Binding RadioName}" FlexLayout.Basis="50%" />
+            <Label Text="RateSelection" FlexLayout.Basis="50%" />
+            <Label Text="{Binding RateSelection}" FlexLayout.Basis="50%" />
+            <Label Text="RateSet" FlexLayout.Basis="50%" />
+            <Label Text="{Binding RateSet}" FlexLayout.Basis="50%" />
+            <Label Text="ScanList" FlexLayout.Basis="50%" />
+            <Label Text="{Binding ScanList}" FlexLayout.Basis="50%" />
+            <Label Text="SecurityProfile" FlexLayout.Basis="50%" />
+            <Label Text="{Binding SecurityProfile}" FlexLayout.Basis="50%" />
+            <Label Text="Ssid" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Ssid}" FlexLayout.Basis="50%" />
+            <Label Text="StationBridgeCloneMac" FlexLayout.Basis="50%" />
+            <Label Text="{Binding StationBridgeCloneMac}" FlexLayout.Basis="50%" />
+            <Label Text="SupportedRatesAG" FlexLayout.Basis="50%" />
+            <Label Text="{Binding SupportedRatesAG}" FlexLayout.Basis="50%" />
+            <Label Text="SupportedRatesB" FlexLayout.Basis="50%" />
+            <Label Text="{Binding SupportedRatesB}" FlexLayout.Basis="50%" />
+            <Label Text="TdmaDebug" FlexLayout.Basis="50%" />
+            <Label Text="{Binding TdmaDebug}" FlexLayout.Basis="50%" />
+            <Label Text="TdmaHwTestMode" FlexLayout.Basis="50%" />
+            <Label Text="{Binding TdmaHwTestMode}" FlexLayout.Basis="50%" />
+            <Label Text="TdmaOverrideRate" FlexLayout.Basis="50%" />
+            <Label Text="{Binding TdmaOverrideRate}" FlexLayout.Basis="50%" />
+            <Label Text="TdmaOverrideSize" FlexLayout.Basis="50%" />
+            <Label Text="{Binding TdmaOverrideSize}" FlexLayout.Basis="50%" />
+            <Label Text="TdmaPeriodSize" FlexLayout.Basis="50%" />
+            <Label Text="{Binding TdmaPeriodSize}" FlexLayout.Basis="50%" />
+            <Label Text="TdmaTestMode" FlexLayout.Basis="50%" />
+            <Label Text="{Binding TdmaTestMode}" FlexLayout.Basis="50%" />
+            <Label Text="TxPower" FlexLayout.Basis="50%" />
+            <Label Text="{Binding TxPower}" FlexLayout.Basis="50%" />
+            <Label Text="TxPowerMode" FlexLayout.Basis="50%" />
+            <Label Text="{Binding TxPowerMode}" FlexLayout.Basis="50%" />
+            <Label Text="UpdateStatsInterval" FlexLayout.Basis="50%" />
+            <Label Text="{Binding UpdateStatsInterval}" FlexLayout.Basis="50%" />
+            <Label Text="VhtBasicMcs" FlexLayout.Basis="50%" />
+            <Label Text="{Binding VhtBasicMcs}" FlexLayout.Basis="50%" />
+            <Label Text="VhtSupportedMcs" FlexLayout.Basis="50%" />
+            <Label Text="{Binding VhtSupportedMcs}" FlexLayout.Basis="50%" />
+            <Label Text="WdsCostRange" FlexLayout.Basis="50%" />
+            <Label Text="{Binding WdsCostRange}" FlexLayout.Basis="50%" />
+            <Label Text="WdsDefaultBridge" FlexLayout.Basis="50%" />
+            <Label Text="{Binding WdsDefaultBridge}" FlexLayout.Basis="50%" />
+            <Label Text="WdsDefaultCost" FlexLayout.Basis="50%" />
+            <Label Text="{Binding WdsDefaultCost}" FlexLayout.Basis="50%" />
+            <Label Text="WdsIgnoreSsid" FlexLayout.Basis="50%" />
+            <Label Text="{Binding WdsIgnoreSsid}" FlexLayout.Basis="50%" />
+            <Label Text="WdsMode" FlexLayout.Basis="50%" />
+            <Label Text="{Binding WdsMode}" FlexLayout.Basis="50%" />
+            <Label Text="WirelessProtocol" FlexLayout.Basis="50%" />
+            <Label Text="{Binding WirelessProtocol}" FlexLayout.Basis="50%" />
+            <Label Text="WmmSupport" FlexLayout.Basis="50%" />
+            <Label Text="{Binding WmmSupport}" FlexLayout.Basis="50%" />
+
+          </FlexLayout>
+        </ViewCell>
+      </DataTemplate>
+    </ListView.ItemTemplate>
+    <ListView.Footer>
+      <StackLayout Spacing="0">
+        <Label Text="    Connected"
+                TextColor="White"
+                BackgroundColor="Green"
+                IsVisible="{Binding IsConnected}" />
+        <Label Text="    Not Connected"
+                TextColor="White"
+                BackgroundColor="Red"
+                IsVisible="{Binding IsNotConnected}" />
+      </StackLayout>
+    </ListView.Footer>
+  </ListView>
+</ContentPage>

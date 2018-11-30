@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:behaviors="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+             xmlns:controls="clr-namespace:ModemConfigurator.Controls;ModemConfigurator"
+             xmlns:mvvm="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             mvvm:ViewModelLocator.AutowireViewModel="true"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:NavigationPage.PrefersLargeTitles="true"
+             ios:Page.UseSafeArea="true"
+             Title="{Binding Title}"
+             x:Class="ModemConfigurator.Views.DhcpServerLeaseDetailPage">
+  <TableView HasUnevenRows="true"
+             Intent="Form">
+    <TableRoot>
+      <TableSection Title="Dhcp Server Lease">
+        <ViewCell>
+          <Frame BackgroundColor="Teal">
+            <Label Text="ip/dhcp-server/lease"
+                   FontSize="Large"
+                   TextColor="WhiteSmoke" />
+          </Frame>
+        </ViewCell>
+
+        <EntryCell Label="Id" IsEnabled="False" Text="{Binding Entity.Id}" />
+        <EntryCell Label="Address" Text="{Binding Entity.Address}" />
+        <EntryCell Label="Address List" Text="{Binding Entity.AddressList}" />
+        <SwitchCell Text="Always Broadcast" On="{Binding Entity.AlwaysBroadcast}" />
+        <SwitchCell Text="Block Access" On="{Binding Entity.BlockAccess}" />
+        <EntryCell Label="Client Id" Text="{Binding Entity.ClientId}" />
+        <EntryCell Label="Mac Address" Text="{Binding Entity.MacAddress}" />
+        <EntryCell Label="Src Mac Address" Text="{Binding Entity.SrcMacAddress}" />
+        <EntryCell Label="Use Src Mac" Text="{Binding Entity.UseSrcMac}" />
+        <EntryCell Label="Active Address" IsEnabled="False" Text="{Binding Entity.ActiveAddress}" />
+        <EntryCell Label="Active Client Id" IsEnabled="False" Text="{Binding Entity.ActiveClientId}" />
+        <EntryCell Label="Active Mac Address" IsEnabled="False" Text="{Binding Entity.ActiveMacAddress}" />
+        <EntryCell Label="Active Server" IsEnabled="False" Text="{Binding Entity.ActiveServer}" />
+        <EntryCell Label="Agent Circuit Id" IsEnabled="False" Text="{Binding Entity.AgentCircuitId}" />
+        <EntryCell Label="Agent Remote Id" IsEnabled="False" Text="{Binding Entity.AgentRemoteId}" />
+        <EntryCell Label="Blocked" IsEnabled="False" Text="{Binding Entity.Blocked}" />
+        <EntryCell Label="Expires After" IsEnabled="False" Text="{Binding Entity.ExpiresAfter}" />
+        <EntryCell Label="Host Name" IsEnabled="False" Text="{Binding Entity.HostName}" />
+        <SwitchCell Text="Radius" On="{Binding Entity.Radius}" />
+        <EntryCell Label="Rate Limit" IsEnabled="False" Text="{Binding Entity.RateLimit}" />
+        <EntryCell Label="Server" IsEnabled="False" Text="{Binding Entity.Server}" />
+        <EntryCell Label="Status" IsEnabled="False" Text="{Binding Entity.Status}" />
+        <SwitchCell Text="Disabled" On="{Binding Entity.Disabled}" />
+        <EntryCell Label="Comment" Text="{Binding Entity.Comment}" />
+<!--
+        <EntryCell Label="Dhcp Server Lease" Text="{Binding Entity.PropertyName}" />
+        <SwitchCell Text="Dhcp Server Lease" On="{Binding Entity.PropertyName}" />
+        <ViewCell>
+            <FlexLayout Wrap="Wrap">
+              <Label Text="Dhcp Server Lease"
+                     FlexLayout.Basis="25%" />
+              <controls:Picker x:TypeArguments="models:EnumName"
+                               SelectedItem="{Binding Entity.PropertyName}"
+                               FlexLayout.Basis="75%" />
+            </FlexLayout>
+        </ViewCell>
+-->
+      </TableSection>
+      <TableSection Title="Commands">
+        <ViewCell>
+          <Button Text="Save"
+                  Command="{Binding SaveCommand}" />
+        </ViewCell>
+      </TableSection>
+    </TableRoot>
+  </TableView>
+</ContentPage>

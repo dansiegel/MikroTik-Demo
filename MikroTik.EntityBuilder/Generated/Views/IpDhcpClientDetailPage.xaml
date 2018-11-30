@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:behaviors="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+             xmlns:controls="clr-namespace:ModemConfigurator.Controls;ModemConfigurator"
+             xmlns:mvvm="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             mvvm:ViewModelLocator.AutowireViewModel="true"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:NavigationPage.PrefersLargeTitles="true"
+             ios:Page.UseSafeArea="true"
+             Title="{Binding Title}"
+             x:Class="ModemConfigurator.Views.IpDhcpClientDetailPage">
+  <TableView HasUnevenRows="true"
+             Intent="Form">
+    <TableRoot>
+      <TableSection Title="Ip Dhcp Client">
+        <ViewCell>
+          <Frame BackgroundColor="Teal">
+            <Label Text="ip/dhcp-client"
+                   FontSize="Large"
+                   TextColor="WhiteSmoke" />
+          </Frame>
+        </ViewCell>
+
+        <EntryCell Label="Id" IsEnabled="False" Text="{Binding Entity.Id}" />
+        <EntryCell Label="Client Id" Text="{Binding Entity.ClientId}" />
+        <EntryCell Label="Comment" Text="{Binding Entity.Comment}" />
+        <EntryCell Label="Default Route Distance" Text="{Binding Entity.DefaultRouteDistance}" />
+        <SwitchCell Text="Disabled" On="{Binding Entity.Disabled}" />
+        <EntryCell Label="Host Name" Text="{Binding Entity.HostName}" />
+        <EntryCell Label="Interface" Text="{Binding Entity.Interface}" />
+        <SwitchCell Text="Use Peer Dns" On="{Binding Entity.UsePeerDns}" />
+        <SwitchCell Text="Use Peer Ntp" On="{Binding Entity.UsePeerNtp}" />
+        <EntryCell Label="Address" IsEnabled="False" Text="{Binding Entity.Address}" />
+        <EntryCell Label="Dhcp Server" IsEnabled="False" Text="{Binding Entity.DhcpServer}" />
+        <EntryCell Label="Expires After" IsEnabled="False" Text="{Binding Entity.ExpiresAfter}" />
+        <EntryCell Label="Gateway" IsEnabled="False" Text="{Binding Entity.Gateway}" />
+        <SwitchCell Text="Invalid" On="{Binding Entity.Invalid}" />
+        <EntryCell Label="Netmask" IsEnabled="False" Text="{Binding Entity.Netmask}" />
+        <EntryCell Label="Primary Dns" IsEnabled="False" Text="{Binding Entity.PrimaryDns}" />
+        <EntryCell Label="Primary Ntp" IsEnabled="False" Text="{Binding Entity.PrimaryNtp}" />
+        <EntryCell Label="Secondary Dns" IsEnabled="False" Text="{Binding Entity.SecondaryDns}" />
+        <EntryCell Label="Secondary Ntp" IsEnabled="False" Text="{Binding Entity.SecondaryNtp}" />
+        <EntryCell Label="Status" IsEnabled="False" Text="{Binding Entity.Status}" />
+<!--
+        <EntryCell Label="Ip Dhcp Client" Text="{Binding Entity.PropertyName}" />
+        <SwitchCell Text="Ip Dhcp Client" On="{Binding Entity.PropertyName}" />
+        <ViewCell>
+            <FlexLayout Wrap="Wrap">
+              <Label Text="Ip Dhcp Client"
+                     FlexLayout.Basis="25%" />
+              <controls:Picker x:TypeArguments="models:EnumName"
+                               SelectedItem="{Binding Entity.PropertyName}"
+                               FlexLayout.Basis="75%" />
+            </FlexLayout>
+        </ViewCell>
+-->
+      </TableSection>
+      <TableSection Title="Commands">
+        <ViewCell>
+          <Button Text="Save"
+                  Command="{Binding SaveCommand}" />
+        </ViewCell>
+      </TableSection>
+    </TableRoot>
+  </TableView>
+</ContentPage>

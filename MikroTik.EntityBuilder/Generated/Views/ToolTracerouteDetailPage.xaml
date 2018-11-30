@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:behaviors="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+             xmlns:controls="clr-namespace:ModemConfigurator.Controls;ModemConfigurator"
+             xmlns:mvvm="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             mvvm:ViewModelLocator.AutowireViewModel="true"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:NavigationPage.PrefersLargeTitles="true"
+             ios:Page.UseSafeArea="true"
+             Title="{Binding Title}"
+             x:Class="ModemConfigurator.Views.ToolTracerouteDetailPage">
+  <TableView HasUnevenRows="true"
+             Intent="Form">
+    <TableRoot>
+      <TableSection Title="Tool Traceroute">
+        <ViewCell>
+          <Frame BackgroundColor="Teal">
+            <Label Text="/tool/traceroute"
+                   FontSize="Large"
+                   TextColor="WhiteSmoke" />
+          </Frame>
+        </ViewCell>
+
+        <EntryCell Label="Address" IsEnabled="False" Text="{Binding Entity.Address}" />
+        <EntryCell Label="Loss" Keyboard="Numeric" IsEnabled="False" Text="{Binding Entity.Loss}" />
+        <EntryCell Label="Sent" Keyboard="Numeric" IsEnabled="False" Text="{Binding Entity.Sent}" />
+        <EntryCell Label="Last" IsEnabled="False" Text="{Binding Entity.Last}" />
+        <EntryCell Label="Status" IsEnabled="False" Text="{Binding Entity.Status}" />
+        <EntryCell Label="Avg" IsEnabled="False" Text="{Binding Entity.Avg}" />
+        <EntryCell Label="Best" IsEnabled="False" Text="{Binding Entity.Best}" />
+        <EntryCell Label="Worst" IsEnabled="False" Text="{Binding Entity.Worst}" />
+<!--
+        <EntryCell Label="Tool Traceroute" Text="{Binding Entity.PropertyName}" />
+        <SwitchCell Text="Tool Traceroute" On="{Binding Entity.PropertyName}" />
+        <ViewCell>
+            <FlexLayout Wrap="Wrap">
+              <Label Text="Tool Traceroute"
+                     FlexLayout.Basis="25%" />
+              <controls:Picker x:TypeArguments="models:EnumName"
+                               SelectedItem="{Binding Entity.PropertyName}"
+                               FlexLayout.Basis="75%" />
+            </FlexLayout>
+        </ViewCell>
+-->
+      </TableSection>
+      <TableSection Title="Commands">
+        <ViewCell>
+          <Button Text="Save"
+                  Command="{Binding SaveCommand}" />
+        </ViewCell>
+      </TableSection>
+    </TableRoot>
+  </TableView>
+</ContentPage>

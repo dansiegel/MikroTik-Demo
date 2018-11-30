@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:behaviors="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+             xmlns:controls="clr-namespace:ModemConfigurator.Controls;ModemConfigurator"
+             xmlns:mvvm="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             mvvm:ViewModelLocator.AutowireViewModel="true"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:NavigationPage.PrefersLargeTitles="true"
+             ios:Page.UseSafeArea="true"
+             Title="{Binding Title}"
+             x:Class="ModemConfigurator.Views.QueueTreeDetailPage">
+  <TableView HasUnevenRows="true"
+             Intent="Form">
+    <TableRoot>
+      <TableSection Title="Queue Tree">
+        <ViewCell>
+          <Frame BackgroundColor="Teal">
+            <Label Text="/queue/tree"
+                   FontSize="Large"
+                   TextColor="WhiteSmoke" />
+          </Frame>
+        </ViewCell>
+
+        <EntryCell Label="Id" IsEnabled="False" Text="{Binding Entity.Id}" />
+        <EntryCell Label="Name" Text="{Binding Entity.Name}" />
+        <EntryCell Label="Parent" Text="{Binding Entity.Parent}" />
+        <EntryCell Label="Packet Mark" Text="{Binding Entity.PacketMark}" />
+        <EntryCell Label="Limit At" Keyboard="Numeric" Text="{Binding Entity.LimitAt}" />
+        <EntryCell Label="Queue" Text="{Binding Entity.Queue}" />
+        <EntryCell Label="Priority" Keyboard="Numeric" Text="{Binding Entity.Priority}" />
+        <EntryCell Label="Max Limit" Keyboard="Numeric" Text="{Binding Entity.MaxLimit}" />
+        <EntryCell Label="Burst Limit" Keyboard="Numeric" Text="{Binding Entity.BurstLimit}" />
+        <EntryCell Label="Burst Threshold" Keyboard="Numeric" Text="{Binding Entity.BurstThreshold}" />
+        <EntryCell Label="Burst Time" Text="{Binding Entity.BurstTime}" />
+        <EntryCell Label="Bytes" Keyboard="Numeric" IsEnabled="False" Text="{Binding Entity.Bytes}" />
+        <EntryCell Label="Packets" Keyboard="Numeric" IsEnabled="False" Text="{Binding Entity.Packets}" />
+        <EntryCell Label="Dropped" Keyboard="Numeric" IsEnabled="False" Text="{Binding Entity.Dropped}" />
+        <EntryCell Label="Rate" Keyboard="Numeric" IsEnabled="False" Text="{Binding Entity.Rate}" />
+        <EntryCell Label="Packet Rate" Keyboard="Numeric" IsEnabled="False" Text="{Binding Entity.PacketRate}" />
+        <EntryCell Label="Queued Packets" Keyboard="Numeric" IsEnabled="False" Text="{Binding Entity.QueuedPackets}" />
+        <EntryCell Label="Queued Bytes" Keyboard="Numeric" IsEnabled="False" Text="{Binding Entity.QueuedBytes}" />
+        <SwitchCell Text="Invalid" On="{Binding Entity.Invalid}" />
+        <SwitchCell Text="Disabled" On="{Binding Entity.Disabled}" />
+        <EntryCell Label="Comment" Text="{Binding Entity.Comment}" />
+<!--
+        <EntryCell Label="Queue Tree" Text="{Binding Entity.PropertyName}" />
+        <SwitchCell Text="Queue Tree" On="{Binding Entity.PropertyName}" />
+        <ViewCell>
+            <FlexLayout Wrap="Wrap">
+              <Label Text="Queue Tree"
+                     FlexLayout.Basis="25%" />
+              <controls:Picker x:TypeArguments="models:EnumName"
+                               SelectedItem="{Binding Entity.PropertyName}"
+                               FlexLayout.Basis="75%" />
+            </FlexLayout>
+        </ViewCell>
+-->
+      </TableSection>
+      <TableSection Title="Commands">
+        <ViewCell>
+          <Button Text="Save"
+                  Command="{Binding SaveCommand}" />
+        </ViewCell>
+      </TableSection>
+    </TableRoot>
+  </TableView>
+</ContentPage>

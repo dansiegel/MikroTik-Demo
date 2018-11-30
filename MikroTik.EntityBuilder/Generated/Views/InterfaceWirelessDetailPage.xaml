@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:behaviors="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+             xmlns:controls="clr-namespace:ModemConfigurator.Controls;ModemConfigurator"
+             xmlns:mvvm="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             mvvm:ViewModelLocator.AutowireViewModel="true"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:NavigationPage.PrefersLargeTitles="true"
+             ios:Page.UseSafeArea="true"
+             Title="{Binding Title}"
+             x:Class="ModemConfigurator.Views.InterfaceWirelessDetailPage">
+  <TableView HasUnevenRows="true"
+             Intent="Form">
+    <TableRoot>
+      <TableSection Title="Interface Wireless">
+        <ViewCell>
+          <Frame BackgroundColor="Teal">
+            <Label Text="interface/wireless"
+                   FontSize="Large"
+                   TextColor="WhiteSmoke" />
+          </Frame>
+        </ViewCell>
+
+        <EntryCell Label="Id" IsEnabled="False" Text="{Binding Entity.Id}" />
+        <EntryCell Label="Adaptive Noise Immunity" Text="{Binding Entity.AdaptiveNoiseImmunity}" />
+        <SwitchCell Text="Allow Sharedkey" On="{Binding Entity.AllowSharedkey}" />
+        <EntryCell Label="Antenna Gain" Keyboard="Numeric" Text="{Binding Entity.AntennaGain}" />
+        <EntryCell Label="Antenna Mode" Text="{Binding Entity.AntennaMode}" />
+        <EntryCell Label="Area" Text="{Binding Entity.Area}" />
+        <EntryCell Label="Arp" Text="{Binding Entity.Arp}" />
+        <EntryCell Label="Band" Text="{Binding Entity.Band}" />
+        <EntryCell Label="Basic Rates AG" Text="{Binding Entity.BasicRatesAG}" />
+        <EntryCell Label="Basic Rates B" Text="{Binding Entity.BasicRatesB}" />
+        <EntryCell Label="Bridge Mode" Text="{Binding Entity.BridgeMode}" />
+        <EntryCell Label="Burst Time" Text="{Binding Entity.BurstTime}" />
+        <EntryCell Label="Channel Width" Text="{Binding Entity.ChannelWidth}" />
+        <EntryCell Label="Comment" Text="{Binding Entity.Comment}" />
+        <SwitchCell Text="Compression" On="{Binding Entity.Compression}" />
+        <EntryCell Label="Country" Text="{Binding Entity.Country}" />
+        <EntryCell Label="Default Ap Tx Limit" Keyboard="Numeric" Text="{Binding Entity.DefaultApTxLimit}" />
+        <SwitchCell Text="Default Authentication" On="{Binding Entity.DefaultAuthentication}" />
+        <EntryCell Label="Default Client Tx Limit" Keyboard="Numeric" Text="{Binding Entity.DefaultClientTxLimit}" />
+        <SwitchCell Text="Default Forwarding" On="{Binding Entity.DefaultForwarding}" />
+        <EntryCell Label="Dfs Mode" Text="{Binding Entity.DfsMode}" />
+        <SwitchCell Text="Disable Running Check" On="{Binding Entity.DisableRunningCheck}" />
+        <SwitchCell Text="Disabled" On="{Binding Entity.Disabled}" />
+        <EntryCell Label="Disconnect Timeout" Text="{Binding Entity.DisconnectTimeout}" />
+        <EntryCell Label="Distance" Text="{Binding Entity.Distance}" />
+        <EntryCell Label="Frame Lifetime" Keyboard="Numeric" Text="{Binding Entity.FrameLifetime}" />
+        <EntryCell Label="Frequency" Text="{Binding Entity.Frequency}" />
+        <EntryCell Label="Frequency Mode" Text="{Binding Entity.FrequencyMode}" />
+        <EntryCell Label="Frequency Offset" Keyboard="Numeric" Text="{Binding Entity.FrequencyOffset}" />
+        <SwitchCell Text="Hide Ssid" On="{Binding Entity.HideSsid}" />
+        <EntryCell Label="Ht Ampdu Priorities" Text="{Binding Entity.HtAmpduPriorities}" />
+        <EntryCell Label="Ht Amsdu Limit" Text="{Binding Entity.HtAmsduLimit}" />
+        <EntryCell Label="Ht Amsdu Threshold" Text="{Binding Entity.HtAmsduThreshold}" />
+        <EntryCell Label="Ht Basic Mcs" Text="{Binding Entity.HtBasicMcs}" />
+        <EntryCell Label="Ht Guard Interval" Text="{Binding Entity.HtGuardInterval}" />
+        <EntryCell Label="Ht Rxchains" Text="{Binding Entity.HtRxchains}" />
+        <EntryCell Label="Ht Supported Mcs" Text="{Binding Entity.HtSupportedMcs}" />
+        <EntryCell Label="Ht Txchains" Text="{Binding Entity.HtTxchains}" />
+        <EntryCell Label="Hw Fragmentation Threshold" Text="{Binding Entity.HwFragmentationThreshold}" />
+        <EntryCell Label="Hw Protection Mode" Text="{Binding Entity.HwProtectionMode}" />
+        <EntryCell Label="Hw Protection Threshold" Keyboard="Numeric" Text="{Binding Entity.HwProtectionThreshold}" />
+        <EntryCell Label="Hw Retries" Keyboard="Numeric" Text="{Binding Entity.HwRetries}" />
+        <EntryCell Label="L 2mtu" Keyboard="Numeric" Text="{Binding Entity.L2mtu}" />
+        <EntryCell Label="Mac Address" Text="{Binding Entity.MacAddress}" />
+        <EntryCell Label="Master Interface" Text="{Binding Entity.MasterInterface}" />
+        <EntryCell Label="Max Station Count" Keyboard="Numeric" Text="{Binding Entity.MaxStationCount}" />
+        <EntryCell Label="Mtu" Keyboard="Numeric" Text="{Binding Entity.Mtu}" />
+        <EntryCell Label="Multicast Helper" Text="{Binding Entity.MulticastHelper}" />
+        <EntryCell Label="Name" Text="{Binding Entity.Name}" />
+        <EntryCell Label="Noise Floor Threshold" Text="{Binding Entity.NoiseFloorThreshold}" />
+        <EntryCell Label="Nv 2 Cell Radius" Keyboard="Numeric" Text="{Binding Entity.Nv2CellRadius}" />
+        <EntryCell Label="Nv 2 Noise Floor Offset" Text="{Binding Entity.Nv2NoiseFloorOffset}" />
+        <EntryCell Label="Nv 2 Preshared Key" Text="{Binding Entity.Nv2PresharedKey}" />
+        <EntryCell Label="Nv 2 Qos" Text="{Binding Entity.Nv2Qos}" />
+        <EntryCell Label="Nv 2 Queue Count" Text="{Binding Entity.Nv2QueueCount}" />
+        <EntryCell Label="Nv 2 Security" Text="{Binding Entity.Nv2Security}" />
+        <EntryCell Label="On Fail Retry Time" Text="{Binding Entity.OnFailRetryTime}" />
+        <EntryCell Label="Periodic Calibration" Text="{Binding Entity.PeriodicCalibration}" />
+        <EntryCell Label="Periodic Calibration Interval" Keyboard="Numeric" Text="{Binding Entity.PeriodicCalibrationInterval}" />
+        <EntryCell Label="Prism Cardtype" Text="{Binding Entity.PrismCardtype}" />
+        <EntryCell Label="Proprietary Extension" Text="{Binding Entity.ProprietaryExtension}" />
+        <EntryCell Label="Radio Name" Text="{Binding Entity.RadioName}" />
+        <EntryCell Label="Rate Selection" Text="{Binding Entity.RateSelection}" />
+        <EntryCell Label="Rate Set" Text="{Binding Entity.RateSet}" />
+        <EntryCell Label="Scan List" Text="{Binding Entity.ScanList}" />
+        <EntryCell Label="Security Profile" Text="{Binding Entity.SecurityProfile}" />
+        <EntryCell Label="Ssid" Text="{Binding Entity.Ssid}" />
+        <EntryCell Label="Station Bridge Clone Mac" Text="{Binding Entity.StationBridgeCloneMac}" />
+        <EntryCell Label="Supported Rates AG" Text="{Binding Entity.SupportedRatesAG}" />
+        <EntryCell Label="Supported Rates B" Text="{Binding Entity.SupportedRatesB}" />
+        <EntryCell Label="Tdma Debug" Keyboard="Numeric" Text="{Binding Entity.TdmaDebug}" />
+        <EntryCell Label="Tdma Hw Test Mode" Keyboard="Numeric" Text="{Binding Entity.TdmaHwTestMode}" />
+        <EntryCell Label="Tdma Override Rate" Text="{Binding Entity.TdmaOverrideRate}" />
+        <EntryCell Label="Tdma Override Size" Keyboard="Numeric" Text="{Binding Entity.TdmaOverrideSize}" />
+        <EntryCell Label="Tdma Period Size" Keyboard="Numeric" Text="{Binding Entity.TdmaPeriodSize}" />
+        <EntryCell Label="Tdma Test Mode" Keyboard="Numeric" Text="{Binding Entity.TdmaTestMode}" />
+        <EntryCell Label="Tx Power" Keyboard="Numeric" Text="{Binding Entity.TxPower}" />
+        <EntryCell Label="Update Stats Interval" Text="{Binding Entity.UpdateStatsInterval}" />
+        <EntryCell Label="Vht Basic Mcs" Text="{Binding Entity.VhtBasicMcs}" />
+        <EntryCell Label="Vht Supported Mcs" Text="{Binding Entity.VhtSupportedMcs}" />
+        <EntryCell Label="Wds Cost Range" Text="{Binding Entity.WdsCostRange}" />
+        <EntryCell Label="Wds Default Bridge" Text="{Binding Entity.WdsDefaultBridge}" />
+        <EntryCell Label="Wds Default Cost" Text="{Binding Entity.WdsDefaultCost}" />
+        <SwitchCell Text="Wds Ignore Ssid" On="{Binding Entity.WdsIgnoreSsid}" />
+        <EntryCell Label="Wds Mode" Text="{Binding Entity.WdsMode}" />
+        <EntryCell Label="Wmm Support" Text="{Binding Entity.WmmSupport}" />
+<!--
+        <EntryCell Label="Interface Wireless" Text="{Binding Entity.PropertyName}" />
+        <SwitchCell Text="Interface Wireless" On="{Binding Entity.PropertyName}" />
+        <ViewCell>
+            <FlexLayout Wrap="Wrap">
+              <Label Text="Interface Wireless"
+                     FlexLayout.Basis="25%" />
+              <controls:Picker x:TypeArguments="models:EnumName"
+                               SelectedItem="{Binding Entity.PropertyName}"
+                               FlexLayout.Basis="75%" />
+            </FlexLayout>
+        </ViewCell>
+-->
+      </TableSection>
+      <TableSection Title="Commands">
+        <ViewCell>
+          <Button Text="Save"
+                  Command="{Binding SaveCommand}" />
+        </ViewCell>
+      </TableSection>
+    </TableRoot>
+  </TableView>
+</ContentPage>

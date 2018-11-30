@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:behaviors="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+             xmlns:controls="clr-namespace:ModemConfigurator.Controls;ModemConfigurator"
+             xmlns:mvvm="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             mvvm:ViewModelLocator.AutowireViewModel="true"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:NavigationPage.PrefersLargeTitles="true"
+             ios:Page.UseSafeArea="true"
+             Title="{Binding Title}"
+             x:Class="ModemConfigurator.Views.WirelessRegistrationTableDetailPage">
+  <TableView HasUnevenRows="true"
+             Intent="Form">
+    <TableRoot>
+      <TableSection Title="Wireless Registration Table">
+        <ViewCell>
+          <Frame BackgroundColor="Teal">
+            <Label Text="interface/wireless/registration-table"
+                   FontSize="Large"
+                   TextColor="WhiteSmoke" />
+          </Frame>
+        </ViewCell>
+
+        <EntryCell Label="Id" IsEnabled="False" Text="{Binding Entity.Id}" />
+        <EntryCell Label="Port 8021 Enabled" IsEnabled="False" Text="{Binding Entity.Port8021Enabled}" />
+        <EntryCell Label="Ack Timeout" Keyboard="Numeric" IsEnabled="False" Text="{Binding Entity.AckTimeout}" />
+        <SwitchCell Text="Ap" On="{Binding Entity.Ap}" />
+        <EntryCell Label="Ap Tx Limit" Keyboard="Numeric" IsEnabled="False" Text="{Binding Entity.ApTxLimit}" />
+        <EntryCell Label="Authentication Type" IsEnabled="False" Text="{Binding Entity.AuthenticationType}" />
+        <SwitchCell Text="Bridge" On="{Binding Entity.Bridge}" />
+        <EntryCell Label="Bytes" IsEnabled="False" Text="{Binding Entity.Bytes}" />
+        <EntryCell Label="Client Tx Limit" Keyboard="Numeric" IsEnabled="False" Text="{Binding Entity.ClientTxLimit}" />
+        <EntryCell Label="Comment" IsEnabled="False" Text="{Binding Entity.Comment}" />
+        <SwitchCell Text="Compression" On="{Binding Entity.Compression}" />
+        <EntryCell Label="Distance" Keyboard="Numeric" IsEnabled="False" Text="{Binding Entity.Distance}" />
+        <EntryCell Label="Encryption" IsEnabled="False" Text="{Binding Entity.Encryption}" />
+        <EntryCell Label="Evm Ch 0" IsEnabled="False" Text="{Binding Entity.EvmCh0}" />
+        <EntryCell Label="Evm Ch 1" IsEnabled="False" Text="{Binding Entity.EvmCh1}" />
+        <EntryCell Label="Evm Ch 2" IsEnabled="False" Text="{Binding Entity.EvmCh2}" />
+        <EntryCell Label="Frame Bytes" IsEnabled="False" Text="{Binding Entity.FrameBytes}" />
+        <EntryCell Label="Frames" IsEnabled="False" Text="{Binding Entity.Frames}" />
+        <EntryCell Label="Framing Current Size" Keyboard="Numeric" IsEnabled="False" Text="{Binding Entity.FramingCurrentSize}" />
+        <EntryCell Label="Framing Limit" Keyboard="Numeric" IsEnabled="False" Text="{Binding Entity.FramingLimit}" />
+        <EntryCell Label="Framing Mode" IsEnabled="False" Text="{Binding Entity.FramingMode}" />
+        <EntryCell Label="Group Encryption" IsEnabled="False" Text="{Binding Entity.GroupEncryption}" />
+        <EntryCell Label="Hw Frame Bytes" IsEnabled="False" Text="{Binding Entity.HwFrameBytes}" />
+        <EntryCell Label="Hw Frames" IsEnabled="False" Text="{Binding Entity.HwFrames}" />
+        <EntryCell Label="Interface" IsEnabled="False" Text="{Binding Entity.Interface}" />
+        <EntryCell Label="Last Activity" IsEnabled="False" Text="{Binding Entity.LastActivity}" />
+        <EntryCell Label="Last Ip" IsEnabled="False" Text="{Binding Entity.LastIp}" />
+        <EntryCell Label="Mac Address" IsEnabled="False" Text="{Binding Entity.MacAddress}" />
+        <SwitchCell Text="Management Protection" On="{Binding Entity.ManagementProtection}" />
+        <SwitchCell Text="Nstreme" On="{Binding Entity.Nstreme}" />
+        <EntryCell Label="P Throughput" Keyboard="Numeric" IsEnabled="False" Text="{Binding Entity.PThroughput}" />
+        <EntryCell Label="Packed Bytes" IsEnabled="False" Text="{Binding Entity.PackedBytes}" />
+        <EntryCell Label="Packed Frames" IsEnabled="False" Text="{Binding Entity.PackedFrames}" />
+        <EntryCell Label="Packets" IsEnabled="False" Text="{Binding Entity.Packets}" />
+        <EntryCell Label="Radio Name" IsEnabled="False" Text="{Binding Entity.RadioName}" />
+        <EntryCell Label="Routeros Version" IsEnabled="False" Text="{Binding Entity.RouterosVersion}" />
+        <EntryCell Label="Rx Ccq" IsEnabled="False" Text="{Binding Entity.RxCcq}" />
+        <EntryCell Label="Rx Rate" IsEnabled="False" Text="{Binding Entity.RxRate}" />
+        <EntryCell Label="Signal Strength" IsEnabled="False" Text="{Binding Entity.SignalStrength}" />
+        <EntryCell Label="Signal Strength Ch 0" IsEnabled="False" Text="{Binding Entity.SignalStrengthCh0}" />
+        <EntryCell Label="Signal Strength Ch 1" IsEnabled="False" Text="{Binding Entity.SignalStrengthCh1}" />
+        <EntryCell Label="Signal Strength Ch 2" IsEnabled="False" Text="{Binding Entity.SignalStrengthCh2}" />
+        <EntryCell Label="Signal To Noise" IsEnabled="False" Text="{Binding Entity.SignalToNoise}" />
+        <EntryCell Label="Strength At Rates" IsEnabled="False" Text="{Binding Entity.StrengthAtRates}" />
+        <EntryCell Label="Tdma Retx" IsEnabled="False" Text="{Binding Entity.TdmaRetx}" />
+        <EntryCell Label="Tdma Rx Size" IsEnabled="False" Text="{Binding Entity.TdmaRxSize}" />
+        <EntryCell Label="Tdma Timing Offset" IsEnabled="False" Text="{Binding Entity.TdmaTimingOffset}" />
+        <EntryCell Label="Tdma Tx Size" Keyboard="Numeric" IsEnabled="False" Text="{Binding Entity.TdmaTxSize}" />
+        <EntryCell Label="Tdma Windfull" IsEnabled="False" Text="{Binding Entity.TdmaWindfull}" />
+        <EntryCell Label="Tx Ccq" IsEnabled="False" Text="{Binding Entity.TxCcq}" />
+        <EntryCell Label="Tx Evm Ch 0" IsEnabled="False" Text="{Binding Entity.TxEvmCh0}" />
+        <EntryCell Label="Tx Evm Ch 1" IsEnabled="False" Text="{Binding Entity.TxEvmCh1}" />
+        <EntryCell Label="Tx Evm Ch 2" IsEnabled="False" Text="{Binding Entity.TxEvmCh2}" />
+        <EntryCell Label="Tx Frames Timed Out" IsEnabled="False" Text="{Binding Entity.TxFramesTimedOut}" />
+        <EntryCell Label="Tx Rate" IsEnabled="False" Text="{Binding Entity.TxRate}" />
+        <EntryCell Label="Tx Signal Strength" IsEnabled="False" Text="{Binding Entity.TxSignalStrength}" />
+        <EntryCell Label="Tx Signal Strength Ch 0" IsEnabled="False" Text="{Binding Entity.TxSignalStrengthCh0}" />
+        <EntryCell Label="Tx Signal Strength Ch 1" IsEnabled="False" Text="{Binding Entity.TxSignalStrengthCh1}" />
+        <EntryCell Label="Tx Signal Strength Ch 2" IsEnabled="False" Text="{Binding Entity.TxSignalStrengthCh2}" />
+        <EntryCell Label="Uptime" IsEnabled="False" Text="{Binding Entity.Uptime}" />
+        <SwitchCell Text="Wds" On="{Binding Entity.Wds}" />
+        <SwitchCell Text="Wmm Enabled" On="{Binding Entity.WmmEnabled}" />
+<!--
+        <EntryCell Label="Wireless Registration Table" Text="{Binding Entity.PropertyName}" />
+        <SwitchCell Text="Wireless Registration Table" On="{Binding Entity.PropertyName}" />
+        <ViewCell>
+            <FlexLayout Wrap="Wrap">
+              <Label Text="Wireless Registration Table"
+                     FlexLayout.Basis="25%" />
+              <controls:Picker x:TypeArguments="models:EnumName"
+                               SelectedItem="{Binding Entity.PropertyName}"
+                               FlexLayout.Basis="75%" />
+            </FlexLayout>
+        </ViewCell>
+-->
+      </TableSection>
+      <TableSection Title="Commands">
+        <ViewCell>
+          <Button Text="Save"
+                  Command="{Binding SaveCommand}" />
+        </ViewCell>
+      </TableSection>
+    </TableRoot>
+  </TableView>
+</ContentPage>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:behaviors="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+             xmlns:mvvm="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             mvvm:ViewModelLocator.AutowireViewModel="true"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:NavigationPage.PrefersLargeTitles="true"
+             ios:Page.UseSafeArea="true"
+             Title="{Binding Title}"
+             x:Class="ModemConfigurator.Views.WirelessAccessListPage">
+  <ContentPage.ToolbarItems>
+    <ToolbarItem Icon="add.png" 
+                 Text="Add"
+                 Command="{Binding AddItemCommand}" />
+  </ContentPage.ToolbarItems>
+  <ListView ItemsSource="{Binding Items}"
+              HasUnevenRows="true">
+    <ListView.Behaviors>
+      <behaviors:EventToCommandBehavior EventName="ItemTapped"
+                                        EventArgsParameterPath="Item"
+                                        Command="{Binding ItemSelectedCommand}" />
+    </ListView.Behaviors>
+    <ListView.Header>
+      <Frame BackgroundColor="Teal">
+        <Label Text="interface/wireless/access-list"
+               FontSize="Large"
+               TextColor="WhiteSmoke" />
+      </Frame>
+    </ListView.Header>
+    <ListView.ItemTemplate>
+      <DataTemplate>
+        <ViewCell>
+          <FlexLayout Padding="20,0"
+                      Wrap="Wrap">
+            <Label Text="Id" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Id}" FlexLayout.Basis="50%" />
+            <Label Text="ApTxLimit" FlexLayout.Basis="50%" />
+            <Label Text="{Binding ApTxLimit}" FlexLayout.Basis="50%" />
+            <Label Text="Authentication" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Authentication}" FlexLayout.Basis="50%" />
+            <Label Text="ClientTxLimit" FlexLayout.Basis="50%" />
+            <Label Text="{Binding ClientTxLimit}" FlexLayout.Basis="50%" />
+            <Label Text="Comment" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Comment}" FlexLayout.Basis="50%" />
+            <Label Text="Disabled" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Disabled}" FlexLayout.Basis="50%" />
+            <Label Text="Forwarding" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Forwarding}" FlexLayout.Basis="50%" />
+            <Label Text="Interface" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Interface}" FlexLayout.Basis="50%" />
+            <Label Text="MacAddress" FlexLayout.Basis="50%" />
+            <Label Text="{Binding MacAddress}" FlexLayout.Basis="50%" />
+            <Label Text="ManagementProtectionKey" FlexLayout.Basis="50%" />
+            <Label Text="{Binding ManagementProtectionKey}" FlexLayout.Basis="50%" />
+            <Label Text="PrivateAlgo" FlexLayout.Basis="50%" />
+            <Label Text="{Binding PrivateAlgo}" FlexLayout.Basis="50%" />
+            <Label Text="PrivateKey" FlexLayout.Basis="50%" />
+            <Label Text="{Binding PrivateKey}" FlexLayout.Basis="50%" />
+            <Label Text="PrivatePreSharedKey" FlexLayout.Basis="50%" />
+            <Label Text="{Binding PrivatePreSharedKey}" FlexLayout.Basis="50%" />
+            <Label Text="SignalRange" FlexLayout.Basis="50%" />
+            <Label Text="{Binding SignalRange}" FlexLayout.Basis="50%" />
+            <Label Text="Time" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Time}" FlexLayout.Basis="50%" />
+
+          </FlexLayout>
+        </ViewCell>
+      </DataTemplate>
+    </ListView.ItemTemplate>
+    <ListView.Footer>
+      <StackLayout Spacing="0">
+        <Label Text="    Connected"
+                TextColor="White"
+                BackgroundColor="Green"
+                IsVisible="{Binding IsConnected}" />
+        <Label Text="    Not Connected"
+                TextColor="White"
+                BackgroundColor="Red"
+                IsVisible="{Binding IsNotConnected}" />
+      </StackLayout>
+    </ListView.Footer>
+  </ListView>
+</ContentPage>

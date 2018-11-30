@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:behaviors="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+             xmlns:controls="clr-namespace:ModemConfigurator.Controls;ModemConfigurator"
+             xmlns:mvvm="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             mvvm:ViewModelLocator.AutowireViewModel="true"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:NavigationPage.PrefersLargeTitles="true"
+             ios:Page.UseSafeArea="true"
+             Title="{Binding Title}"
+             x:Class="ModemConfigurator.Views.IpDhcpServerDetailPage">
+  <TableView HasUnevenRows="true"
+             Intent="Form">
+    <TableRoot>
+      <TableSection Title="Ip Dhcp Server">
+        <ViewCell>
+          <Frame BackgroundColor="Teal">
+            <Label Text="ip/dhcp-server"
+                   FontSize="Large"
+                   TextColor="WhiteSmoke" />
+          </Frame>
+        </ViewCell>
+
+        <EntryCell Label="Id" IsEnabled="False" Text="{Binding Entity.Id}" />
+        <SwitchCell Text="Add Arp" On="{Binding Entity.AddArp}" />
+        <EntryCell Label="Address Pool" Text="{Binding Entity.AddressPool}" />
+        <SwitchCell Text="Always Broadcast" On="{Binding Entity.AlwaysBroadcast}" />
+        <EntryCell Label="Delay Threshold" Text="{Binding Entity.DelayThreshold}" />
+        <EntryCell Label="Interface" Text="{Binding Entity.Interface}" />
+        <EntryCell Label="Lease Script" Text="{Binding Entity.LeaseScript}" />
+        <EntryCell Label="Lease Time" Text="{Binding Entity.LeaseTime}" />
+        <EntryCell Label="Name" Text="{Binding Entity.Name}" />
+        <EntryCell Label="Relay" Text="{Binding Entity.Relay}" />
+        <EntryCell Label="Src Address" Text="{Binding Entity.SrcAddress}" />
+        <SwitchCell Text="Use Radius" On="{Binding Entity.UseRadius}" />
+        <SwitchCell Text="Disabled" On="{Binding Entity.Disabled}" />
+<!--
+        <EntryCell Label="Ip Dhcp Server" Text="{Binding Entity.PropertyName}" />
+        <SwitchCell Text="Ip Dhcp Server" On="{Binding Entity.PropertyName}" />
+        <ViewCell>
+            <FlexLayout Wrap="Wrap">
+              <Label Text="Ip Dhcp Server"
+                     FlexLayout.Basis="25%" />
+              <controls:Picker x:TypeArguments="models:EnumName"
+                               SelectedItem="{Binding Entity.PropertyName}"
+                               FlexLayout.Basis="75%" />
+            </FlexLayout>
+        </ViewCell>
+-->
+      </TableSection>
+      <TableSection Title="Commands">
+        <ViewCell>
+          <Button Text="Save"
+                  Command="{Binding SaveCommand}" />
+        </ViewCell>
+      </TableSection>
+    </TableRoot>
+  </TableView>
+</ContentPage>

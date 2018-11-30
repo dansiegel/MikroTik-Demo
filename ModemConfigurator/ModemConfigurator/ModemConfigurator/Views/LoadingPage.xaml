@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="{Binding Title}"
+             BackgroundColor="{StaticResource PrimaryDark}"
+             x:Class="ModemConfigurator.Views.LoadingPage">
+     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <Image Source="Modem"
+               HorizontalOptions="Center"
+               VerticalOptions="End"
+               WidthRequest="200"
+               HeightRequest="200"
+               Aspect="AspectFit" />
+        <StackLayout Grid.Row="1"
+                     HorizontalOptions="Center"
+                     Spacing="20">
+            <Label Text="Loading..."
+                   TextColor="White" />
+            <ActivityIndicator IsRunning="true"
+                               Color="White"
+                               Scale="1.5" />
+        </StackLayout>
+    </Grid>
+</ContentPage>

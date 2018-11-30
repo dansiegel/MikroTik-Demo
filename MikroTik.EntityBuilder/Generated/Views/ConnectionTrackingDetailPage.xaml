@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:behaviors="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+             xmlns:controls="clr-namespace:ModemConfigurator.Controls;ModemConfigurator"
+             xmlns:mvvm="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             mvvm:ViewModelLocator.AutowireViewModel="true"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:NavigationPage.PrefersLargeTitles="true"
+             ios:Page.UseSafeArea="true"
+             Title="{Binding Title}"
+             x:Class="ModemConfigurator.Views.ConnectionTrackingDetailPage">
+  <TableView HasUnevenRows="true"
+             Intent="Form">
+    <TableRoot>
+      <TableSection Title="Connection Tracking">
+        <ViewCell>
+          <Frame BackgroundColor="Teal">
+            <Label Text="ip/firewall/connection/tracking"
+                   FontSize="Large"
+                   TextColor="WhiteSmoke" />
+          </Frame>
+        </ViewCell>
+
+        <EntryCell Label="Enabled" Text="{Binding Entity.Enabled}" />
+        <EntryCell Label="Tcp Syn Sent Timeout" Text="{Binding Entity.TcpSynSentTimeout}" />
+        <EntryCell Label="Tcp Syn Received Timeout" Text="{Binding Entity.TcpSynReceivedTimeout}" />
+        <EntryCell Label="Tcp Established Timeout" Text="{Binding Entity.TcpEstablishedTimeout}" />
+        <EntryCell Label="Tcp Fin Wait Timeout" Text="{Binding Entity.TcpFinWaitTimeout}" />
+        <EntryCell Label="Tcp Close Wait Timeout" Text="{Binding Entity.TcpCloseWaitTimeout}" />
+        <EntryCell Label="Tcp Last Ack Timeout" Text="{Binding Entity.TcpLastAckTimeout}" />
+        <EntryCell Label="Tcp Time Wait Timeout" Text="{Binding Entity.TcpTimeWaitTimeout}" />
+        <EntryCell Label="Tcp Close Timeout" Text="{Binding Entity.TcpCloseTimeout}" />
+        <EntryCell Label="Udp Timeout" Text="{Binding Entity.UdpTimeout}" />
+        <EntryCell Label="Udp Stream Timeout" Text="{Binding Entity.UdpStreamTimeout}" />
+        <EntryCell Label="Icmp Timeout" Text="{Binding Entity.IcmpTimeout}" />
+        <EntryCell Label="Generic Timeout" Text="{Binding Entity.GenericTimeout}" />
+        <EntryCell Label="Max Entries" Keyboard="Numeric" IsEnabled="False" Text="{Binding Entity.MaxEntries}" />
+        <EntryCell Label="Total Entries" Keyboard="Numeric" IsEnabled="False" Text="{Binding Entity.TotalEntries}" />
+<!--
+        <EntryCell Label="Connection Tracking" Text="{Binding Entity.PropertyName}" />
+        <SwitchCell Text="Connection Tracking" On="{Binding Entity.PropertyName}" />
+        <ViewCell>
+            <FlexLayout Wrap="Wrap">
+              <Label Text="Connection Tracking"
+                     FlexLayout.Basis="25%" />
+              <controls:Picker x:TypeArguments="models:EnumName"
+                               SelectedItem="{Binding Entity.PropertyName}"
+                               FlexLayout.Basis="75%" />
+            </FlexLayout>
+        </ViewCell>
+-->
+      </TableSection>
+      <TableSection Title="Commands">
+        <ViewCell>
+          <Button Text="Save"
+                  Command="{Binding SaveCommand}" />
+        </ViewCell>
+      </TableSection>
+    </TableRoot>
+  </TableView>
+</ContentPage>

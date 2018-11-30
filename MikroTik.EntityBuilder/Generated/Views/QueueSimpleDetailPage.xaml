@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:behaviors="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+             xmlns:controls="clr-namespace:ModemConfigurator.Controls;ModemConfigurator"
+             xmlns:mvvm="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             mvvm:ViewModelLocator.AutowireViewModel="true"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:NavigationPage.PrefersLargeTitles="true"
+             ios:Page.UseSafeArea="true"
+             Title="{Binding Title}"
+             x:Class="ModemConfigurator.Views.QueueSimpleDetailPage">
+  <TableView HasUnevenRows="true"
+             Intent="Form">
+    <TableRoot>
+      <TableSection Title="Queue Simple">
+        <ViewCell>
+          <Frame BackgroundColor="Teal">
+            <Label Text="/queue/simple"
+                   FontSize="Large"
+                   TextColor="WhiteSmoke" />
+          </Frame>
+        </ViewCell>
+
+        <EntryCell Label="Id" IsEnabled="False" Text="{Binding Entity.Id}" />
+        <EntryCell Label="Name" Text="{Binding Entity.Name}" />
+        <EntryCell Label="Target" Text="{Binding Entity.Target}" />
+        <EntryCell Label="Parent" Text="{Binding Entity.Parent}" />
+        <EntryCell Label="Priority" Text="{Binding Entity.Priority}" />
+        <EntryCell Label="Queue" Text="{Binding Entity.Queue}" />
+        <EntryCell Label="Limit At" Text="{Binding Entity.LimitAt}" />
+        <EntryCell Label="Max Limit" Text="{Binding Entity.MaxLimit}" />
+        <EntryCell Label="Burst Limit" Text="{Binding Entity.BurstLimit}" />
+        <EntryCell Label="Burst Threshold" Text="{Binding Entity.BurstThreshold}" />
+        <EntryCell Label="Burst Time" Text="{Binding Entity.BurstTime}" />
+        <EntryCell Label="Bytes" IsEnabled="False" Text="{Binding Entity.Bytes}" />
+        <EntryCell Label="Total Bytes" Keyboard="Numeric" IsEnabled="False" Text="{Binding Entity.TotalBytes}" />
+        <EntryCell Label="Packets" IsEnabled="False" Text="{Binding Entity.Packets}" />
+        <EntryCell Label="Total Packets" Keyboard="Numeric" IsEnabled="False" Text="{Binding Entity.TotalPackets}" />
+        <EntryCell Label="Dropped" IsEnabled="False" Text="{Binding Entity.Dropped}" />
+        <EntryCell Label="Total Dropped" Keyboard="Numeric" IsEnabled="False" Text="{Binding Entity.TotalDropped}" />
+        <EntryCell Label="Rate" IsEnabled="False" Text="{Binding Entity.Rate}" />
+        <EntryCell Label="Total Rate" Keyboard="Numeric" IsEnabled="False" Text="{Binding Entity.TotalRate}" />
+        <EntryCell Label="Packet Rate" IsEnabled="False" Text="{Binding Entity.PacketRate}" />
+        <EntryCell Label="Total Packet Rate" Keyboard="Numeric" IsEnabled="False" Text="{Binding Entity.TotalPacketRate}" />
+        <EntryCell Label="Queued Packets" IsEnabled="False" Text="{Binding Entity.QueuedPackets}" />
+        <EntryCell Label="Total Queued Packets" Keyboard="Numeric" IsEnabled="False" Text="{Binding Entity.TotalQueuedPackets}" />
+        <EntryCell Label="Queued Bytes" IsEnabled="False" Text="{Binding Entity.QueuedBytes}" />
+        <EntryCell Label="Total Queued Bytes" Keyboard="Numeric" IsEnabled="False" Text="{Binding Entity.TotalQueuedBytes}" />
+        <SwitchCell Text="Invalid" On="{Binding Entity.Invalid}" />
+        <SwitchCell Text="Dynamic" On="{Binding Entity.Dynamic}" />
+        <SwitchCell Text="Disabled" On="{Binding Entity.Disabled}" />
+        <EntryCell Label="Dst" Text="{Binding Entity.Dst}" />
+        <EntryCell Label="Total Max Limit" Keyboard="Numeric" Text="{Binding Entity.TotalMaxLimit}" />
+        <EntryCell Label="Total Queue" Text="{Binding Entity.TotalQueue}" />
+        <EntryCell Label="Comment" Text="{Binding Entity.Comment}" />
+<!--
+        <EntryCell Label="Queue Simple" Text="{Binding Entity.PropertyName}" />
+        <SwitchCell Text="Queue Simple" On="{Binding Entity.PropertyName}" />
+        <ViewCell>
+            <FlexLayout Wrap="Wrap">
+              <Label Text="Queue Simple"
+                     FlexLayout.Basis="25%" />
+              <controls:Picker x:TypeArguments="models:EnumName"
+                               SelectedItem="{Binding Entity.PropertyName}"
+                               FlexLayout.Basis="75%" />
+            </FlexLayout>
+        </ViewCell>
+-->
+      </TableSection>
+      <TableSection Title="Commands">
+        <ViewCell>
+          <Button Text="Save"
+                  Command="{Binding SaveCommand}" />
+        </ViewCell>
+      </TableSection>
+    </TableRoot>
+  </TableView>
+</ContentPage>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:behaviors="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+             xmlns:controls="clr-namespace:ModemConfigurator.Controls;ModemConfigurator"
+             xmlns:mvvm="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             mvvm:ViewModelLocator.AutowireViewModel="true"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:NavigationPage.PrefersLargeTitles="true"
+             ios:Page.UseSafeArea="true"
+             Title="{Binding Title}"
+             x:Class="ModemConfigurator.Views.FirewallNatDetailPage">
+  <TableView HasUnevenRows="true"
+             Intent="Form">
+    <TableRoot>
+      <TableSection Title="Firewall Nat">
+        <ViewCell>
+          <Frame BackgroundColor="Teal">
+            <Label Text="/ip/firewall/nat"
+                   FontSize="Large"
+                   TextColor="WhiteSmoke" />
+          </Frame>
+        </ViewCell>
+
+        <EntryCell Label="Id" IsEnabled="False" Text="{Binding Entity.Id}" />
+        <EntryCell Label="Chain" Text="{Binding Entity.Chain}" />
+        <EntryCell Label="Action" Text="{Binding Entity.Action}" />
+        <EntryCell Label="To Addresses" Text="{Binding Entity.ToAddresses}" />
+        <EntryCell Label="Src Address" Text="{Binding Entity.SrcAddress}" />
+        <EntryCell Label="Out Interface" Text="{Binding Entity.OutInterface}" />
+        <SwitchCell Text="Invalid" On="{Binding Entity.Invalid}" />
+        <SwitchCell Text="Dynamic" On="{Binding Entity.Dynamic}" />
+        <SwitchCell Text="Disabled" On="{Binding Entity.Disabled}" />
+        <EntryCell Label="Comment" Text="{Binding Entity.Comment}" />
+        <EntryCell Label="Src Address List" Text="{Binding Entity.SrcAddressList}" />
+        <EntryCell Label="Dst Address" Text="{Binding Entity.DstAddress}" />
+        <EntryCell Label="In Interface" Text="{Binding Entity.InInterface}" />
+        <EntryCell Label="Protocol" Text="{Binding Entity.Protocol}" />
+        <EntryCell Label="To Ports" Keyboard="Numeric" Text="{Binding Entity.ToPorts}" />
+        <EntryCell Label="Dst Port" Keyboard="Numeric" Text="{Binding Entity.DstPort}" />
+<!--
+        <EntryCell Label="Firewall Nat" Text="{Binding Entity.PropertyName}" />
+        <SwitchCell Text="Firewall Nat" On="{Binding Entity.PropertyName}" />
+        <ViewCell>
+            <FlexLayout Wrap="Wrap">
+              <Label Text="Firewall Nat"
+                     FlexLayout.Basis="25%" />
+              <controls:Picker x:TypeArguments="models:EnumName"
+                               SelectedItem="{Binding Entity.PropertyName}"
+                               FlexLayout.Basis="75%" />
+            </FlexLayout>
+        </ViewCell>
+-->
+      </TableSection>
+      <TableSection Title="Commands">
+        <ViewCell>
+          <Button Text="Save"
+                  Command="{Binding SaveCommand}" />
+        </ViewCell>
+      </TableSection>
+    </TableRoot>
+  </TableView>
+</ContentPage>

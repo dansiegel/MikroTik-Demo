@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:behaviors="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+             xmlns:controls="clr-namespace:ModemConfigurator.Controls;ModemConfigurator"
+             xmlns:mvvm="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             mvvm:ViewModelLocator.AutowireViewModel="true"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:NavigationPage.PrefersLargeTitles="true"
+             ios:Page.UseSafeArea="true"
+             Title="{Binding Title}"
+             x:Class="ModemConfigurator.Views.InterfaceMonitorTrafficDetailPage">
+  <TableView HasUnevenRows="true"
+             Intent="Form">
+    <TableRoot>
+      <TableSection Title="Interface Monitor Traffic">
+        <ViewCell>
+          <Frame BackgroundColor="Teal">
+            <Label Text="/interface/monitor-traffic"
+                   FontSize="Large"
+                   TextColor="WhiteSmoke" />
+          </Frame>
+        </ViewCell>
+
+        <EntryCell Label="Name" IsEnabled="False" Text="{Binding Entity.Name}" />
+        <EntryCell Label="Rx Packets Per Second" IsEnabled="False" Text="{Binding Entity.RxPacketsPerSecond}" />
+        <EntryCell Label="Rx Bits Per Second" IsEnabled="False" Text="{Binding Entity.RxBitsPerSecond}" />
+        <EntryCell Label="Rx Drops Per Second" IsEnabled="False" Text="{Binding Entity.RxDropsPerSecond}" />
+        <EntryCell Label="Rx Errors Per Second" IsEnabled="False" Text="{Binding Entity.RxErrorsPerSecond}" />
+        <EntryCell Label="Tx Packets Per Second" IsEnabled="False" Text="{Binding Entity.TxPacketsPerSecond}" />
+        <EntryCell Label="Tx Bits Per Second" IsEnabled="False" Text="{Binding Entity.TxBitsPerSecond}" />
+        <EntryCell Label="Tx Drops Per Second" IsEnabled="False" Text="{Binding Entity.TxDropsPerSecond}" />
+        <EntryCell Label="Tx Errors Per Second" IsEnabled="False" Text="{Binding Entity.TxErrorsPerSecond}" />
+        <EntryCell Label="Tx Queue Drops Per Second" IsEnabled="False" Text="{Binding Entity.TxQueueDropsPerSecond}" />
+<!--
+        <EntryCell Label="Interface Monitor Traffic" Text="{Binding Entity.PropertyName}" />
+        <SwitchCell Text="Interface Monitor Traffic" On="{Binding Entity.PropertyName}" />
+        <ViewCell>
+            <FlexLayout Wrap="Wrap">
+              <Label Text="Interface Monitor Traffic"
+                     FlexLayout.Basis="25%" />
+              <controls:Picker x:TypeArguments="models:EnumName"
+                               SelectedItem="{Binding Entity.PropertyName}"
+                               FlexLayout.Basis="75%" />
+            </FlexLayout>
+        </ViewCell>
+-->
+      </TableSection>
+      <TableSection Title="Commands">
+        <ViewCell>
+          <Button Text="Save"
+                  Command="{Binding SaveCommand}" />
+        </ViewCell>
+      </TableSection>
+    </TableRoot>
+  </TableView>
+</ContentPage>

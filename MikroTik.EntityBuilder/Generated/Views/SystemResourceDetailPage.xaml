@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:behaviors="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+             xmlns:controls="clr-namespace:ModemConfigurator.Controls;ModemConfigurator"
+             xmlns:mvvm="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             mvvm:ViewModelLocator.AutowireViewModel="true"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:NavigationPage.PrefersLargeTitles="true"
+             ios:Page.UseSafeArea="true"
+             Title="{Binding Title}"
+             x:Class="ModemConfigurator.Views.SystemResourceDetailPage">
+  <TableView HasUnevenRows="true"
+             Intent="Form">
+    <TableRoot>
+      <TableSection Title="System Resource">
+        <ViewCell>
+          <Frame BackgroundColor="Teal">
+            <Label Text="/system/resource"
+                   FontSize="Large"
+                   TextColor="WhiteSmoke" />
+          </Frame>
+        </ViewCell>
+
+        <EntryCell Label="Uptime" IsEnabled="False" Text="{Binding Entity.Uptime}" />
+        <EntryCell Label="Version" IsEnabled="False" Text="{Binding Entity.Version}" />
+        <EntryCell Label="Build Time" IsEnabled="False" Text="{Binding Entity.BuildTime}" />
+        <EntryCell Label="Free Memory" Keyboard="Numeric" IsEnabled="False" Text="{Binding Entity.FreeMemory}" />
+        <EntryCell Label="Total Memory" Keyboard="Numeric" IsEnabled="False" Text="{Binding Entity.TotalMemory}" />
+        <EntryCell Label="Cpu" IsEnabled="False" Text="{Binding Entity.Cpu}" />
+        <EntryCell Label="Cpu Count" Keyboard="Numeric" IsEnabled="False" Text="{Binding Entity.CpuCount}" />
+        <EntryCell Label="Cpu Frequency" Keyboard="Numeric" IsEnabled="False" Text="{Binding Entity.CpuFrequency}" />
+        <EntryCell Label="Cpu Load" Keyboard="Numeric" IsEnabled="False" Text="{Binding Entity.CpuLoad}" />
+        <EntryCell Label="Free Hdd Space" Keyboard="Numeric" IsEnabled="False" Text="{Binding Entity.FreeHddSpace}" />
+        <EntryCell Label="Total Hdd Space" Keyboard="Numeric" IsEnabled="False" Text="{Binding Entity.TotalHddSpace}" />
+        <EntryCell Label="Write Sect Since Reboot" Keyboard="Numeric" IsEnabled="False" Text="{Binding Entity.WriteSectSinceReboot}" />
+        <EntryCell Label="Write Sect Total" Keyboard="Numeric" IsEnabled="False" Text="{Binding Entity.WriteSectTotal}" />
+        <EntryCell Label="Architecture Name" IsEnabled="False" Text="{Binding Entity.ArchitectureName}" />
+        <EntryCell Label="Board Name" IsEnabled="False" Text="{Binding Entity.BoardName}" />
+        <EntryCell Label="Platform" IsEnabled="False" Text="{Binding Entity.Platform}" />
+<!--
+        <EntryCell Label="System Resource" Text="{Binding Entity.PropertyName}" />
+        <SwitchCell Text="System Resource" On="{Binding Entity.PropertyName}" />
+        <ViewCell>
+            <FlexLayout Wrap="Wrap">
+              <Label Text="System Resource"
+                     FlexLayout.Basis="25%" />
+              <controls:Picker x:TypeArguments="models:EnumName"
+                               SelectedItem="{Binding Entity.PropertyName}"
+                               FlexLayout.Basis="75%" />
+            </FlexLayout>
+        </ViewCell>
+-->
+      </TableSection>
+      <TableSection Title="Commands">
+        <ViewCell>
+          <Button Text="Save"
+                  Command="{Binding SaveCommand}" />
+        </ViewCell>
+      </TableSection>
+    </TableRoot>
+  </TableView>
+</ContentPage>

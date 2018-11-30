@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:behaviors="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+             xmlns:mvvm="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             mvvm:ViewModelLocator.AutowireViewModel="true"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:NavigationPage.PrefersLargeTitles="true"
+             ios:Page.UseSafeArea="true"
+             Title="{Binding Title}"
+             x:Class="ModemConfigurator.Views.FirewallManglePage">
+  <ContentPage.ToolbarItems>
+    <ToolbarItem Icon="add.png" 
+                 Text="Add"
+                 Command="{Binding AddItemCommand}" />
+  </ContentPage.ToolbarItems>
+  <ListView ItemsSource="{Binding Items}"
+              HasUnevenRows="true">
+    <ListView.Behaviors>
+      <behaviors:EventToCommandBehavior EventName="ItemTapped"
+                                        EventArgsParameterPath="Item"
+                                        Command="{Binding ItemSelectedCommand}" />
+    </ListView.Behaviors>
+    <ListView.Header>
+      <Frame BackgroundColor="Teal">
+        <Label Text="/ip/firewall/mangle"
+               FontSize="Large"
+               TextColor="WhiteSmoke" />
+      </Frame>
+    </ListView.Header>
+    <ListView.ItemTemplate>
+      <DataTemplate>
+        <ViewCell>
+          <FlexLayout Padding="20,0"
+                      Wrap="Wrap">
+            <Label Text="Id" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Id}" FlexLayout.Basis="50%" />
+            <Label Text="Chain" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Chain}" FlexLayout.Basis="50%" />
+            <Label Text="Action" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Action}" FlexLayout.Basis="50%" />
+            <Label Text="NewPriority" FlexLayout.Basis="50%" />
+            <Label Text="{Binding NewPriority}" FlexLayout.Basis="50%" />
+            <Label Text="Passthrough" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Passthrough}" FlexLayout.Basis="50%" />
+            <Label Text="SrcAddressList" FlexLayout.Basis="50%" />
+            <Label Text="{Binding SrcAddressList}" FlexLayout.Basis="50%" />
+            <Label Text="Invalid" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Invalid}" FlexLayout.Basis="50%" />
+            <Label Text="Dynamic" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Dynamic}" FlexLayout.Basis="50%" />
+            <Label Text="Disabled" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Disabled}" FlexLayout.Basis="50%" />
+            <Label Text="NewPacketMark" FlexLayout.Basis="50%" />
+            <Label Text="{Binding NewPacketMark}" FlexLayout.Basis="50%" />
+            <Label Text="Comment" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Comment}" FlexLayout.Basis="50%" />
+            <Label Text="DstAddressList" FlexLayout.Basis="50%" />
+            <Label Text="{Binding DstAddressList}" FlexLayout.Basis="50%" />
+            <Label Text="Protocol" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Protocol}" FlexLayout.Basis="50%" />
+            <Label Text="SrcAddress" FlexLayout.Basis="50%" />
+            <Label Text="{Binding SrcAddress}" FlexLayout.Basis="50%" />
+            <Label Text="DstAddress" FlexLayout.Basis="50%" />
+            <Label Text="{Binding DstAddress}" FlexLayout.Basis="50%" />
+            <Label Text="JumpTarget" FlexLayout.Basis="50%" />
+            <Label Text="{Binding JumpTarget}" FlexLayout.Basis="50%" />
+            <Label Text="AddressList" FlexLayout.Basis="50%" />
+            <Label Text="{Binding AddressList}" FlexLayout.Basis="50%" />
+            <Label Text="AddressListTimeout" FlexLayout.Basis="50%" />
+            <Label Text="{Binding AddressListTimeout}" FlexLayout.Basis="50%" />
+
+          </FlexLayout>
+        </ViewCell>
+      </DataTemplate>
+    </ListView.ItemTemplate>
+    <ListView.Footer>
+      <StackLayout Spacing="0">
+        <Label Text="    Connected"
+                TextColor="White"
+                BackgroundColor="Green"
+                IsVisible="{Binding IsConnected}" />
+        <Label Text="    Not Connected"
+                TextColor="White"
+                BackgroundColor="Red"
+                IsVisible="{Binding IsNotConnected}" />
+      </StackLayout>
+    </ListView.Footer>
+  </ListView>
+</ContentPage>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:behaviors="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+             xmlns:controls="clr-namespace:ModemConfigurator.Controls;ModemConfigurator"
+             xmlns:mvvm="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             mvvm:ViewModelLocator.AutowireViewModel="true"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:NavigationPage.PrefersLargeTitles="true"
+             ios:Page.UseSafeArea="true"
+             Title="{Binding Title}"
+             x:Class="ModemConfigurator.Views.QueueTypeDetailPage">
+  <TableView HasUnevenRows="true"
+             Intent="Form">
+    <TableRoot>
+      <TableSection Title="Queue Type">
+        <ViewCell>
+          <Frame BackgroundColor="Teal">
+            <Label Text="/queue/type"
+                   FontSize="Large"
+                   TextColor="WhiteSmoke" />
+          </Frame>
+        </ViewCell>
+
+        <EntryCell Label="Id" IsEnabled="False" Text="{Binding Entity.Id}" />
+        <EntryCell Label="Name" Text="{Binding Entity.Name}" />
+        <EntryCell Label="Kind" Text="{Binding Entity.Kind}" />
+        <EntryCell Label="Pfifo Limit" Keyboard="Numeric" Text="{Binding Entity.PfifoLimit}" />
+        <SwitchCell Text="Default" On="{Binding Entity.Default}" />
+        <EntryCell Label="Sfq Perturb" Keyboard="Numeric" Text="{Binding Entity.SfqPerturb}" />
+        <EntryCell Label="Sfq Allot" Keyboard="Numeric" Text="{Binding Entity.SfqAllot}" />
+        <EntryCell Label="Red Limit" Keyboard="Numeric" Text="{Binding Entity.RedLimit}" />
+        <EntryCell Label="Red Min Threshold" Keyboard="Numeric" Text="{Binding Entity.RedMinThreshold}" />
+        <EntryCell Label="Red Max Threshold" Keyboard="Numeric" Text="{Binding Entity.RedMaxThreshold}" />
+        <EntryCell Label="Red Burst" Keyboard="Numeric" Text="{Binding Entity.RedBurst}" />
+        <EntryCell Label="Red Avg Packet" Keyboard="Numeric" Text="{Binding Entity.RedAvgPacket}" />
+        <EntryCell Label="Pcq Rate" Keyboard="Numeric" Text="{Binding Entity.PcqRate}" />
+        <EntryCell Label="Pcq Limit" Keyboard="Numeric" Text="{Binding Entity.PcqLimit}" />
+        <EntryCell Label="Pcq Classifier" Text="{Binding Entity.PcqClassifier}" />
+        <EntryCell Label="Pcq Total Limit" Keyboard="Numeric" Text="{Binding Entity.PcqTotalLimit}" />
+        <EntryCell Label="Pcq Burst Rate" Keyboard="Numeric" Text="{Binding Entity.PcqBurstRate}" />
+        <EntryCell Label="Pcq Burst Threshold" Keyboard="Numeric" Text="{Binding Entity.PcqBurstThreshold}" />
+        <EntryCell Label="Pcq Burst Time" Text="{Binding Entity.PcqBurstTime}" />
+        <EntryCell Label="Pcq Src Address Mask" Keyboard="Numeric" Text="{Binding Entity.PcqSrcAddressMask}" />
+        <EntryCell Label="Pcq Dst Address Mask" Keyboard="Numeric" Text="{Binding Entity.PcqDstAddressMask}" />
+        <EntryCell Label="Pcq Src Address 6 Mask" Keyboard="Numeric" Text="{Binding Entity.PcqSrcAddress6Mask}" />
+        <EntryCell Label="Pcq Dst Address 6 Mask" Keyboard="Numeric" Text="{Binding Entity.PcqDstAddress6Mask}" />
+        <EntryCell Label="Mq Pfifo Limit" Keyboard="Numeric" Text="{Binding Entity.MqPfifoLimit}" />
+<!--
+        <EntryCell Label="Queue Type" Text="{Binding Entity.PropertyName}" />
+        <SwitchCell Text="Queue Type" On="{Binding Entity.PropertyName}" />
+        <ViewCell>
+            <FlexLayout Wrap="Wrap">
+              <Label Text="Queue Type"
+                     FlexLayout.Basis="25%" />
+              <controls:Picker x:TypeArguments="models:EnumName"
+                               SelectedItem="{Binding Entity.PropertyName}"
+                               FlexLayout.Basis="75%" />
+            </FlexLayout>
+        </ViewCell>
+-->
+      </TableSection>
+      <TableSection Title="Commands">
+        <ViewCell>
+          <Button Text="Save"
+                  Command="{Binding SaveCommand}" />
+        </ViewCell>
+      </TableSection>
+    </TableRoot>
+  </TableView>
+</ContentPage>

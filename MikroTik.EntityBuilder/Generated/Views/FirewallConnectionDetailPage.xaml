@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:behaviors="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+             xmlns:controls="clr-namespace:ModemConfigurator.Controls;ModemConfigurator"
+             xmlns:mvvm="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             mvvm:ViewModelLocator.AutowireViewModel="true"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:NavigationPage.PrefersLargeTitles="true"
+             ios:Page.UseSafeArea="true"
+             Title="{Binding Title}"
+             x:Class="ModemConfigurator.Views.FirewallConnectionDetailPage">
+  <TableView HasUnevenRows="true"
+             Intent="Form">
+    <TableRoot>
+      <TableSection Title="Firewall Connection">
+        <ViewCell>
+          <Frame BackgroundColor="Teal">
+            <Label Text="ip/firewall/connection"
+                   FontSize="Large"
+                   TextColor="WhiteSmoke" />
+          </Frame>
+        </ViewCell>
+
+        <EntryCell Label="Id" IsEnabled="False" Text="{Binding Entity.Id}" />
+        <SwitchCell Text="Assured" On="{Binding Entity.Assured}" />
+        <EntryCell Label="Connection Mark" IsEnabled="False" Text="{Binding Entity.ConnectionMark}" />
+        <EntryCell Label="Connection Type" IsEnabled="False" Text="{Binding Entity.ConnectionType}" />
+        <EntryCell Label="Dst Address" IsEnabled="False" Text="{Binding Entity.DstAddress}" />
+        <EntryCell Label="Gre Key" Keyboard="Numeric" IsEnabled="False" Text="{Binding Entity.GreKey}" />
+        <EntryCell Label="Gre Version" IsEnabled="False" Text="{Binding Entity.GreVersion}" />
+        <EntryCell Label="Icmp Code" IsEnabled="False" Text="{Binding Entity.IcmpCode}" />
+        <EntryCell Label="Icmp Id" IsEnabled="False" Text="{Binding Entity.IcmpId}" />
+        <EntryCell Label="Icmp Type" IsEnabled="False" Text="{Binding Entity.IcmpType}" />
+        <SwitchCell Text="P 2p" On="{Binding Entity.P2p}" />
+        <EntryCell Label="Protocol" IsEnabled="False" Text="{Binding Entity.Protocol}" />
+        <EntryCell Label="Reply Dst Address" IsEnabled="False" Text="{Binding Entity.ReplyDstAddress}" />
+        <EntryCell Label="Reply Src Address" IsEnabled="False" Text="{Binding Entity.ReplySrcAddress}" />
+        <EntryCell Label="Src Address" IsEnabled="False" Text="{Binding Entity.SrcAddress}" />
+        <EntryCell Label="Tcp State" IsEnabled="False" Text="{Binding Entity.TcpState}" />
+        <EntryCell Label="Timeout" IsEnabled="False" Text="{Binding Entity.Timeout}" />
+<!--
+        <EntryCell Label="Firewall Connection" Text="{Binding Entity.PropertyName}" />
+        <SwitchCell Text="Firewall Connection" On="{Binding Entity.PropertyName}" />
+        <ViewCell>
+            <FlexLayout Wrap="Wrap">
+              <Label Text="Firewall Connection"
+                     FlexLayout.Basis="25%" />
+              <controls:Picker x:TypeArguments="models:EnumName"
+                               SelectedItem="{Binding Entity.PropertyName}"
+                               FlexLayout.Basis="75%" />
+            </FlexLayout>
+        </ViewCell>
+-->
+      </TableSection>
+      <TableSection Title="Commands">
+        <ViewCell>
+          <Button Text="Save"
+                  Command="{Binding SaveCommand}" />
+        </ViewCell>
+      </TableSection>
+    </TableRoot>
+  </TableView>
+</ContentPage>

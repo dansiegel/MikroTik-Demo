@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:behaviors="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+             xmlns:controls="clr-namespace:ModemConfigurator.Controls;ModemConfigurator"
+             xmlns:mvvm="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             mvvm:ViewModelLocator.AutowireViewModel="true"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:NavigationPage.PrefersLargeTitles="true"
+             ios:Page.UseSafeArea="true"
+             Title="{Binding Title}"
+             x:Class="ModemConfigurator.Views.PppProfileDetailPage">
+  <TableView HasUnevenRows="true"
+             Intent="Form">
+    <TableRoot>
+      <TableSection Title="Ppp Profile">
+        <ViewCell>
+          <Frame BackgroundColor="Teal">
+            <Label Text="ppp/profile"
+                   FontSize="Large"
+                   TextColor="WhiteSmoke" />
+          </Frame>
+        </ViewCell>
+
+        <EntryCell Label="Id" IsEnabled="False" Text="{Binding Entity.Id}" />
+        <EntryCell Label="Address List" Text="{Binding Entity.AddressList}" />
+        <EntryCell Label="Bridge" Text="{Binding Entity.Bridge}" />
+        <EntryCell Label="Change Tcp Mss" Text="{Binding Entity.ChangeTcpMss}" />
+        <EntryCell Label="Comment" Text="{Binding Entity.Comment}" />
+        <EntryCell Label="Dhcpv 6 Pd Pool" Text="{Binding Entity.Dhcpv6PdPool}" />
+        <EntryCell Label="Dns Server" Text="{Binding Entity.DnsServer}" />
+        <EntryCell Label="Idle Timeout" Text="{Binding Entity.IdleTimeout}" />
+        <EntryCell Label="Incoming Filter" Text="{Binding Entity.IncomingFilter}" />
+        <EntryCell Label="Local Address" Text="{Binding Entity.LocalAddress}" />
+        <EntryCell Label="Name" Text="{Binding Entity.Name}" />
+        <EntryCell Label="Only One" Text="{Binding Entity.OnlyOne}" />
+        <EntryCell Label="Outgoing Filter" Text="{Binding Entity.OutgoingFilter}" />
+        <EntryCell Label="Rate Limit" Text="{Binding Entity.RateLimit}" />
+        <EntryCell Label="Remote Address" Text="{Binding Entity.RemoteAddress}" />
+        <EntryCell Label="Remote Ipv 6 Prefix Pool" Text="{Binding Entity.RemoteIpv6PrefixPool}" />
+        <EntryCell Label="Session Timeout" Text="{Binding Entity.SessionTimeout}" />
+        <EntryCell Label="Use Compression" Text="{Binding Entity.UseCompression}" />
+        <EntryCell Label="Use Encryption" Text="{Binding Entity.UseEncryption}" />
+        <EntryCell Label="Use Ipv 6" Text="{Binding Entity.UseIpv6}" />
+        <EntryCell Label="Use Mpls" Text="{Binding Entity.UseMpls}" />
+        <EntryCell Label="Use Vj Compression" Text="{Binding Entity.UseVjCompression}" />
+        <EntryCell Label="On Up" Text="{Binding Entity.OnUp}" />
+        <EntryCell Label="On Down" Text="{Binding Entity.OnDown}" />
+        <EntryCell Label="Wins Server" Text="{Binding Entity.WinsServer}" />
+<!--
+        <EntryCell Label="Ppp Profile" Text="{Binding Entity.PropertyName}" />
+        <SwitchCell Text="Ppp Profile" On="{Binding Entity.PropertyName}" />
+        <ViewCell>
+            <FlexLayout Wrap="Wrap">
+              <Label Text="Ppp Profile"
+                     FlexLayout.Basis="25%" />
+              <controls:Picker x:TypeArguments="models:EnumName"
+                               SelectedItem="{Binding Entity.PropertyName}"
+                               FlexLayout.Basis="75%" />
+            </FlexLayout>
+        </ViewCell>
+-->
+      </TableSection>
+      <TableSection Title="Commands">
+        <ViewCell>
+          <Button Text="Save"
+                  Command="{Binding SaveCommand}" />
+        </ViewCell>
+      </TableSection>
+    </TableRoot>
+  </TableView>
+</ContentPage>

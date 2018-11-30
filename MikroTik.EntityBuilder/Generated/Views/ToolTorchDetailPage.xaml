@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:behaviors="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+             xmlns:controls="clr-namespace:ModemConfigurator.Controls;ModemConfigurator"
+             xmlns:mvvm="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             mvvm:ViewModelLocator.AutowireViewModel="true"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:NavigationPage.PrefersLargeTitles="true"
+             ios:Page.UseSafeArea="true"
+             Title="{Binding Title}"
+             x:Class="ModemConfigurator.Views.ToolTorchDetailPage">
+  <TableView HasUnevenRows="true"
+             Intent="Form">
+    <TableRoot>
+      <TableSection Title="Tool Torch">
+        <ViewCell>
+          <Frame BackgroundColor="Teal">
+            <Label Text="/tool/torch"
+                   FontSize="Large"
+                   TextColor="WhiteSmoke" />
+          </Frame>
+        </ViewCell>
+
+        <EntryCell Label="Src Address" IsEnabled="False" Text="{Binding Entity.SrcAddress}" />
+        <EntryCell Label="Dst Address" IsEnabled="False" Text="{Binding Entity.DstAddress}" />
+        <EntryCell Label="Ip Protocol" IsEnabled="False" Text="{Binding Entity.IpProtocol}" />
+        <EntryCell Label="Src Port" IsEnabled="False" Text="{Binding Entity.SrcPort}" />
+        <EntryCell Label="Dst Port" IsEnabled="False" Text="{Binding Entity.DstPort}" />
+        <EntryCell Label="Tx" Keyboard="Numeric" IsEnabled="False" Text="{Binding Entity.Tx}" />
+        <EntryCell Label="Rx" Keyboard="Numeric" IsEnabled="False" Text="{Binding Entity.Rx}" />
+        <EntryCell Label="Tx Packets" Keyboard="Numeric" IsEnabled="False" Text="{Binding Entity.TxPackets}" />
+        <EntryCell Label="Rx Packets" Keyboard="Numeric" IsEnabled="False" Text="{Binding Entity.RxPackets}" />
+<!--
+        <EntryCell Label="Tool Torch" Text="{Binding Entity.PropertyName}" />
+        <SwitchCell Text="Tool Torch" On="{Binding Entity.PropertyName}" />
+        <ViewCell>
+            <FlexLayout Wrap="Wrap">
+              <Label Text="Tool Torch"
+                     FlexLayout.Basis="25%" />
+              <controls:Picker x:TypeArguments="models:EnumName"
+                               SelectedItem="{Binding Entity.PropertyName}"
+                               FlexLayout.Basis="75%" />
+            </FlexLayout>
+        </ViewCell>
+-->
+      </TableSection>
+      <TableSection Title="Commands">
+        <ViewCell>
+          <Button Text="Save"
+                  Command="{Binding SaveCommand}" />
+        </ViewCell>
+      </TableSection>
+    </TableRoot>
+  </TableView>
+</ContentPage>

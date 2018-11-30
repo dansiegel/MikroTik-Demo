@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:behaviors="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+             xmlns:controls="clr-namespace:ModemConfigurator.Controls;ModemConfigurator"
+             xmlns:mvvm="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             mvvm:ViewModelLocator.AutowireViewModel="true"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:NavigationPage.PrefersLargeTitles="true"
+             ios:Page.UseSafeArea="true"
+             Title="{Binding Title}"
+             x:Class="ModemConfigurator.Views.InterfaceDetailPage">
+  <TableView HasUnevenRows="true"
+             Intent="Form">
+    <TableRoot>
+      <TableSection Title="Interface">
+        <ViewCell>
+          <Frame BackgroundColor="Teal">
+            <Label Text="/interface"
+                   FontSize="Large"
+                   TextColor="WhiteSmoke" />
+          </Frame>
+        </ViewCell>
+
+        <EntryCell Label="Id" IsEnabled="False" Text="{Binding Entity.Id}" />
+        <EntryCell Label="Name" Text="{Binding Entity.Name}" />
+        <EntryCell Label="Default Name" IsEnabled="False" Text="{Binding Entity.DefaultName}" />
+        <EntryCell Label="Type" Text="{Binding Entity.Type}" />
+        <EntryCell Label="Mtu" Text="{Binding Entity.Mtu}" />
+        <EntryCell Label="Mac Address" Text="{Binding Entity.MacAddress}" />
+        <SwitchCell Text="Fast Path" On="{Binding Entity.FastPath}" />
+        <EntryCell Label="Rx Byte" Keyboard="Numeric" IsEnabled="False" Text="{Binding Entity.RxByte}" />
+        <EntryCell Label="Tx Byte" Keyboard="Numeric" IsEnabled="False" Text="{Binding Entity.TxByte}" />
+        <EntryCell Label="Rx Packet" Keyboard="Numeric" IsEnabled="False" Text="{Binding Entity.RxPacket}" />
+        <EntryCell Label="Tx Packet" Keyboard="Numeric" IsEnabled="False" Text="{Binding Entity.TxPacket}" />
+        <EntryCell Label="Rx Drop" Keyboard="Numeric" IsEnabled="False" Text="{Binding Entity.RxDrop}" />
+        <EntryCell Label="Tx Drop" Keyboard="Numeric" IsEnabled="False" Text="{Binding Entity.TxDrop}" />
+        <EntryCell Label="Rx Error" Keyboard="Numeric" IsEnabled="False" Text="{Binding Entity.RxError}" />
+        <EntryCell Label="Tx Error" Keyboard="Numeric" IsEnabled="False" Text="{Binding Entity.TxError}" />
+        <SwitchCell Text="Running" On="{Binding Entity.Running}" />
+        <SwitchCell Text="Disabled" On="{Binding Entity.Disabled}" />
+        <EntryCell Label="Comment" Text="{Binding Entity.Comment}" />
+<!--
+        <EntryCell Label="Interface" Text="{Binding Entity.PropertyName}" />
+        <SwitchCell Text="Interface" On="{Binding Entity.PropertyName}" />
+        <ViewCell>
+            <FlexLayout Wrap="Wrap">
+              <Label Text="Interface"
+                     FlexLayout.Basis="25%" />
+              <controls:Picker x:TypeArguments="models:EnumName"
+                               SelectedItem="{Binding Entity.PropertyName}"
+                               FlexLayout.Basis="75%" />
+            </FlexLayout>
+        </ViewCell>
+-->
+      </TableSection>
+      <TableSection Title="Commands">
+        <ViewCell>
+          <Button Text="Save"
+                  Command="{Binding SaveCommand}" />
+        </ViewCell>
+      </TableSection>
+    </TableRoot>
+  </TableView>
+</ContentPage>

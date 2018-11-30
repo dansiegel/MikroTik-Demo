@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:behaviors="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+             xmlns:controls="clr-namespace:ModemConfigurator.Controls;ModemConfigurator"
+             xmlns:mvvm="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             mvvm:ViewModelLocator.AutowireViewModel="true"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:NavigationPage.PrefersLargeTitles="true"
+             ios:Page.UseSafeArea="true"
+             Title="{Binding Title}"
+             x:Class="ModemConfigurator.Views.DhcpServerNetworkDetailPage">
+  <TableView HasUnevenRows="true"
+             Intent="Form">
+    <TableRoot>
+      <TableSection Title="Dhcp Server Network">
+        <ViewCell>
+          <Frame BackgroundColor="Teal">
+            <Label Text="ip/dhcp-server/network"
+                   FontSize="Large"
+                   TextColor="WhiteSmoke" />
+          </Frame>
+        </ViewCell>
+
+        <EntryCell Label="Id" IsEnabled="False" Text="{Binding Entity.Id}" />
+        <EntryCell Label="Address" Text="{Binding Entity.Address}" />
+        <EntryCell Label="Boot File Name" Text="{Binding Entity.BootFileName}" />
+        <EntryCell Label="Caps Manager" Text="{Binding Entity.CapsManager}" />
+        <EntryCell Label="Dhcp Option" Text="{Binding Entity.DhcpOption}" />
+        <EntryCell Label="Dns Server" Text="{Binding Entity.DnsServer}" />
+        <EntryCell Label="Domain" Text="{Binding Entity.Domain}" />
+        <EntryCell Label="Gateway" Text="{Binding Entity.Gateway}" />
+        <EntryCell Label="Netmask" Text="{Binding Entity.Netmask}" />
+        <EntryCell Label="Next Server" Text="{Binding Entity.NextServer}" />
+        <EntryCell Label="Ntp Server" Text="{Binding Entity.NtpServer}" />
+        <EntryCell Label="Wins Server" Text="{Binding Entity.WinsServer}" />
+        <EntryCell Label="Comment" Text="{Binding Entity.Comment}" />
+<!--
+        <EntryCell Label="Dhcp Server Network" Text="{Binding Entity.PropertyName}" />
+        <SwitchCell Text="Dhcp Server Network" On="{Binding Entity.PropertyName}" />
+        <ViewCell>
+            <FlexLayout Wrap="Wrap">
+              <Label Text="Dhcp Server Network"
+                     FlexLayout.Basis="25%" />
+              <controls:Picker x:TypeArguments="models:EnumName"
+                               SelectedItem="{Binding Entity.PropertyName}"
+                               FlexLayout.Basis="75%" />
+            </FlexLayout>
+        </ViewCell>
+-->
+      </TableSection>
+      <TableSection Title="Commands">
+        <ViewCell>
+          <Button Text="Save"
+                  Command="{Binding SaveCommand}" />
+        </ViewCell>
+      </TableSection>
+    </TableRoot>
+  </TableView>
+</ContentPage>

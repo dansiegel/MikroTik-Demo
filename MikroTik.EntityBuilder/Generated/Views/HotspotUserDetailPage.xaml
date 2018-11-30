@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:behaviors="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+             xmlns:controls="clr-namespace:ModemConfigurator.Controls;ModemConfigurator"
+             xmlns:mvvm="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             mvvm:ViewModelLocator.AutowireViewModel="true"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:NavigationPage.PrefersLargeTitles="true"
+             ios:Page.UseSafeArea="true"
+             Title="{Binding Title}"
+             x:Class="ModemConfigurator.Views.HotspotUserDetailPage">
+  <TableView HasUnevenRows="true"
+             Intent="Form">
+    <TableRoot>
+      <TableSection Title="Hotspot User">
+        <ViewCell>
+          <Frame BackgroundColor="Teal">
+            <Label Text="ip/hotspot/user"
+                   FontSize="Large"
+                   TextColor="WhiteSmoke" />
+          </Frame>
+        </ViewCell>
+
+        <EntryCell Label="Id" IsEnabled="False" Text="{Binding Entity.Id}" />
+        <EntryCell Label="Address" Text="{Binding Entity.Address}" />
+        <EntryCell Label="Comment" Text="{Binding Entity.Comment}" />
+        <EntryCell Label="Email" Text="{Binding Entity.Email}" />
+        <EntryCell Label="Limit Bytes In" Keyboard="Numeric" Text="{Binding Entity.LimitBytesIn}" />
+        <EntryCell Label="Limit Bytes Out" Keyboard="Numeric" Text="{Binding Entity.LimitBytesOut}" />
+        <EntryCell Label="Limit Bytes Total" Keyboard="Numeric" Text="{Binding Entity.LimitBytesTotal}" />
+        <EntryCell Label="Limit Uptime" Text="{Binding Entity.LimitUptime}" />
+        <EntryCell Label="Mac Address" Text="{Binding Entity.MacAddress}" />
+        <EntryCell Label="Name" Text="{Binding Entity.Name}" />
+        <EntryCell Label="Password" Text="{Binding Entity.Password}" />
+        <EntryCell Label="Profile" Text="{Binding Entity.Profile}" />
+        <EntryCell Label="Routes" Text="{Binding Entity.Routes}" />
+        <EntryCell Label="Server" Text="{Binding Entity.Server}" />
+        <SwitchCell Text="Disabled" On="{Binding Entity.Disabled}" />
+        <EntryCell Label="Bytes In" Keyboard="Numeric" IsEnabled="False" Text="{Binding Entity.BytesIn}" />
+        <EntryCell Label="Bytes Out" Keyboard="Numeric" IsEnabled="False" Text="{Binding Entity.BytesOut}" />
+        <EntryCell Label="Packets In" Keyboard="Numeric" IsEnabled="False" Text="{Binding Entity.PacketsIn}" />
+        <EntryCell Label="Packets Out" Keyboard="Numeric" IsEnabled="False" Text="{Binding Entity.PacketsOut}" />
+        <EntryCell Label="Uptime" IsEnabled="False" Text="{Binding Entity.Uptime}" />
+<!--
+        <EntryCell Label="Hotspot User" Text="{Binding Entity.PropertyName}" />
+        <SwitchCell Text="Hotspot User" On="{Binding Entity.PropertyName}" />
+        <ViewCell>
+            <FlexLayout Wrap="Wrap">
+              <Label Text="Hotspot User"
+                     FlexLayout.Basis="25%" />
+              <controls:Picker x:TypeArguments="models:EnumName"
+                               SelectedItem="{Binding Entity.PropertyName}"
+                               FlexLayout.Basis="75%" />
+            </FlexLayout>
+        </ViewCell>
+-->
+      </TableSection>
+      <TableSection Title="Commands">
+        <ViewCell>
+          <Button Text="Save"
+                  Command="{Binding SaveCommand}" />
+        </ViewCell>
+      </TableSection>
+    </TableRoot>
+  </TableView>
+</ContentPage>

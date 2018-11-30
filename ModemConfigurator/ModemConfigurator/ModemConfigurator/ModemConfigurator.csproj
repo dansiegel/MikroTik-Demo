@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="tik4net" Version="3.4.0" />
+    <PackageReference Include="Xamarin.Forms" Version="3.4.0.1008975" />
+    <PackageReference Include="Prism.DryIoc.Forms" Version="7.1.0.431" />
+    <PackageReference Include="Humanizer.Core" Version="2.5.16" />
+    <PackageReference Include="Refractored.MvvmHelpers" Version="1.3.2.47-beta" />
+    <PackageReference Include="LiveXAML" Version="2.1.50" />
+    <PackageReference Include="Xamarin.Essentials" Version="0.11.0-preview" />
+    <PackageReference Include="Microsoft.AppCenter.Crashes" Version="1.11.0" />
+    <PackageReference Include="Microsoft.AppCenter.Analytics" Version="1.11.0" />
+    <PackageReference Include="Mobile.BuildTools" Version="1.4.0.638" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="../../../MikroTik.EntityBuilder/Generated/**/*.xaml" Generator="MSBuild:UpdateDesignTimeXaml" Link="%(RecursiveDir)%(Filename)%(Extension)" />
+    <Compile Include="../../../MikroTik.EntityBuilder/Generated/**/*.cs" Link="%(RecursiveDir)%(Filename)%(Extension)" />
+    <Compile Update="../../../MikroTik.EntityBuilder/Generated/**/*.xaml.cs" DependentUpon="%(Filename)" />
+  </ItemGroup>
+  
+</Project>

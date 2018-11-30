@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:behaviors="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+             xmlns:controls="clr-namespace:ModemConfigurator.Controls;ModemConfigurator"
+             xmlns:mvvm="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             mvvm:ViewModelLocator.AutowireViewModel="true"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:NavigationPage.PrefersLargeTitles="true"
+             ios:Page.UseSafeArea="true"
+             Title="{Binding Title}"
+             x:Class="ModemConfigurator.Views.BridgeFilterDetailPage">
+  <TableView HasUnevenRows="true"
+             Intent="Form">
+    <TableRoot>
+      <TableSection Title="Bridge Filter">
+        <ViewCell>
+          <Frame BackgroundColor="Teal">
+            <Label Text="/interface/bridge/filter"
+                   FontSize="Large"
+                   TextColor="WhiteSmoke" />
+          </Frame>
+        </ViewCell>
+
+        <EntryCell Label="Jump Target" Text="{Binding Entity.JumpTarget}" />
+        <EntryCell Label="Log Prefix" Text="{Binding Entity.LogPrefix}" />
+        <EntryCell Label="New Packet Mark" Text="{Binding Entity.NewPacketMark}" />
+        <EntryCell Label="New Priority" Text="{Binding Entity.NewPriority}" />
+        <SwitchCell Text="Passthrough" On="{Binding Entity.Passthrough}" />
+        <EntryCell Label="Id" IsEnabled="False" Text="{Binding Entity.Id}" />
+        <EntryCell Label="Chain" Text="{Binding Entity.Chain}" />
+        <EntryCell Label="In Bridge" Text="{Binding Entity.InBridge}" />
+        <EntryCell Label="In Interface" Text="{Binding Entity.InInterface}" />
+        <EntryCell Label="Out Bridge" Text="{Binding Entity.OutBridge}" />
+        <EntryCell Label="Out Interface" Text="{Binding Entity.OutInterface}" />
+        <EntryCell Label="Src Mac Address" Text="{Binding Entity.SrcMacAddress}" />
+        <EntryCell Label="Dst Mac Address" Text="{Binding Entity.DstMacAddress}" />
+        <EntryCell Label="Mac Protocol" Text="{Binding Entity.MacProtocol}" />
+        <EntryCell Label="Src Address" Text="{Binding Entity.SrcAddress}" />
+        <EntryCell Label="Src Port" Text="{Binding Entity.SrcPort}" />
+        <EntryCell Label="Dst Address" Text="{Binding Entity.DstAddress}" />
+        <EntryCell Label="Dst Port" Text="{Binding Entity.DstPort}" />
+        <EntryCell Label="Ip Protocol" Text="{Binding Entity.IpProtocol}" />
+        <EntryCell Label="Packet Mark" Text="{Binding Entity.PacketMark}" />
+        <EntryCell Label="Ingress Priority" Text="{Binding Entity.IngressPriority}" />
+        <EntryCell Label="Comment" Text="{Binding Entity.Comment}" />
+<!--
+        <EntryCell Label="Bridge Filter" Text="{Binding Entity.PropertyName}" />
+        <SwitchCell Text="Bridge Filter" On="{Binding Entity.PropertyName}" />
+        <ViewCell>
+            <FlexLayout Wrap="Wrap">
+              <Label Text="Bridge Filter"
+                     FlexLayout.Basis="25%" />
+              <controls:Picker x:TypeArguments="models:EnumName"
+                               SelectedItem="{Binding Entity.PropertyName}"
+                               FlexLayout.Basis="75%" />
+            </FlexLayout>
+        </ViewCell>
+-->
+      </TableSection>
+      <TableSection Title="Commands">
+        <ViewCell>
+          <Button Text="Save"
+                  Command="{Binding SaveCommand}" />
+        </ViewCell>
+      </TableSection>
+    </TableRoot>
+  </TableView>
+</ContentPage>

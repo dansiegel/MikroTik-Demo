@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:behaviors="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+             xmlns:controls="clr-namespace:ModemConfigurator.Controls;ModemConfigurator"
+             xmlns:mvvm="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             mvvm:ViewModelLocator.AutowireViewModel="true"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:NavigationPage.PrefersLargeTitles="true"
+             ios:Page.UseSafeArea="true"
+             Title="{Binding Title}"
+             x:Class="ModemConfigurator.Views.WirelessAccessListDetailPage">
+  <TableView HasUnevenRows="true"
+             Intent="Form">
+    <TableRoot>
+      <TableSection Title="Wireless Access List">
+        <ViewCell>
+          <Frame BackgroundColor="Teal">
+            <Label Text="interface/wireless/access-list"
+                   FontSize="Large"
+                   TextColor="WhiteSmoke" />
+          </Frame>
+        </ViewCell>
+
+        <EntryCell Label="Id" IsEnabled="False" Text="{Binding Entity.Id}" />
+        <EntryCell Label="Ap Tx Limit" Keyboard="Numeric" Text="{Binding Entity.ApTxLimit}" />
+        <SwitchCell Text="Authentication" On="{Binding Entity.Authentication}" />
+        <EntryCell Label="Client Tx Limit" Keyboard="Numeric" Text="{Binding Entity.ClientTxLimit}" />
+        <EntryCell Label="Comment" Text="{Binding Entity.Comment}" />
+        <SwitchCell Text="Disabled" On="{Binding Entity.Disabled}" />
+        <SwitchCell Text="Forwarding" On="{Binding Entity.Forwarding}" />
+        <EntryCell Label="Interface" Text="{Binding Entity.Interface}" />
+        <EntryCell Label="Mac Address" Text="{Binding Entity.MacAddress}" />
+        <EntryCell Label="Management Protection Key" Text="{Binding Entity.ManagementProtectionKey}" />
+        <EntryCell Label="Private Algo" Text="{Binding Entity.PrivateAlgo}" />
+        <EntryCell Label="Private Key" Text="{Binding Entity.PrivateKey}" />
+        <EntryCell Label="Private Pre Shared Key" Text="{Binding Entity.PrivatePreSharedKey}" />
+        <EntryCell Label="Signal Range" Text="{Binding Entity.SignalRange}" />
+        <EntryCell Label="Time" Text="{Binding Entity.Time}" />
+<!--
+        <EntryCell Label="Wireless Access List" Text="{Binding Entity.PropertyName}" />
+        <SwitchCell Text="Wireless Access List" On="{Binding Entity.PropertyName}" />
+        <ViewCell>
+            <FlexLayout Wrap="Wrap">
+              <Label Text="Wireless Access List"
+                     FlexLayout.Basis="25%" />
+              <controls:Picker x:TypeArguments="models:EnumName"
+                               SelectedItem="{Binding Entity.PropertyName}"
+                               FlexLayout.Basis="75%" />
+            </FlexLayout>
+        </ViewCell>
+-->
+      </TableSection>
+      <TableSection Title="Commands">
+        <ViewCell>
+          <Button Text="Save"
+                  Command="{Binding SaveCommand}" />
+        </ViewCell>
+      </TableSection>
+    </TableRoot>
+  </TableView>
+</ContentPage>

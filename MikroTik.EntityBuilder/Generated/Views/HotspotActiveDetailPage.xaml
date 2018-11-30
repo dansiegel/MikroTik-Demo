@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:behaviors="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+             xmlns:controls="clr-namespace:ModemConfigurator.Controls;ModemConfigurator"
+             xmlns:mvvm="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             mvvm:ViewModelLocator.AutowireViewModel="true"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:NavigationPage.PrefersLargeTitles="true"
+             ios:Page.UseSafeArea="true"
+             Title="{Binding Title}"
+             x:Class="ModemConfigurator.Views.HotspotActiveDetailPage">
+  <TableView HasUnevenRows="true"
+             Intent="Form">
+    <TableRoot>
+      <TableSection Title="Hotspot Active">
+        <ViewCell>
+          <Frame BackgroundColor="Teal">
+            <Label Text="ip/hotspot/active"
+                   FontSize="Large"
+                   TextColor="WhiteSmoke" />
+          </Frame>
+        </ViewCell>
+
+        <EntryCell Label="Id" IsEnabled="False" Text="{Binding Entity.Id}" />
+        <EntryCell Label="Server" IsEnabled="False" Text="{Binding Entity.Server}" />
+        <EntryCell Label="Address" IsEnabled="False" Text="{Binding Entity.Address}" />
+        <EntryCell Label="User Name" IsEnabled="False" Text="{Binding Entity.UserName}" />
+        <EntryCell Label="Mac Address" IsEnabled="False" Text="{Binding Entity.MacAddress}" />
+        <EntryCell Label="Login By" IsEnabled="False" Text="{Binding Entity.LoginBy}" />
+        <EntryCell Label="Up Time" IsEnabled="False" Text="{Binding Entity.UpTime}" />
+        <EntryCell Label="Idle Time" IsEnabled="False" Text="{Binding Entity.IdleTime}" />
+        <EntryCell Label="Session Time Left" IsEnabled="False" Text="{Binding Entity.SessionTimeLeft}" />
+        <EntryCell Label="Idle Timeout" IsEnabled="False" Text="{Binding Entity.IdleTimeout}" />
+        <EntryCell Label="Bytes In" Keyboard="Numeric" IsEnabled="False" Text="{Binding Entity.BytesIn}" />
+        <EntryCell Label="Bytes Out" Keyboard="Numeric" IsEnabled="False" Text="{Binding Entity.BytesOut}" />
+<!--
+        <EntryCell Label="Hotspot Active" Text="{Binding Entity.PropertyName}" />
+        <SwitchCell Text="Hotspot Active" On="{Binding Entity.PropertyName}" />
+        <ViewCell>
+            <FlexLayout Wrap="Wrap">
+              <Label Text="Hotspot Active"
+                     FlexLayout.Basis="25%" />
+              <controls:Picker x:TypeArguments="models:EnumName"
+                               SelectedItem="{Binding Entity.PropertyName}"
+                               FlexLayout.Basis="75%" />
+            </FlexLayout>
+        </ViewCell>
+-->
+      </TableSection>
+      <TableSection Title="Commands">
+        <ViewCell>
+          <Button Text="Save"
+                  Command="{Binding SaveCommand}" />
+        </ViewCell>
+      </TableSection>
+    </TableRoot>
+  </TableView>
+</ContentPage>

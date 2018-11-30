@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:behaviors="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+             xmlns:controls="clr-namespace:ModemConfigurator.Controls;ModemConfigurator"
+             xmlns:mvvm="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             mvvm:ViewModelLocator.AutowireViewModel="true"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:NavigationPage.PrefersLargeTitles="true"
+             ios:Page.UseSafeArea="true"
+             Title="{Binding Title}"
+             x:Class="ModemConfigurator.Views.FirewallFilterDetailPage">
+  <TableView HasUnevenRows="true"
+             Intent="Form">
+    <TableRoot>
+      <TableSection Title="Firewall Filter">
+        <ViewCell>
+          <Frame BackgroundColor="Teal">
+            <Label Text="/ip/firewall/filter"
+                   FontSize="Large"
+                   TextColor="WhiteSmoke" />
+          </Frame>
+        </ViewCell>
+
+        <EntryCell Label="Id" IsEnabled="False" Text="{Binding Entity.Id}" />
+        <EntryCell Label="Address List" Text="{Binding Entity.AddressList}" />
+        <EntryCell Label="Address List Timeout" Text="{Binding Entity.AddressListTimeout}" />
+        <EntryCell Label="Chain" Text="{Binding Entity.Chain}" />
+        <EntryCell Label="Comment" Text="{Binding Entity.Comment}" />
+        <EntryCell Label="Connection Bytes" Keyboard="Numeric" Text="{Binding Entity.ConnectionBytes}" />
+        <EntryCell Label="Connection Limit" Keyboard="Numeric" Text="{Binding Entity.ConnectionLimit}" />
+        <EntryCell Label="Connection Mark" Text="{Binding Entity.ConnectionMark}" />
+        <EntryCell Label="Connection Rate" Keyboard="Numeric" Text="{Binding Entity.ConnectionRate}" />
+        <EntryCell Label="Connection Type" Text="{Binding Entity.ConnectionType}" />
+        <EntryCell Label="Content" Text="{Binding Entity.Content}" />
+        <EntryCell Label="Dscp" Keyboard="Numeric" Text="{Binding Entity.Dscp}" />
+        <EntryCell Label="Dst Address" Text="{Binding Entity.DstAddress}" />
+        <EntryCell Label="Dst Address List" Text="{Binding Entity.DstAddressList}" />
+        <EntryCell Label="Dst Address Type" Text="{Binding Entity.DstAddressType}" />
+        <EntryCell Label="Dst Limit" Text="{Binding Entity.DstLimit}" />
+        <EntryCell Label="Dst Port" Text="{Binding Entity.DstPort}" />
+        <SwitchCell Text="Fragment" On="{Binding Entity.Fragment}" />
+        <EntryCell Label="Hotspot" Text="{Binding Entity.Hotspot}" />
+        <EntryCell Label="Icmp Options" Text="{Binding Entity.IcmpOptions}" />
+        <EntryCell Label="In Bridge Port" Text="{Binding Entity.InBridgePort}" />
+        <EntryCell Label="In Interface" Text="{Binding Entity.InInterface}" />
+        <EntryCell Label="Ingress Priority" Keyboard="Numeric" Text="{Binding Entity.IngressPriority}" />
+        <EntryCell Label="Ipv 4 Options" Text="{Binding Entity.Ipv4Options}" />
+        <EntryCell Label="Jump Target" Text="{Binding Entity.JumpTarget}" />
+        <EntryCell Label="Layer 7 Protocol" Text="{Binding Entity.Layer7Protocol}" />
+        <EntryCell Label="Limit" Text="{Binding Entity.Limit}" />
+        <EntryCell Label="Log Prefix" Text="{Binding Entity.LogPrefix}" />
+        <EntryCell Label="Nth" Text="{Binding Entity.Nth}" />
+        <EntryCell Label="Out Bridge Port" Text="{Binding Entity.OutBridgePort}" />
+        <EntryCell Label="Out Interface" Text="{Binding Entity.OutInterface}" />
+        <EntryCell Label="P 2p" Text="{Binding Entity.P2p}" />
+        <EntryCell Label="Packet Mark" Text="{Binding Entity.PacketMark}" />
+        <EntryCell Label="Packet Size" Text="{Binding Entity.PacketSize}" />
+        <EntryCell Label="Per Connection Classifier" Text="{Binding Entity.PerConnectionClassifier}" />
+        <EntryCell Label="Port" Text="{Binding Entity.Port}" />
+        <EntryCell Label="Protocol" Text="{Binding Entity.Protocol}" />
+        <EntryCell Label="Psd" Text="{Binding Entity.Psd}" />
+        <EntryCell Label="Random" Text="{Binding Entity.Random}" />
+        <EntryCell Label="Reject With" Text="{Binding Entity.RejectWith}" />
+        <EntryCell Label="Routing Mark" Text="{Binding Entity.RoutingMark}" />
+        <EntryCell Label="Src Address" Text="{Binding Entity.SrcAddress}" />
+        <EntryCell Label="Src Address List" Text="{Binding Entity.SrcAddressList}" />
+        <EntryCell Label="Src Address Type" Text="{Binding Entity.SrcAddressType}" />
+        <EntryCell Label="Src Port" Text="{Binding Entity.SrcPort}" />
+        <EntryCell Label="Src Mac Address" Text="{Binding Entity.SrcMacAddress}" />
+        <EntryCell Label="Tcp Flags" Text="{Binding Entity.TcpFlags}" />
+        <EntryCell Label="Tcp Mss" Text="{Binding Entity.TcpMss}" />
+        <EntryCell Label="Time" Text="{Binding Entity.Time}" />
+        <EntryCell Label="Ttl" Text="{Binding Entity.Ttl}" />
+        <SwitchCell Text="Disabled" On="{Binding Entity.Disabled}" />
+        <SwitchCell Text="Dynamic" On="{Binding Entity.Dynamic}" />
+        <SwitchCell Text="Invalid" On="{Binding Entity.Invalid}" />
+<!--
+        <EntryCell Label="Firewall Filter" Text="{Binding Entity.PropertyName}" />
+        <SwitchCell Text="Firewall Filter" On="{Binding Entity.PropertyName}" />
+        <ViewCell>
+            <FlexLayout Wrap="Wrap">
+              <Label Text="Firewall Filter"
+                     FlexLayout.Basis="25%" />
+              <controls:Picker x:TypeArguments="models:EnumName"
+                               SelectedItem="{Binding Entity.PropertyName}"
+                               FlexLayout.Basis="75%" />
+            </FlexLayout>
+        </ViewCell>
+-->
+      </TableSection>
+      <TableSection Title="Commands">
+        <ViewCell>
+          <Button Text="Save"
+                  Command="{Binding SaveCommand}" />
+        </ViewCell>
+      </TableSection>
+    </TableRoot>
+  </TableView>
+</ContentPage>

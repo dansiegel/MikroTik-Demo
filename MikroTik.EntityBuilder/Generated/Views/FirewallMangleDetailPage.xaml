@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:behaviors="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+             xmlns:controls="clr-namespace:ModemConfigurator.Controls;ModemConfigurator"
+             xmlns:mvvm="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             mvvm:ViewModelLocator.AutowireViewModel="true"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:NavigationPage.PrefersLargeTitles="true"
+             ios:Page.UseSafeArea="true"
+             Title="{Binding Title}"
+             x:Class="ModemConfigurator.Views.FirewallMangleDetailPage">
+  <TableView HasUnevenRows="true"
+             Intent="Form">
+    <TableRoot>
+      <TableSection Title="Firewall Mangle">
+        <ViewCell>
+          <Frame BackgroundColor="Teal">
+            <Label Text="/ip/firewall/mangle"
+                   FontSize="Large"
+                   TextColor="WhiteSmoke" />
+          </Frame>
+        </ViewCell>
+
+        <EntryCell Label="Id" IsEnabled="False" Text="{Binding Entity.Id}" />
+        <EntryCell Label="Chain" Text="{Binding Entity.Chain}" />
+        <EntryCell Label="New Priority" Text="{Binding Entity.NewPriority}" />
+        <SwitchCell Text="Passthrough" On="{Binding Entity.Passthrough}" />
+        <EntryCell Label="Src Address List" Text="{Binding Entity.SrcAddressList}" />
+        <SwitchCell Text="Invalid" On="{Binding Entity.Invalid}" />
+        <SwitchCell Text="Dynamic" On="{Binding Entity.Dynamic}" />
+        <SwitchCell Text="Disabled" On="{Binding Entity.Disabled}" />
+        <EntryCell Label="New Packet Mark" Text="{Binding Entity.NewPacketMark}" />
+        <EntryCell Label="Comment" Text="{Binding Entity.Comment}" />
+        <EntryCell Label="Dst Address List" Text="{Binding Entity.DstAddressList}" />
+        <EntryCell Label="Protocol" Text="{Binding Entity.Protocol}" />
+        <EntryCell Label="Src Address" Text="{Binding Entity.SrcAddress}" />
+        <EntryCell Label="Dst Address" Text="{Binding Entity.DstAddress}" />
+        <EntryCell Label="Jump Target" Text="{Binding Entity.JumpTarget}" />
+        <EntryCell Label="Address List" Text="{Binding Entity.AddressList}" />
+        <EntryCell Label="Address List Timeout" Text="{Binding Entity.AddressListTimeout}" />
+<!--
+        <EntryCell Label="Firewall Mangle" Text="{Binding Entity.PropertyName}" />
+        <SwitchCell Text="Firewall Mangle" On="{Binding Entity.PropertyName}" />
+        <ViewCell>
+            <FlexLayout Wrap="Wrap">
+              <Label Text="Firewall Mangle"
+                     FlexLayout.Basis="25%" />
+              <controls:Picker x:TypeArguments="models:EnumName"
+                               SelectedItem="{Binding Entity.PropertyName}"
+                               FlexLayout.Basis="75%" />
+            </FlexLayout>
+        </ViewCell>
+-->
+      </TableSection>
+      <TableSection Title="Commands">
+        <ViewCell>
+          <Button Text="Save"
+                  Command="{Binding SaveCommand}" />
+        </ViewCell>
+      </TableSection>
+    </TableRoot>
+  </TableView>
+</ContentPage>

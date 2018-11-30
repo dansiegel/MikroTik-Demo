@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:behaviors="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+             xmlns:controls="clr-namespace:ModemConfigurator.Controls;ModemConfigurator"
+             xmlns:mvvm="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             mvvm:ViewModelLocator.AutowireViewModel="true"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:NavigationPage.PrefersLargeTitles="true"
+             ios:Page.UseSafeArea="true"
+             Title="{Binding Title}"
+             x:Class="ModemConfigurator.Views.CapsManRegistrationTableDetailPage">
+  <TableView HasUnevenRows="true"
+             Intent="Form">
+    <TableRoot>
+      <TableSection Title="Caps Man Registration Table">
+        <ViewCell>
+          <Frame BackgroundColor="Teal">
+            <Label Text="caps-man/registration-table"
+                   FontSize="Large"
+                   TextColor="WhiteSmoke" />
+          </Frame>
+        </ViewCell>
+
+        <EntryCell Label="Id" IsEnabled="False" Text="{Binding Entity.Id}" />
+        <EntryCell Label="MAC Address" IsEnabled="False" Text="{Binding Entity.MACAddress}" />
+        <EntryCell Label="Interface" IsEnabled="False" Text="{Binding Entity.Interface}" />
+        <EntryCell Label="Uptime" IsEnabled="False" Text="{Binding Entity.Uptime}" />
+        <EntryCell Label="SSID" IsEnabled="False" Text="{Binding Entity.SSID}" />
+        <EntryCell Label="Tx Rate" IsEnabled="False" Text="{Binding Entity.TxRate}" />
+        <EntryCell Label="Tx Rate Set" IsEnabled="False" Text="{Binding Entity.TxRateSet}" />
+        <EntryCell Label="Rx Rate" IsEnabled="False" Text="{Binding Entity.RxRate}" />
+        <EntryCell Label="Signal" Keyboard="Numeric" IsEnabled="False" Text="{Binding Entity.Signal}" />
+        <EntryCell Label="Packets" IsEnabled="False" Text="{Binding Entity.Packets}" />
+        <EntryCell Label="Bytes" IsEnabled="False" Text="{Binding Entity.Bytes}" />
+        <EntryCell Label="Comment" IsEnabled="False" Text="{Binding Entity.Comment}" />
+<!--
+        <EntryCell Label="Caps Man Registration Table" Text="{Binding Entity.PropertyName}" />
+        <SwitchCell Text="Caps Man Registration Table" On="{Binding Entity.PropertyName}" />
+        <ViewCell>
+            <FlexLayout Wrap="Wrap">
+              <Label Text="Caps Man Registration Table"
+                     FlexLayout.Basis="25%" />
+              <controls:Picker x:TypeArguments="models:EnumName"
+                               SelectedItem="{Binding Entity.PropertyName}"
+                               FlexLayout.Basis="75%" />
+            </FlexLayout>
+        </ViewCell>
+-->
+      </TableSection>
+      <TableSection Title="Commands">
+        <ViewCell>
+          <Button Text="Save"
+                  Command="{Binding SaveCommand}" />
+        </ViewCell>
+      </TableSection>
+    </TableRoot>
+  </TableView>
+</ContentPage>

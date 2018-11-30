@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:behaviors="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+             xmlns:mvvm="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             mvvm:ViewModelLocator.AutowireViewModel="true"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:NavigationPage.PrefersLargeTitles="true"
+             ios:Page.UseSafeArea="true"
+             Title="{Binding Title}"
+             x:Class="ModemConfigurator.Views.BridgePortPage">
+  <ContentPage.ToolbarItems>
+    <ToolbarItem Icon="add.png" 
+                 Text="Add"
+                 Command="{Binding AddItemCommand}" />
+  </ContentPage.ToolbarItems>
+  <ListView ItemsSource="{Binding Items}"
+              HasUnevenRows="true">
+    <ListView.Behaviors>
+      <behaviors:EventToCommandBehavior EventName="ItemTapped"
+                                        EventArgsParameterPath="Item"
+                                        Command="{Binding ItemSelectedCommand}" />
+    </ListView.Behaviors>
+    <ListView.Header>
+      <Frame BackgroundColor="Teal">
+        <Label Text="interface/bridge/port"
+               FontSize="Large"
+               TextColor="WhiteSmoke" />
+      </Frame>
+    </ListView.Header>
+    <ListView.ItemTemplate>
+      <DataTemplate>
+        <ViewCell>
+          <FlexLayout Padding="20,0"
+                      Wrap="Wrap">
+            <Label Text="Id" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Id}" FlexLayout.Basis="50%" />
+            <Label Text="Interface" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Interface}" FlexLayout.Basis="50%" />
+            <Label Text="Bridge" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Bridge}" FlexLayout.Basis="50%" />
+            <Label Text="Priority" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Priority}" FlexLayout.Basis="50%" />
+            <Label Text="PathCost" FlexLayout.Basis="50%" />
+            <Label Text="{Binding PathCost}" FlexLayout.Basis="50%" />
+            <Label Text="Horizon" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Horizon}" FlexLayout.Basis="50%" />
+            <Label Text="Edge" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Edge}" FlexLayout.Basis="50%" />
+            <Label Text="PointToPoint" FlexLayout.Basis="50%" />
+            <Label Text="{Binding PointToPoint}" FlexLayout.Basis="50%" />
+            <Label Text="ExternalFdb" FlexLayout.Basis="50%" />
+            <Label Text="{Binding ExternalFdb}" FlexLayout.Basis="50%" />
+            <Label Text="AutoIsolate" FlexLayout.Basis="50%" />
+            <Label Text="{Binding AutoIsolate}" FlexLayout.Basis="50%" />
+
+          </FlexLayout>
+        </ViewCell>
+      </DataTemplate>
+    </ListView.ItemTemplate>
+    <ListView.Footer>
+      <StackLayout Spacing="0">
+        <Label Text="    Connected"
+                TextColor="White"
+                BackgroundColor="Green"
+                IsVisible="{Binding IsConnected}" />
+        <Label Text="    Not Connected"
+                TextColor="White"
+                BackgroundColor="Red"
+                IsVisible="{Binding IsNotConnected}" />
+      </StackLayout>
+    </ListView.Footer>
+  </ListView>
+</ContentPage>

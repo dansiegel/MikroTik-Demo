@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:behaviors="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+             xmlns:controls="clr-namespace:ModemConfigurator.Controls;ModemConfigurator"
+             xmlns:mvvm="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             mvvm:ViewModelLocator.AutowireViewModel="true"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:NavigationPage.PrefersLargeTitles="true"
+             ios:Page.UseSafeArea="true"
+             Title="{Binding Title}"
+             x:Class="ModemConfigurator.Views.WirelessSecurityProfileDetailPage">
+  <TableView HasUnevenRows="true"
+             Intent="Form">
+    <TableRoot>
+      <TableSection Title="Wireless Security Profile">
+        <ViewCell>
+          <Frame BackgroundColor="Teal">
+            <Label Text="interface/wireless/security-profiles"
+                   FontSize="Large"
+                   TextColor="WhiteSmoke" />
+          </Frame>
+        </ViewCell>
+
+        <EntryCell Label="Id" IsEnabled="False" Text="{Binding Entity.Id}" />
+        <EntryCell Label="Comment" Text="{Binding Entity.Comment}" />
+        <EntryCell Label="Name" Text="{Binding Entity.Name}" />
+        <SwitchCell Text="Management Protection" On="{Binding Entity.ManagementProtection}" />
+        <EntryCell Label="Management Protection Key" Text="{Binding Entity.ManagementProtectionKey}" />
+        <EntryCell Label="Wpa Pre Shared Key" Text="{Binding Entity.WpaPreSharedKey}" />
+        <EntryCell Label="Wpa 2 Pre Shared Key" Text="{Binding Entity.Wpa2PreSharedKey}" />
+        <EntryCell Label="Authentication Types" Text="{Binding Entity.AuthenticationTypes}" />
+        <EntryCell Label="Group Ciphers" Text="{Binding Entity.GroupCiphers}" />
+        <EntryCell Label="Unicast Ciphers" Text="{Binding Entity.UnicastCiphers}" />
+        <EntryCell Label="Supplicant Identiy" Text="{Binding Entity.SupplicantIdentiy}" />
+        <EntryCell Label="Group Key Update" Text="{Binding Entity.GroupKeyUpdate}" />
+<!--
+        <EntryCell Label="Wireless Security Profile" Text="{Binding Entity.PropertyName}" />
+        <SwitchCell Text="Wireless Security Profile" On="{Binding Entity.PropertyName}" />
+        <ViewCell>
+            <FlexLayout Wrap="Wrap">
+              <Label Text="Wireless Security Profile"
+                     FlexLayout.Basis="25%" />
+              <controls:Picker x:TypeArguments="models:EnumName"
+                               SelectedItem="{Binding Entity.PropertyName}"
+                               FlexLayout.Basis="75%" />
+            </FlexLayout>
+        </ViewCell>
+-->
+      </TableSection>
+      <TableSection Title="Commands">
+        <ViewCell>
+          <Button Text="Save"
+                  Command="{Binding SaveCommand}" />
+        </ViewCell>
+      </TableSection>
+    </TableRoot>
+  </TableView>
+</ContentPage>

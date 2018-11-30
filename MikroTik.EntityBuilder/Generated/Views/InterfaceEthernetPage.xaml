@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:behaviors="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+             xmlns:mvvm="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             mvvm:ViewModelLocator.AutowireViewModel="true"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:NavigationPage.PrefersLargeTitles="true"
+             ios:Page.UseSafeArea="true"
+             Title="{Binding Title}"
+             x:Class="ModemConfigurator.Views.InterfaceEthernetPage">
+  <ContentPage.ToolbarItems>
+    <ToolbarItem Icon="add.png" 
+                 Text="Add"
+                 Command="{Binding AddItemCommand}" />
+  </ContentPage.ToolbarItems>
+  <ListView ItemsSource="{Binding Items}"
+              HasUnevenRows="true">
+    <ListView.Behaviors>
+      <behaviors:EventToCommandBehavior EventName="ItemTapped"
+                                        EventArgsParameterPath="Item"
+                                        Command="{Binding ItemSelectedCommand}" />
+    </ListView.Behaviors>
+    <ListView.Header>
+      <Frame BackgroundColor="Teal">
+        <Label Text="interface/ethernet"
+               FontSize="Large"
+               TextColor="WhiteSmoke" />
+      </Frame>
+    </ListView.Header>
+    <ListView.ItemTemplate>
+      <DataTemplate>
+        <ViewCell>
+          <FlexLayout Padding="20,0"
+                      Wrap="Wrap">
+            <Label Text="Id" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Id}" FlexLayout.Basis="50%" />
+            <Label Text="Arp" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Arp}" FlexLayout.Basis="50%" />
+            <Label Text="AutoNegotiation" FlexLayout.Basis="50%" />
+            <Label Text="{Binding AutoNegotiation}" FlexLayout.Basis="50%" />
+            <Label Text="Bandwidth" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Bandwidth}" FlexLayout.Basis="50%" />
+            <Label Text="CableSetting" FlexLayout.Basis="50%" />
+            <Label Text="{Binding CableSetting}" FlexLayout.Basis="50%" />
+            <Label Text="Comment" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Comment}" FlexLayout.Basis="50%" />
+            <Label Text="DisableRunningCheck" FlexLayout.Basis="50%" />
+            <Label Text="{Binding DisableRunningCheck}" FlexLayout.Basis="50%" />
+            <Label Text="FlowControlTx" FlexLayout.Basis="50%" />
+            <Label Text="{Binding FlowControlTx}" FlexLayout.Basis="50%" />
+            <Label Text="FlowControlRx" FlexLayout.Basis="50%" />
+            <Label Text="{Binding FlowControlRx}" FlexLayout.Basis="50%" />
+            <Label Text="FlowControlAuto" FlexLayout.Basis="50%" />
+            <Label Text="{Binding FlowControlAuto}" FlexLayout.Basis="50%" />
+            <Label Text="FullDuplex" FlexLayout.Basis="50%" />
+            <Label Text="{Binding FullDuplex}" FlexLayout.Basis="50%" />
+            <Label Text="L2mtu" FlexLayout.Basis="50%" />
+            <Label Text="{Binding L2mtu}" FlexLayout.Basis="50%" />
+            <Label Text="MacAddress" FlexLayout.Basis="50%" />
+            <Label Text="{Binding MacAddress}" FlexLayout.Basis="50%" />
+            <Label Text="MasterPort" FlexLayout.Basis="50%" />
+            <Label Text="{Binding MasterPort}" FlexLayout.Basis="50%" />
+            <Label Text="MdixEnable" FlexLayout.Basis="50%" />
+            <Label Text="{Binding MdixEnable}" FlexLayout.Basis="50%" />
+            <Label Text="Mtu" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Mtu}" FlexLayout.Basis="50%" />
+            <Label Text="Name" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Name}" FlexLayout.Basis="50%" />
+            <Label Text="OrigMacAddress" FlexLayout.Basis="50%" />
+            <Label Text="{Binding OrigMacAddress}" FlexLayout.Basis="50%" />
+            <Label Text="PoeOut" FlexLayout.Basis="50%" />
+            <Label Text="{Binding PoeOut}" FlexLayout.Basis="50%" />
+            <Label Text="PoePriority" FlexLayout.Basis="50%" />
+            <Label Text="{Binding PoePriority}" FlexLayout.Basis="50%" />
+            <Label Text="SfpRateSelect" FlexLayout.Basis="50%" />
+            <Label Text="{Binding SfpRateSelect}" FlexLayout.Basis="50%" />
+            <Label Text="Speed" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Speed}" FlexLayout.Basis="50%" />
+            <Label Text="Running" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Running}" FlexLayout.Basis="50%" />
+            <Label Text="Rx10241518" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Rx10241518}" FlexLayout.Basis="50%" />
+            <Label Text="Rx128255" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Rx128255}" FlexLayout.Basis="50%" />
+            <Label Text="Rx1519Max" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Rx1519Max}" FlexLayout.Basis="50%" />
+            <Label Text="Rx256511" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Rx256511}" FlexLayout.Basis="50%" />
+            <Label Text="Rx5121023" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Rx5121023}" FlexLayout.Basis="50%" />
+            <Label Text="Rx64" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Rx64}" FlexLayout.Basis="50%" />
+            <Label Text="Rx65127" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Rx65127}" FlexLayout.Basis="50%" />
+            <Label Text="RxAlignError" FlexLayout.Basis="50%" />
+            <Label Text="{Binding RxAlignError}" FlexLayout.Basis="50%" />
+            <Label Text="RxBroadcast" FlexLayout.Basis="50%" />
+            <Label Text="{Binding RxBroadcast}" FlexLayout.Basis="50%" />
+            <Label Text="RxBytes" FlexLayout.Basis="50%" />
+            <Label Text="{Binding RxBytes}" FlexLayout.Basis="50%" />
+            <Label Text="RxFcsError" FlexLayout.Basis="50%" />
+            <Label Text="{Binding RxFcsError}" FlexLayout.Basis="50%" />
+            <Label Text="RxFragment" FlexLayout.Basis="50%" />
+            <Label Text="{Binding RxFragment}" FlexLayout.Basis="50%" />
+            <Label Text="RxMulticast" FlexLayout.Basis="50%" />
+            <Label Text="{Binding RxMulticast}" FlexLayout.Basis="50%" />
+            <Label Text="RxOverflow" FlexLayout.Basis="50%" />
+            <Label Text="{Binding RxOverflow}" FlexLayout.Basis="50%" />
+            <Label Text="RxPause" FlexLayout.Basis="50%" />
+            <Label Text="{Binding RxPause}" FlexLayout.Basis="50%" />
+            <Label Text="RxRunt" FlexLayout.Basis="50%" />
+            <Label Text="{Binding RxRunt}" FlexLayout.Basis="50%" />
+            <Label Text="RxTooLong" FlexLayout.Basis="50%" />
+            <Label Text="{Binding RxTooLong}" FlexLayout.Basis="50%" />
+            <Label Text="Slave" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Slave}" FlexLayout.Basis="50%" />
+            <Label Text="Switch" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Switch}" FlexLayout.Basis="50%" />
+            <Label Text="Tx10241518" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Tx10241518}" FlexLayout.Basis="50%" />
+            <Label Text="Tx128255" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Tx128255}" FlexLayout.Basis="50%" />
+            <Label Text="Tx1519Max" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Tx1519Max}" FlexLayout.Basis="50%" />
+            <Label Text="Tx256511" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Tx256511}" FlexLayout.Basis="50%" />
+            <Label Text="Tx5121023" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Tx5121023}" FlexLayout.Basis="50%" />
+            <Label Text="Tx64" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Tx64}" FlexLayout.Basis="50%" />
+            <Label Text="Tx65127" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Tx65127}" FlexLayout.Basis="50%" />
+            <Label Text="TxAlignError" FlexLayout.Basis="50%" />
+            <Label Text="{Binding TxAlignError}" FlexLayout.Basis="50%" />
+            <Label Text="TxBroadcast" FlexLayout.Basis="50%" />
+            <Label Text="{Binding TxBroadcast}" FlexLayout.Basis="50%" />
+            <Label Text="TxBytes" FlexLayout.Basis="50%" />
+            <Label Text="{Binding TxBytes}" FlexLayout.Basis="50%" />
+            <Label Text="TxFcsError" FlexLayout.Basis="50%" />
+            <Label Text="{Binding TxFcsError}" FlexLayout.Basis="50%" />
+            <Label Text="TxFragment" FlexLayout.Basis="50%" />
+            <Label Text="{Binding TxFragment}" FlexLayout.Basis="50%" />
+            <Label Text="TxMulticast" FlexLayout.Basis="50%" />
+            <Label Text="{Binding TxMulticast}" FlexLayout.Basis="50%" />
+            <Label Text="TxOverflow" FlexLayout.Basis="50%" />
+            <Label Text="{Binding TxOverflow}" FlexLayout.Basis="50%" />
+            <Label Text="TxPause" FlexLayout.Basis="50%" />
+            <Label Text="{Binding TxPause}" FlexLayout.Basis="50%" />
+            <Label Text="TxRunt" FlexLayout.Basis="50%" />
+            <Label Text="{Binding TxRunt}" FlexLayout.Basis="50%" />
+            <Label Text="TxTooLong" FlexLayout.Basis="50%" />
+            <Label Text="{Binding TxTooLong}" FlexLayout.Basis="50%" />
+            <Label Text="Disabled" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Disabled}" FlexLayout.Basis="50%" />
+
+          </FlexLayout>
+        </ViewCell>
+      </DataTemplate>
+    </ListView.ItemTemplate>
+    <ListView.Footer>
+      <StackLayout Spacing="0">
+        <Label Text="    Connected"
+                TextColor="White"
+                BackgroundColor="Green"
+                IsVisible="{Binding IsConnected}" />
+        <Label Text="    Not Connected"
+                TextColor="White"
+                BackgroundColor="Red"
+                IsVisible="{Binding IsNotConnected}" />
+      </StackLayout>
+    </ListView.Footer>
+  </ListView>
+</ContentPage>

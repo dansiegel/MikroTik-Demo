@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:behaviors="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+             xmlns:controls="clr-namespace:ModemConfigurator.Controls;ModemConfigurator"
+             xmlns:mvvm="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             mvvm:ViewModelLocator.AutowireViewModel="true"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:NavigationPage.PrefersLargeTitles="true"
+             ios:Page.UseSafeArea="true"
+             Title="{Binding Title}"
+             x:Class="ModemConfigurator.Views.HotspotUserProfileDetailPage">
+  <TableView HasUnevenRows="true"
+             Intent="Form">
+    <TableRoot>
+      <TableSection Title="Hotspot User Profile">
+        <ViewCell>
+          <Frame BackgroundColor="Teal">
+            <Label Text="ip/hotspot/user/profile"
+                   FontSize="Large"
+                   TextColor="WhiteSmoke" />
+          </Frame>
+        </ViewCell>
+
+        <EntryCell Label="Id" IsEnabled="False" Text="{Binding Entity.Id}" />
+        <SwitchCell Text="Add Mac Cookie" On="{Binding Entity.AddMacCookie}" />
+        <EntryCell Label="Address List" Text="{Binding Entity.AddressList}" />
+        <EntryCell Label="Address Pool" Text="{Binding Entity.AddressPool}" />
+        <SwitchCell Text="Advertise" On="{Binding Entity.Advertise}" />
+        <EntryCell Label="Advertise Interval" Text="{Binding Entity.AdvertiseInterval}" />
+        <EntryCell Label="Advertise Timeout" Text="{Binding Entity.AdvertiseTimeout}" />
+        <EntryCell Label="Advertise Url" Text="{Binding Entity.AdvertiseUrl}" />
+        <EntryCell Label="Idle Timeout" Text="{Binding Entity.IdleTimeout}" />
+        <EntryCell Label="Incoming Filter" Text="{Binding Entity.IncomingFilter}" />
+        <EntryCell Label="Incoming Packet Mark" Text="{Binding Entity.IncomingPacketMark}" />
+        <EntryCell Label="Keepalive Timeout" Text="{Binding Entity.KeepaliveTimeout}" />
+        <EntryCell Label="Mac Cookie Timeout" Text="{Binding Entity.MacCookieTimeout}" />
+        <EntryCell Label="Name" Text="{Binding Entity.Name}" />
+        <EntryCell Label="On Login" Text="{Binding Entity.OnLogin}" />
+        <EntryCell Label="On Logout" Text="{Binding Entity.OnLogout}" />
+        <EntryCell Label="Open Status Page" Text="{Binding Entity.OpenStatusPage}" />
+        <EntryCell Label="Outgoing Filter" Text="{Binding Entity.OutgoingFilter}" />
+        <EntryCell Label="Outgoing Packet Mark" Text="{Binding Entity.OutgoingPacketMark}" />
+        <EntryCell Label="Rate Limit" Text="{Binding Entity.RateLimit}" />
+        <EntryCell Label="Session Timeout" Text="{Binding Entity.SessionTimeout}" />
+        <EntryCell Label="Shared Users" Text="{Binding Entity.SharedUsers}" />
+        <EntryCell Label="Status Autorefresh" Text="{Binding Entity.StatusAutorefresh}" />
+        <SwitchCell Text="Transparent Proxy" On="{Binding Entity.TransparentProxy}" />
+<!--
+        <EntryCell Label="Hotspot User Profile" Text="{Binding Entity.PropertyName}" />
+        <SwitchCell Text="Hotspot User Profile" On="{Binding Entity.PropertyName}" />
+        <ViewCell>
+            <FlexLayout Wrap="Wrap">
+              <Label Text="Hotspot User Profile"
+                     FlexLayout.Basis="25%" />
+              <controls:Picker x:TypeArguments="models:EnumName"
+                               SelectedItem="{Binding Entity.PropertyName}"
+                               FlexLayout.Basis="75%" />
+            </FlexLayout>
+        </ViewCell>
+-->
+      </TableSection>
+      <TableSection Title="Commands">
+        <ViewCell>
+          <Button Text="Save"
+                  Command="{Binding SaveCommand}" />
+        </ViewCell>
+      </TableSection>
+    </TableRoot>
+  </TableView>
+</ContentPage>

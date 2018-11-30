@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:behaviors="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+             xmlns:mvvm="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             mvvm:ViewModelLocator.AutowireViewModel="true"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:NavigationPage.PrefersLargeTitles="true"
+             ios:Page.UseSafeArea="true"
+             Title="{Binding Title}"
+             x:Class="ModemConfigurator.Views.BridgeNatPage">
+  <ContentPage.ToolbarItems>
+    <ToolbarItem Icon="add.png" 
+                 Text="Add"
+                 Command="{Binding AddItemCommand}" />
+  </ContentPage.ToolbarItems>
+  <ListView ItemsSource="{Binding Items}"
+              HasUnevenRows="true">
+    <ListView.Behaviors>
+      <behaviors:EventToCommandBehavior EventName="ItemTapped"
+                                        EventArgsParameterPath="Item"
+                                        Command="{Binding ItemSelectedCommand}" />
+    </ListView.Behaviors>
+    <ListView.Header>
+      <Frame BackgroundColor="Teal">
+        <Label Text="/interface/bridge/nat"
+               FontSize="Large"
+               TextColor="WhiteSmoke" />
+      </Frame>
+    </ListView.Header>
+    <ListView.ItemTemplate>
+      <DataTemplate>
+        <ViewCell>
+          <FlexLayout Padding="20,0"
+                      Wrap="Wrap">
+            <Label Text="Action" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Action}" FlexLayout.Basis="50%" />
+            <Label Text="ToArpReplyMacAddress" FlexLayout.Basis="50%" />
+            <Label Text="{Binding ToArpReplyMacAddress}" FlexLayout.Basis="50%" />
+            <Label Text="ToDstMacAddress" FlexLayout.Basis="50%" />
+            <Label Text="{Binding ToDstMacAddress}" FlexLayout.Basis="50%" />
+            <Label Text="ToSrcMacAddress" FlexLayout.Basis="50%" />
+            <Label Text="{Binding ToSrcMacAddress}" FlexLayout.Basis="50%" />
+            <Label Text="Id" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Id}" FlexLayout.Basis="50%" />
+            <Label Text="Chain" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Chain}" FlexLayout.Basis="50%" />
+            <Label Text="InBridge" FlexLayout.Basis="50%" />
+            <Label Text="{Binding InBridge}" FlexLayout.Basis="50%" />
+            <Label Text="InInterface" FlexLayout.Basis="50%" />
+            <Label Text="{Binding InInterface}" FlexLayout.Basis="50%" />
+            <Label Text="OutBridge" FlexLayout.Basis="50%" />
+            <Label Text="{Binding OutBridge}" FlexLayout.Basis="50%" />
+            <Label Text="OutInterface" FlexLayout.Basis="50%" />
+            <Label Text="{Binding OutInterface}" FlexLayout.Basis="50%" />
+            <Label Text="SrcMacAddress" FlexLayout.Basis="50%" />
+            <Label Text="{Binding SrcMacAddress}" FlexLayout.Basis="50%" />
+            <Label Text="DstMacAddress" FlexLayout.Basis="50%" />
+            <Label Text="{Binding DstMacAddress}" FlexLayout.Basis="50%" />
+            <Label Text="MacProtocol" FlexLayout.Basis="50%" />
+            <Label Text="{Binding MacProtocol}" FlexLayout.Basis="50%" />
+            <Label Text="SrcAddress" FlexLayout.Basis="50%" />
+            <Label Text="{Binding SrcAddress}" FlexLayout.Basis="50%" />
+            <Label Text="SrcPort" FlexLayout.Basis="50%" />
+            <Label Text="{Binding SrcPort}" FlexLayout.Basis="50%" />
+            <Label Text="DstAddress" FlexLayout.Basis="50%" />
+            <Label Text="{Binding DstAddress}" FlexLayout.Basis="50%" />
+            <Label Text="DstPort" FlexLayout.Basis="50%" />
+            <Label Text="{Binding DstPort}" FlexLayout.Basis="50%" />
+            <Label Text="IpProtocol" FlexLayout.Basis="50%" />
+            <Label Text="{Binding IpProtocol}" FlexLayout.Basis="50%" />
+            <Label Text="PacketMark" FlexLayout.Basis="50%" />
+            <Label Text="{Binding PacketMark}" FlexLayout.Basis="50%" />
+            <Label Text="IngressPriority" FlexLayout.Basis="50%" />
+            <Label Text="{Binding IngressPriority}" FlexLayout.Basis="50%" />
+            <Label Text="Comment" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Comment}" FlexLayout.Basis="50%" />
+
+          </FlexLayout>
+        </ViewCell>
+      </DataTemplate>
+    </ListView.ItemTemplate>
+    <ListView.Footer>
+      <StackLayout Spacing="0">
+        <Label Text="    Connected"
+                TextColor="White"
+                BackgroundColor="Green"
+                IsVisible="{Binding IsConnected}" />
+        <Label Text="    Not Connected"
+                TextColor="White"
+                BackgroundColor="Red"
+                IsVisible="{Binding IsNotConnected}" />
+      </StackLayout>
+    </ListView.Footer>
+  </ListView>
+</ContentPage>

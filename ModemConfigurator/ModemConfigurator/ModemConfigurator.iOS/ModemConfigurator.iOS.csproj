@@ -143,8 +143,11 @@
     <PackageReference Include="Xamarin.Forms">
       <Version>4.4.0.991640</Version>
     </PackageReference>
-    <PackageReference Include="Prism.DryIoc.Forms">
-      <Version>7.1.0.431</Version>
+    <PackageReference Include="Prism.Forms.Extended">
+      <Version>7.2.0.898</Version>
+    </PackageReference>
+    <PackageReference Include="Prism.DryIoc.Extensions">
+      <Version>7.2.0.898</Version>
     </PackageReference>
     <PackageReference Include="Humanizer.Core">
       <Version>2.7.9</Version>

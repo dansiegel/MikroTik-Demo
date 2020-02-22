@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:mvvm="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
-             mvvm:ViewModelLocator.AutowireViewModel="true"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="true"
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
              ios:NavigationPage.PrefersLargeTitles="true"
              ios:Page.UseSafeArea="true"
@@ -20,7 +20,7 @@
             <Label Text="User" />
             <Entry Text="{Binding ModemSettings.User}" />
             <Label Text="Password" />
-            <Entry Text="{Binding ModemSettings.Password}" 
+            <Entry Text="{Binding ModemSettings.Password}"
                    IsPassword="true" />
         </StackLayout>
         <Label Text="    Connected"

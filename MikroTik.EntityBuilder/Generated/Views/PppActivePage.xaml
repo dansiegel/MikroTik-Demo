@@ -1,23 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:behaviors="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
-             xmlns:mvvm="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
-             mvvm:ViewModelLocator.AutowireViewModel="true"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="true"
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
              ios:NavigationPage.PrefersLargeTitles="true"
              ios:Page.UseSafeArea="true"
              Title="{Binding Title}"
              x:Class="ModemConfigurator.Views.PppActivePage">
   <ContentPage.ToolbarItems>
-    <ToolbarItem Icon="add.png" 
+    <ToolbarItem Icon="add.png"
                  Text="Add"
                  Command="{Binding AddItemCommand}" />
   </ContentPage.ToolbarItems>
   <ListView ItemsSource="{Binding Items}"
               HasUnevenRows="true">
     <ListView.Behaviors>
-      <behaviors:EventToCommandBehavior EventName="ItemTapped"
+      <prism:EventToCommandBehavior EventName="ItemTapped"
                                         EventArgsParameterPath="Item"
                                         Command="{Binding ItemSelectedCommand}" />
     </ListView.Behaviors>

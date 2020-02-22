@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             xmlns:controls="clr-namespace:ModemConfigurator.Controls;ModemConfigurator"
+             prism:ViewModelLocator.AutowireViewModel="true"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:NavigationPage.PrefersLargeTitles="true"
+             ios:Page.UseSafeArea="true"
+             Title="{Binding Title}"
+             x:Class="ModemConfigurator.Views.IpRouteDetailPage">
+  <TableView HasUnevenRows="true"
+             Intent="Form">
+    <TableRoot>
+      <TableSection Title="Ip Route">
+        <ViewCell>
+          <Frame BackgroundColor="Teal">
+            <Label Text="/ip/route"
+                   FontSize="Large"
+                   TextColor="WhiteSmoke" />
+          </Frame>
+        </ViewCell>
+
+        <EntryCell Label="Id" IsEnabled="False" Text="{Binding Entity.Id}" />
+        <EntryCell Label="Dst Address" Text="{Binding Entity.DstAddress}" />
+        <EntryCell Label="Gateway" Text="{Binding Entity.Gateway}" />
+        <EntryCell Label="Gateway Status" IsEnabled="False" Text="{Binding Entity.GatewayStatus}" />
+        <EntryCell Label="Distance" Keyboard="Numeric" Text="{Binding Entity.Distance}" />
+        <EntryCell Label="Scope" Keyboard="Numeric" Text="{Binding Entity.Scope}" />
+        <EntryCell Label="Target Scope" Keyboard="Numeric" Text="{Binding Entity.TargetScope}" />
+        <SwitchCell Text="Active" On="{Binding Entity.Active}" />
+        <SwitchCell Text="Static" On="{Binding Entity.Static}" />
+        <SwitchCell Text="Disabled" On="{Binding Entity.Disabled}" />
+        <EntryCell Label="Bgp As Path" IsEnabled="False" Text="{Binding Entity.BgpAsPath}" />
+        <EntryCell Label="Bgp Origin" IsEnabled="False" Text="{Binding Entity.BgpOrigin}" />
+        <EntryCell Label="Bgp Communities" IsEnabled="False" Text="{Binding Entity.BgpCommunities}" />
+        <EntryCell Label="Received From" IsEnabled="False" Text="{Binding Entity.ReceivedFrom}" />
+        <SwitchCell Text="Dynamic" On="{Binding Entity.Dynamic}" />
+        <SwitchCell Text="Bgp" On="{Binding Entity.Bgp}" />
+        <EntryCell Label="Pref Src" IsEnabled="False" Text="{Binding Entity.PrefSrc}" />
+        <SwitchCell Text="Connect" On="{Binding Entity.Connect}" />
+<!--
+        <EntryCell Label="Ip Route" Text="{Binding Entity.PropertyName}" />
+        <SwitchCell Text="Ip Route" On="{Binding Entity.PropertyName}" />
+        <ViewCell>
+            <FlexLayout Wrap="Wrap">
+              <Label Text="Ip Route"
+                     FlexLayout.Basis="25%" />
+              <controls:Picker x:TypeArguments="models:EnumName"
+                               SelectedItem="{Binding Entity.PropertyName}"
+                               FlexLayout.Basis="75%" />
+            </FlexLayout>
+        </ViewCell>
+-->
+      </TableSection>
+      <TableSection Title="Commands">
+        <ViewCell>
+          <Button Text="Save"
+                  Command="{Binding SaveCommand}" />
+        </ViewCell>
+      </TableSection>
+    </TableRoot>
+  </TableView>
+</ContentPage>

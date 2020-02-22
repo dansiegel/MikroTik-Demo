@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="true"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:NavigationPage.PrefersLargeTitles="true"
+             ios:Page.UseSafeArea="true"
+             Title="{Binding Title}"
+             x:Class="ModemConfigurator.Views.BgpPeerPage">
+  <ContentPage.ToolbarItems>
+    <ToolbarItem Icon="add.png"
+                 Text="Add"
+                 Command="{Binding AddItemCommand}" />
+  </ContentPage.ToolbarItems>
+  <ListView ItemsSource="{Binding Items}"
+              HasUnevenRows="true">
+    <ListView.Behaviors>
+      <prism:EventToCommandBehavior EventName="ItemTapped"
+                                        EventArgsParameterPath="Item"
+                                        Command="{Binding ItemSelectedCommand}" />
+    </ListView.Behaviors>
+    <ListView.Header>
+      <Frame BackgroundColor="Teal">
+        <Label Text="/routing/bgp/peer"
+               FontSize="Large"
+               TextColor="WhiteSmoke" />
+      </Frame>
+    </ListView.Header>
+    <ListView.ItemTemplate>
+      <DataTemplate>
+        <ViewCell>
+          <FlexLayout Padding="20,0"
+                      Wrap="Wrap">
+            <Label Text="Id" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Id}" FlexLayout.Basis="50%" />
+            <Label Text="Name" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Name}" FlexLayout.Basis="50%" />
+            <Label Text="Instance" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Instance}" FlexLayout.Basis="50%" />
+            <Label Text="RemoteAddress" FlexLayout.Basis="50%" />
+            <Label Text="{Binding RemoteAddress}" FlexLayout.Basis="50%" />
+            <Label Text="RemoteAs" FlexLayout.Basis="50%" />
+            <Label Text="{Binding RemoteAs}" FlexLayout.Basis="50%" />
+            <Label Text="NexthopChoice" FlexLayout.Basis="50%" />
+            <Label Text="{Binding NexthopChoice}" FlexLayout.Basis="50%" />
+            <Label Text="Multihop" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Multihop}" FlexLayout.Basis="50%" />
+            <Label Text="RouteReflect" FlexLayout.Basis="50%" />
+            <Label Text="{Binding RouteReflect}" FlexLayout.Basis="50%" />
+            <Label Text="HoldTime" FlexLayout.Basis="50%" />
+            <Label Text="{Binding HoldTime}" FlexLayout.Basis="50%" />
+            <Label Text="Ttl" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Ttl}" FlexLayout.Basis="50%" />
+            <Label Text="AddressFamilies" FlexLayout.Basis="50%" />
+            <Label Text="{Binding AddressFamilies}" FlexLayout.Basis="50%" />
+            <Label Text="DefaultOriginate" FlexLayout.Basis="50%" />
+            <Label Text="{Binding DefaultOriginate}" FlexLayout.Basis="50%" />
+            <Label Text="RemovePrivateAs" FlexLayout.Basis="50%" />
+            <Label Text="{Binding RemovePrivateAs}" FlexLayout.Basis="50%" />
+            <Label Text="AsOverride" FlexLayout.Basis="50%" />
+            <Label Text="{Binding AsOverride}" FlexLayout.Basis="50%" />
+            <Label Text="Passive" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Passive}" FlexLayout.Basis="50%" />
+            <Label Text="UseBfd" FlexLayout.Basis="50%" />
+            <Label Text="{Binding UseBfd}" FlexLayout.Basis="50%" />
+            <Label Text="RemoteId" FlexLayout.Basis="50%" />
+            <Label Text="{Binding RemoteId}" FlexLayout.Basis="50%" />
+            <Label Text="LocalAddress" FlexLayout.Basis="50%" />
+            <Label Text="{Binding LocalAddress}" FlexLayout.Basis="50%" />
+            <Label Text="Uptime" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Uptime}" FlexLayout.Basis="50%" />
+            <Label Text="PrefixCount" FlexLayout.Basis="50%" />
+            <Label Text="{Binding PrefixCount}" FlexLayout.Basis="50%" />
+            <Label Text="UpdatesSent" FlexLayout.Basis="50%" />
+            <Label Text="{Binding UpdatesSent}" FlexLayout.Basis="50%" />
+            <Label Text="UpdatesReceived" FlexLayout.Basis="50%" />
+            <Label Text="{Binding UpdatesReceived}" FlexLayout.Basis="50%" />
+            <Label Text="WithdrawnSent" FlexLayout.Basis="50%" />
+            <Label Text="{Binding WithdrawnSent}" FlexLayout.Basis="50%" />
+            <Label Text="WithdrawnReceived" FlexLayout.Basis="50%" />
+            <Label Text="{Binding WithdrawnReceived}" FlexLayout.Basis="50%" />
+            <Label Text="RemoteHoldTime" FlexLayout.Basis="50%" />
+            <Label Text="{Binding RemoteHoldTime}" FlexLayout.Basis="50%" />
+            <Label Text="UsedHoldTime" FlexLayout.Basis="50%" />
+            <Label Text="{Binding UsedHoldTime}" FlexLayout.Basis="50%" />
+            <Label Text="UsedKeepaliveTime" FlexLayout.Basis="50%" />
+            <Label Text="{Binding UsedKeepaliveTime}" FlexLayout.Basis="50%" />
+            <Label Text="RefreshCapability" FlexLayout.Basis="50%" />
+            <Label Text="{Binding RefreshCapability}" FlexLayout.Basis="50%" />
+            <Label Text="As4Capability" FlexLayout.Basis="50%" />
+            <Label Text="{Binding As4Capability}" FlexLayout.Basis="50%" />
+            <Label Text="State" FlexLayout.Basis="50%" />
+            <Label Text="{Binding State}" FlexLayout.Basis="50%" />
+            <Label Text="Established" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Established}" FlexLayout.Basis="50%" />
+            <Label Text="Disabled" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Disabled}" FlexLayout.Basis="50%" />
+
+          </FlexLayout>
+        </ViewCell>
+      </DataTemplate>
+    </ListView.ItemTemplate>
+    <ListView.Footer>
+      <StackLayout Spacing="0">
+        <Label Text="    Connected"
+                TextColor="White"
+                BackgroundColor="Green"
+                IsVisible="{Binding IsConnected}" />
+        <Label Text="    Not Connected"
+                TextColor="White"
+                BackgroundColor="Red"
+                IsVisible="{Binding IsNotConnected}" />
+      </StackLayout>
+    </ListView.Footer>
+  </ListView>
+</ContentPage>

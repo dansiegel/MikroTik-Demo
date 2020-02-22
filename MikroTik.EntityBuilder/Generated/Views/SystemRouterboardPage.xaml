@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="true"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:NavigationPage.PrefersLargeTitles="true"
+             ios:Page.UseSafeArea="true"
+             Title="{Binding Title}"
+             x:Class="ModemConfigurator.Views.SystemRouterboardPage">
+  <ContentPage.ToolbarItems>
+    <ToolbarItem Icon="add.png"
+                 Text="Add"
+                 Command="{Binding AddItemCommand}" />
+  </ContentPage.ToolbarItems>
+  <ListView ItemsSource="{Binding Items}"
+              HasUnevenRows="true">
+    <ListView.Behaviors>
+      <prism:EventToCommandBehavior EventName="ItemTapped"
+                                        EventArgsParameterPath="Item"
+                                        Command="{Binding ItemSelectedCommand}" />
+    </ListView.Behaviors>
+    <ListView.Header>
+      <Frame BackgroundColor="Teal">
+        <Label Text="/system/routerboard"
+               FontSize="Large"
+               TextColor="WhiteSmoke" />
+      </Frame>
+    </ListView.Header>
+    <ListView.ItemTemplate>
+      <DataTemplate>
+        <ViewCell>
+          <FlexLayout Padding="20,0"
+                      Wrap="Wrap">
+            <Label Text="Routerboard" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Routerboard}" FlexLayout.Basis="50%" />
+            <Label Text="BoardName" FlexLayout.Basis="50%" />
+            <Label Text="{Binding BoardName}" FlexLayout.Basis="50%" />
+            <Label Text="Model" FlexLayout.Basis="50%" />
+            <Label Text="{Binding Model}" FlexLayout.Basis="50%" />
+            <Label Text="SerialNumber" FlexLayout.Basis="50%" />
+            <Label Text="{Binding SerialNumber}" FlexLayout.Basis="50%" />
+            <Label Text="FirmwareType" FlexLayout.Basis="50%" />
+            <Label Text="{Binding FirmwareType}" FlexLayout.Basis="50%" />
+            <Label Text="FactoryFirmware" FlexLayout.Basis="50%" />
+            <Label Text="{Binding FactoryFirmware}" FlexLayout.Basis="50%" />
+            <Label Text="CurrentFirmware" FlexLayout.Basis="50%" />
+            <Label Text="{Binding CurrentFirmware}" FlexLayout.Basis="50%" />
+            <Label Text="UpgradeFirmware" FlexLayout.Basis="50%" />
+            <Label Text="{Binding UpgradeFirmware}" FlexLayout.Basis="50%" />
+
+          </FlexLayout>
+        </ViewCell>
+      </DataTemplate>
+    </ListView.ItemTemplate>
+    <ListView.Footer>
+      <StackLayout Spacing="0">
+        <Label Text="    Connected"
+                TextColor="White"
+                BackgroundColor="Green"
+                IsVisible="{Binding IsConnected}" />
+        <Label Text="    Not Connected"
+                TextColor="White"
+                BackgroundColor="Red"
+                IsVisible="{Binding IsNotConnected}" />
+      </StackLayout>
+    </ListView.Footer>
+  </ListView>
+</ContentPage>

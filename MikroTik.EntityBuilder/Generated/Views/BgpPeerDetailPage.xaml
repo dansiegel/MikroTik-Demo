@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             xmlns:controls="clr-namespace:ModemConfigurator.Controls;ModemConfigurator"
+             prism:ViewModelLocator.AutowireViewModel="true"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:NavigationPage.PrefersLargeTitles="true"
+             ios:Page.UseSafeArea="true"
+             Title="{Binding Title}"
+             x:Class="ModemConfigurator.Views.BgpPeerDetailPage">
+  <TableView HasUnevenRows="true"
+             Intent="Form">
+    <TableRoot>
+      <TableSection Title="Bgp Peer">
+        <ViewCell>
+          <Frame BackgroundColor="Teal">
+            <Label Text="/routing/bgp/peer"
+                   FontSize="Large"
+                   TextColor="WhiteSmoke" />
+          </Frame>
+        </ViewCell>
+
+        <EntryCell Label="Id" IsEnabled="False" Text="{Binding Entity.Id}" />
+        <EntryCell Label="Name" Text="{Binding Entity.Name}" />
+        <EntryCell Label="Instance" Text="{Binding Entity.Instance}" />
+        <EntryCell Label="Remote Address" Text="{Binding Entity.RemoteAddress}" />
+        <EntryCell Label="Remote As" Keyboard="Numeric" Text="{Binding Entity.RemoteAs}" />
+        <EntryCell Label="Nexthop Choice" Text="{Binding Entity.NexthopChoice}" />
+        <SwitchCell Text="Multihop" On="{Binding Entity.Multihop}" />
+        <SwitchCell Text="Route Reflect" On="{Binding Entity.RouteReflect}" />
+        <EntryCell Label="Hold Time" Text="{Binding Entity.HoldTime}" />
+        <EntryCell Label="Ttl" Text="{Binding Entity.Ttl}" />
+        <EntryCell Label="Address Families" Text="{Binding Entity.AddressFamilies}" />
+        <EntryCell Label="Default Originate" Text="{Binding Entity.DefaultOriginate}" />
+        <SwitchCell Text="Remove Private As" On="{Binding Entity.RemovePrivateAs}" />
+        <SwitchCell Text="As Override" On="{Binding Entity.AsOverride}" />
+        <SwitchCell Text="Passive" On="{Binding Entity.Passive}" />
+        <SwitchCell Text="Use Bfd" On="{Binding Entity.UseBfd}" />
+        <EntryCell Label="Remote Id" Text="{Binding Entity.RemoteId}" />
+        <EntryCell Label="Local Address" IsEnabled="False" Text="{Binding Entity.LocalAddress}" />
+        <EntryCell Label="Uptime" IsEnabled="False" Text="{Binding Entity.Uptime}" />
+        <EntryCell Label="Prefix Count" Keyboard="Numeric" IsEnabled="False" Text="{Binding Entity.PrefixCount}" />
+        <EntryCell Label="Updates Sent" Keyboard="Numeric" IsEnabled="False" Text="{Binding Entity.UpdatesSent}" />
+        <EntryCell Label="Updates Received" Keyboard="Numeric" IsEnabled="False" Text="{Binding Entity.UpdatesReceived}" />
+        <EntryCell Label="Withdrawn Sent" Keyboard="Numeric" IsEnabled="False" Text="{Binding Entity.WithdrawnSent}" />
+        <EntryCell Label="Withdrawn Received" Keyboard="Numeric" IsEnabled="False" Text="{Binding Entity.WithdrawnReceived}" />
+        <EntryCell Label="Remote Hold Time" IsEnabled="False" Text="{Binding Entity.RemoteHoldTime}" />
+        <EntryCell Label="Used Hold Time" IsEnabled="False" Text="{Binding Entity.UsedHoldTime}" />
+        <EntryCell Label="Used Keepalive Time" IsEnabled="False" Text="{Binding Entity.UsedKeepaliveTime}" />
+        <SwitchCell Text="Refresh Capability" On="{Binding Entity.RefreshCapability}" />
+        <SwitchCell Text="As 4 Capability" On="{Binding Entity.As4Capability}" />
+        <EntryCell Label="State" IsEnabled="False" Text="{Binding Entity.State}" />
+        <SwitchCell Text="Established" On="{Binding Entity.Established}" />
+        <SwitchCell Text="Disabled" On="{Binding Entity.Disabled}" />
+<!--
+        <EntryCell Label="Bgp Peer" Text="{Binding Entity.PropertyName}" />
+        <SwitchCell Text="Bgp Peer" On="{Binding Entity.PropertyName}" />
+        <ViewCell>
+            <FlexLayout Wrap="Wrap">
+              <Label Text="Bgp Peer"
+                     FlexLayout.Basis="25%" />
+              <controls:Picker x:TypeArguments="models:EnumName"
+                               SelectedItem="{Binding Entity.PropertyName}"
+                               FlexLayout.Basis="75%" />
+            </FlexLayout>
+        </ViewCell>
+-->
+      </TableSection>
+      <TableSection Title="Commands">
+        <ViewCell>
+          <Button Text="Save"
+                  Command="{Binding SaveCommand}" />
+        </ViewCell>
+      </TableSection>
+    </TableRoot>
+  </TableView>
+</ContentPage>

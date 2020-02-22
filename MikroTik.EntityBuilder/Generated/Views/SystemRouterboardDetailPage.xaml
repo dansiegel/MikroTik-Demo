@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             xmlns:controls="clr-namespace:ModemConfigurator.Controls;ModemConfigurator"
+             prism:ViewModelLocator.AutowireViewModel="true"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:NavigationPage.PrefersLargeTitles="true"
+             ios:Page.UseSafeArea="true"
+             Title="{Binding Title}"
+             x:Class="ModemConfigurator.Views.SystemRouterboardDetailPage">
+  <TableView HasUnevenRows="true"
+             Intent="Form">
+    <TableRoot>
+      <TableSection Title="System Routerboard">
+        <ViewCell>
+          <Frame BackgroundColor="Teal">
+            <Label Text="/system/routerboard"
+                   FontSize="Large"
+                   TextColor="WhiteSmoke" />
+          </Frame>
+        </ViewCell>
+
+        <SwitchCell Text="Routerboard" On="{Binding Entity.Routerboard}" />
+        <EntryCell Label="Board Name" Text="{Binding Entity.BoardName}" />
+        <EntryCell Label="Model" Text="{Binding Entity.Model}" />
+        <EntryCell Label="Serial Number" Text="{Binding Entity.SerialNumber}" />
+        <EntryCell Label="Firmware Type" Text="{Binding Entity.FirmwareType}" />
+        <EntryCell Label="Factory Firmware" Text="{Binding Entity.FactoryFirmware}" />
+        <EntryCell Label="Current Firmware" Text="{Binding Entity.CurrentFirmware}" />
+        <EntryCell Label="Upgrade Firmware" Text="{Binding Entity.UpgradeFirmware}" />
+<!--
+        <EntryCell Label="System Routerboard" Text="{Binding Entity.PropertyName}" />
+        <SwitchCell Text="System Routerboard" On="{Binding Entity.PropertyName}" />
+        <ViewCell>
+            <FlexLayout Wrap="Wrap">
+              <Label Text="System Routerboard"
+                     FlexLayout.Basis="25%" />
+              <controls:Picker x:TypeArguments="models:EnumName"
+                               SelectedItem="{Binding Entity.PropertyName}"
+                               FlexLayout.Basis="75%" />
+            </FlexLayout>
+        </ViewCell>
+-->
+      </TableSection>
+      <TableSection Title="Commands">
+        <ViewCell>
+          <Button Text="Save"
+                  Command="{Binding SaveCommand}" />
+        </ViewCell>
+      </TableSection>
+    </TableRoot>
+  </TableView>
+</ContentPage>

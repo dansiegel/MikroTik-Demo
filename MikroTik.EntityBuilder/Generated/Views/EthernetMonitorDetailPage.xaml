@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             xmlns:controls="clr-namespace:ModemConfigurator.Controls;ModemConfigurator"
+             prism:ViewModelLocator.AutowireViewModel="true"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:NavigationPage.PrefersLargeTitles="true"
+             ios:Page.UseSafeArea="true"
+             Title="{Binding Title}"
+             x:Class="ModemConfigurator.Views.EthernetMonitorDetailPage">
+  <TableView HasUnevenRows="true"
+             Intent="Form">
+    <TableRoot>
+      <TableSection Title="Ethernet Monitor">
+        <ViewCell>
+          <Frame BackgroundColor="Teal">
+            <Label Text="/interface/ethernet/monitor"
+                   FontSize="Large"
+                   TextColor="WhiteSmoke" />
+          </Frame>
+        </ViewCell>
+
+        <EntryCell Label="Name" IsEnabled="False" Text="{Binding Entity.Name}" />
+        <EntryCell Label="Auto Negotiation" Text="{Binding Entity.AutoNegotiation}" />
+        <EntryCell Label="Default Cable Settings" Text="{Binding Entity.DefaultCableSettings}" />
+        <SwitchCell Text="Full Duplex" On="{Binding Entity.FullDuplex}" />
+        <EntryCell Label="Rate" Text="{Binding Entity.Rate}" />
+        <EntryCell Label="Status" Text="{Binding Entity.Status}" />
+        <EntryCell Label="Tx Flow Control" Text="{Binding Entity.TxFlowControl}" />
+        <EntryCell Label="Rx Flow Control" Text="{Binding Entity.RxFlowControl}" />
+        <SwitchCell Text="Sfp Module Present" On="{Binding Entity.SfpModulePresent}" />
+        <SwitchCell Text="Sfp Rx Lose" On="{Binding Entity.SfpRxLose}" />
+        <SwitchCell Text="Sfp Tx Fault" On="{Binding Entity.SfpTxFault}" />
+        <EntryCell Label="Sfp Connector Type" Text="{Binding Entity.SfpConnectorType}" />
+        <EntryCell Label="Sfp Link Length Copper" Text="{Binding Entity.SfpLinkLengthCopper}" />
+        <EntryCell Label="Sfp Vendor Name" Text="{Binding Entity.SfpVendorName}" />
+        <EntryCell Label="Sfp Vendor Part Number" Text="{Binding Entity.SfpVendorPartNumber}" />
+        <EntryCell Label="Sfp Vendor Revision" Text="{Binding Entity.SfpVendorRevision}" />
+        <EntryCell Label="Sfp Vendor Serial" Text="{Binding Entity.SfpVendorSerial}" />
+        <EntryCell Label="Sfp Manufacturing Date" Text="{Binding Entity.SfpManufacturingDate}" />
+        <EntryCell Label="Eeprom" Text="{Binding Entity.Eeprom}" />
+<!--
+        <EntryCell Label="Ethernet Monitor" Text="{Binding Entity.PropertyName}" />
+        <SwitchCell Text="Ethernet Monitor" On="{Binding Entity.PropertyName}" />
+        <ViewCell>
+            <FlexLayout Wrap="Wrap">
+              <Label Text="Ethernet Monitor"
+                     FlexLayout.Basis="25%" />
+              <controls:Picker x:TypeArguments="models:EnumName"
+                               SelectedItem="{Binding Entity.PropertyName}"
+                               FlexLayout.Basis="75%" />
+            </FlexLayout>
+        </ViewCell>
+-->
+      </TableSection>
+      <TableSection Title="Commands">
+        <ViewCell>
+          <Button Text="Save"
+                  Command="{Binding SaveCommand}" />
+        </ViewCell>
+      </TableSection>
+    </TableRoot>
+  </TableView>
+</ContentPage>

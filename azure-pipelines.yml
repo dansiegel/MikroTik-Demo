@@ -73,6 +73,7 @@ stages:
             displayName: NuGet Restore
             inputs:
               command: restore
+              restoreSolution: '**\*.sln'
           - task: XamariniOS@2
             displayName: Build ModemConfigurator
             inputs:

@@ -26,7 +26,7 @@ variables:
   - name: BuildConfiguration
     value: 'Release'
   - name: TargetSolution
-    value: 'ModemConfigurator/src/ModemConfigurator.iOS/ModemConfigurator.csproj'
+    value: 'ModemConfigurator/src/ModemConfigurator.iOS/ModemConfigurator.iOS.csproj'
   - name: MacImage
     value: macOS-latest
   - group: ModemConfigurator

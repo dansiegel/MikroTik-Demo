@@ -14,8 +14,8 @@ namespace ModemConfigurator.ViewModels
 {
     public class IpAddressDetailPageViewModel : BaseDetailViewModel<IpAddress>
     {
-        public IpAddressDetailPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService, Services.IModemSettings modemSettings) 
-            : base(navigationService, pageDialogService, modemSettings)
+        public IpAddressDetailPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService, Services.IModemSettings modemSettings, Shiny.Net.IConnectivity connectivity, IDeviceService deviceService)
+            : base(navigationService, pageDialogService, modemSettings, connectivity, deviceService)
         {
             Title = "Ip Address Detail";
         }

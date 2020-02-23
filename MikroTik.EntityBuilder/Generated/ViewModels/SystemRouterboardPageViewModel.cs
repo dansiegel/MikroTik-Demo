@@ -14,8 +14,8 @@ namespace ModemConfigurator.ViewModels
 {
     public class SystemRouterboardPageViewModel : BaseCollectionViewModel<SystemRouterboard>
     {
-        public SystemRouterboardPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService, Services.IModemSettings modemSettings) 
-            : base(navigationService, pageDialogService, modemSettings)
+        public SystemRouterboardPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService, Services.IModemSettings modemSettings, Shiny.Net.IConnectivity connectivity, IDeviceService deviceService)
+            : base(navigationService, pageDialogService, modemSettings, connectivity, deviceService)
         {
             Title = "System Routerboard";
         }

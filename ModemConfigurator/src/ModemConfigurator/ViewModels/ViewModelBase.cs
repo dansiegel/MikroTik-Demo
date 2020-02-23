@@ -9,27 +9,39 @@ using tik4net;
 using Prism.Services;
 using Xamarin.Forms;
 using Prism.AppModel;
-using Xamarin.Essentials;
 using System.Linq;
 using System.Net;
 using System.Net.NetworkInformation;
+using Shiny.Net;
+using System.Reactive;
+using System.Reactive.Linq;
+using System.Reactive.Disposables;
+using Shiny;
 
 namespace ModemConfigurator.ViewModels
 {
     public class ViewModelBase : BindableBase, INavigationAware, IDestructible, IPageLifecycleAware
     {
+        protected CompositeDisposable DestroyWith { get; } = new CompositeDisposable();
+
         protected INavigationService NavigationService { get; }
 
         protected IModemSettings _modemSettings { get; }
 
         protected IPageDialogService _pageDialogService { get; }
 
-        public ViewModelBase(INavigationService navigationService, IPageDialogService pageDialogService, IModemSettings modemSettings)
+        protected IConnectivity _connectivity { get; }
+
+        public ViewModelBase(INavigationService navigationService, IPageDialogService pageDialogService, IModemSettings modemSettings, IConnectivity connectivity, IDeviceService deviceService)
         {
             NavigationService = navigationService;
             _modemSettings = modemSettings;
             _pageDialogService = pageDialogService;
-
+            _connectivity = connectivity;
+            IsConnected = _connectivity.IsDirectConnect();
+            _connectivity.WhenInternetStatusChanged()
+                .Subscribe(x => deviceService.BeginInvokeOnMainThread(CheckConnection))
+                .DisposedBy(DestroyWith);
         }
 
         private string _title;
@@ -77,25 +89,25 @@ namespace ModemConfigurator.ViewModels
 
         public virtual void Destroy()
         {
-
+            DestroyWith.Dispose();
         }
 
         public void OnAppearing()
         {
             CheckConnection();
-            Connectivity.ConnectivityChanged += Connectivity_ConnectivityChanged;
         }
 
         public void OnDisappearing()
         {
-            Connectivity.ConnectivityChanged -= Connectivity_ConnectivityChanged;
         }
 
         protected void CheckConnection()
         {
             try
             {
-                if(!string.IsNullOrWhiteSpace(_modemSettings.Host) && PingHost(_modemSettings.Host))
+                if(_connectivity.Access == NetworkAccess.Ethernet &&
+                    !string.IsNullOrWhiteSpace(_modemSettings.Host) &&
+                    PingHost(_modemSettings.Host))
                 {
                     using (var connection = CreateConnection())
                     {
@@ -108,18 +120,6 @@ namespace ModemConfigurator.ViewModels
                 }
             }
             catch
-            {
-                IsConnected = false;
-            }
-        }
-
-        private void Connectivity_ConnectivityChanged(object sender, ConnectivityChangedEventArgs e)
-        {
-            if(e.Profiles.Contains(ConnectionProfile.Ethernet))
-            {
-                CheckConnection();
-            }
-            else
             {
                 IsConnected = false;
             }

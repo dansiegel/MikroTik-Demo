@@ -14,8 +14,8 @@ namespace ModemConfigurator.ViewModels
 {
     public class IpPoolDetailPageViewModel : BaseDetailViewModel<IpPool>
     {
-        public IpPoolDetailPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService, Services.IModemSettings modemSettings) 
-            : base(navigationService, pageDialogService, modemSettings)
+        public IpPoolDetailPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService, Services.IModemSettings modemSettings, Shiny.Net.IConnectivity connectivity, IDeviceService deviceService)
+            : base(navigationService, pageDialogService, modemSettings, connectivity, deviceService)
         {
             Title = "Ip Pool Detail";
         }

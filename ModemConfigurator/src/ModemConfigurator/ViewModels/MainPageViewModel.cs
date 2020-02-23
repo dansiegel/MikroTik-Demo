@@ -18,8 +18,8 @@ namespace ModemConfigurator.ViewModels
 {
     public class MainPageViewModel : ViewModelBase
     {
-        public MainPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService, IModemSettings modemSettings) 
-            : base(navigationService, pageDialogService, modemSettings)
+        public MainPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService, IModemSettings modemSettings, Shiny.Net.IConnectivity connectivity, IDeviceService deviceService) 
+            : base(navigationService, pageDialogService, modemSettings, connectivity, deviceService)
         {
             Title = "Menu";
             NavigateCommand = new DelegateCommand<string>(OnNavigateCommandExecuted);
@@ -28,7 +28,8 @@ namespace ModemConfigurator.ViewModels
                 {
                     Group = "App Settings",
                     FriendlyName = "Modem Connection Settings",
-                    Uri = "NavigationPage/ModemSettingsPage"
+                    Uri = "NavigationPage/ModemSettingsPage",
+                    TypeName = "AppSettings"
                 }}));
 
             var types = typeof(SystemResource).Assembly.ExportedTypes.Where(t => t.GetCustomAttributes().Any(a => a is TikEntityAttribute));
@@ -39,7 +40,8 @@ namespace ModemConfigurator.ViewModels
                 {
                     Group = Regex.Replace(type.Namespace, @"tik4net\.Objects\.", ""),
                     FriendlyName = type.Name.Humanize(LetterCasing.Title),
-                    Uri = $"NavigationPage/{type.Name}Page"
+                    Uri = $"NavigationPage/{type.Name}Page",
+                    TypeName = type.Name
                 });
             }
 
@@ -77,5 +79,7 @@ namespace ModemConfigurator.ViewModels
         public string FriendlyName { get; set; }
 
         public string Uri { get; set; }
+
+        public string TypeName { get; set; }
     }
 }

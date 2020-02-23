@@ -19,7 +19,7 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>MinimumOSVersion</key>
-	<string>10.0</string>
+	<string>13.0</string>
 	<key>CFBundleDisplayName</key>
 	<string>ModemConfigurator</string>
 	<key>CFBundleIdentifier</key>
@@ -34,5 +34,10 @@
 	<string>Assets.xcassets/AppIcon.appiconset</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>fetch</string>
+		<string>processing</string>
+	</array>
 </dict>
 </plist>

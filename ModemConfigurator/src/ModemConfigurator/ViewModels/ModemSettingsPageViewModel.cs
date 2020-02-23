@@ -15,8 +15,8 @@ namespace ModemConfigurator.ViewModels
 {
     public class ModemSettingsPageViewModel : ViewModelBase
     {
-        public ModemSettingsPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService, IModemSettings modemSettings) 
-            : base(navigationService, pageDialogService, modemSettings)
+        public ModemSettingsPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService, IModemSettings modemSettings, Shiny.Net.IConnectivity connectivity, IDeviceService deviceService) 
+            : base(navigationService, pageDialogService, modemSettings, connectivity, deviceService)
         {
             Title = "Modem Settings";
             if (ModemSettings is INotifyPropertyChanged inpc)

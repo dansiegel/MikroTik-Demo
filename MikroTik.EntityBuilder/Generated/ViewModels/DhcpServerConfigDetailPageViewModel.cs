@@ -14,8 +14,8 @@ namespace ModemConfigurator.ViewModels
 {
     public class DhcpServerConfigDetailPageViewModel : BaseDetailViewModel<DhcpServerConfig>
     {
-        public DhcpServerConfigDetailPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService, Services.IModemSettings modemSettings) 
-            : base(navigationService, pageDialogService, modemSettings)
+        public DhcpServerConfigDetailPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService, Services.IModemSettings modemSettings, Shiny.Net.IConnectivity connectivity, IDeviceService deviceService)
+            : base(navigationService, pageDialogService, modemSettings, connectivity, deviceService)
         {
             Title = "Dhcp Server Config Detail";
         }

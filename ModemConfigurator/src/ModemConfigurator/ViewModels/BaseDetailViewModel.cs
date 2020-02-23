@@ -10,8 +10,8 @@ namespace ModemConfigurator.ViewModels
     public class BaseDetailViewModel<TEntity> : ViewModelBase
         where TEntity : new()
     {
-        public BaseDetailViewModel(INavigationService navigationService, IPageDialogService pageDialogService, IModemSettings modemSettings) 
-            : base(navigationService, pageDialogService, modemSettings)
+        public BaseDetailViewModel(INavigationService navigationService, IPageDialogService pageDialogService, IModemSettings modemSettings, Shiny.Net.IConnectivity connectivity, IDeviceService deviceService) 
+            : base(navigationService, pageDialogService, modemSettings, connectivity, deviceService)
         {
         }
 

@@ -14,8 +14,8 @@ namespace ModemConfigurator.ViewModels
 {
     public class WirelessSnifferPageViewModel : BaseCollectionViewModel<WirelessSniffer>
     {
-        public WirelessSnifferPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService, Services.IModemSettings modemSettings) 
-            : base(navigationService, pageDialogService, modemSettings)
+        public WirelessSnifferPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService, Services.IModemSettings modemSettings, Shiny.Net.IConnectivity connectivity, IDeviceService deviceService)
+            : base(navigationService, pageDialogService, modemSettings, connectivity, deviceService)
         {
             Title = "Wireless Sniffer";
         }

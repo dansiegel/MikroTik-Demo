@@ -14,8 +14,8 @@ namespace ModemConfigurator.ViewModels
 {
     public class FirewalServicePortPageViewModel : BaseCollectionViewModel<FirewalServicePort>
     {
-        public FirewalServicePortPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService, Services.IModemSettings modemSettings) 
-            : base(navigationService, pageDialogService, modemSettings)
+        public FirewalServicePortPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService, Services.IModemSettings modemSettings, Shiny.Net.IConnectivity connectivity, IDeviceService deviceService)
+            : base(navigationService, pageDialogService, modemSettings, connectivity, deviceService)
         {
             Title = "Firewal Service Port";
         }

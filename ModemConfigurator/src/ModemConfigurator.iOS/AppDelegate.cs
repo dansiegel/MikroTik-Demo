@@ -19,21 +19,27 @@ namespace ModemConfigurator.iOS
         //
         // You have 17 seconds to return from this method, or iOS will terminate your application.
         //
-        public override bool FinishedLaunching(UIApplication app, NSDictionary options)
+        public override bool FinishedLaunching(UIApplication uiApplication, NSDictionary options)
         {
-            global::Xamarin.Forms.Forms.Init();
-            Microsoft.AppCenter.Distribute.Distribute.DontCheckForUpdatesInDebug();
-            LoadApplication(new App(new iOSInitializer()));
+            try
+            {
+                Prism.DryIoc.PrismContainerExtension.Create();
+                Shiny.iOSShinyHost.Init(new ModemStartup());
+                global::Xamarin.Forms.Forms.Init();
+                //Microsoft.AppCenter.Distribute.Distribute.DontCheckForUpdatesInDebug();
 
-            return base.FinishedLaunching(app, options);
-        }
-    }
+                var app = Xamarin.Forms.Application.Current;
+                if(app is null)
+                    app = new App();
+                LoadApplication(app);
+            }
+            catch (System.Exception ex)
+            {
+                System.Diagnostics.Debugger.Break();
+            }
+            
 
-    public class iOSInitializer : IPlatformInitializer
-    {
-        public void RegisterTypes(IContainerRegistry containerRegistry)
-        {
-            // Register any platform specific implementations
+            return base.FinishedLaunching(uiApplication, options);
         }
     }
 }

@@ -14,8 +14,8 @@ namespace ModemConfigurator.ViewModels
 {
     public class HotspotIpBindingPageViewModel : BaseCollectionViewModel<HotspotIpBinding>
     {
-        public HotspotIpBindingPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService, Services.IModemSettings modemSettings) 
-            : base(navigationService, pageDialogService, modemSettings)
+        public HotspotIpBindingPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService, Services.IModemSettings modemSettings, Shiny.Net.IConnectivity connectivity, IDeviceService deviceService)
+            : base(navigationService, pageDialogService, modemSettings, connectivity, deviceService)
         {
             Title = "Hotspot Ip Binding";
         }

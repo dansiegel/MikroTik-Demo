@@ -13,8 +13,8 @@ namespace ModemConfigurator.ViewModels
 {
     public class LogDetailPageViewModel : BaseDetailViewModel<Log>
     {
-        public LogDetailPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService, Services.IModemSettings modemSettings) 
-            : base(navigationService, pageDialogService, modemSettings)
+        public LogDetailPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService, Services.IModemSettings modemSettings, Shiny.Net.IConnectivity connectivity, IDeviceService deviceService)
+            : base(navigationService, pageDialogService, modemSettings, connectivity, deviceService)
         {
             Title = "Log Detail";
         }

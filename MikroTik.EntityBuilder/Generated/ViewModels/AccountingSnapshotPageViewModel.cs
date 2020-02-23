@@ -14,8 +14,8 @@ namespace ModemConfigurator.ViewModels
 {
     public class AccountingSnapshotPageViewModel : BaseCollectionViewModel<AccountingSnapshot>
     {
-        public AccountingSnapshotPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService, Services.IModemSettings modemSettings) 
-            : base(navigationService, pageDialogService, modemSettings)
+        public AccountingSnapshotPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService, Services.IModemSettings modemSettings, Shiny.Net.IConnectivity connectivity, IDeviceService deviceService)
+            : base(navigationService, pageDialogService, modemSettings, connectivity, deviceService)
         {
             Title = "Accounting Snapshot";
         }

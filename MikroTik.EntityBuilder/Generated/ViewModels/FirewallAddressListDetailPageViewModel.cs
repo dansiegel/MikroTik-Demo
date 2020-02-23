@@ -14,8 +14,8 @@ namespace ModemConfigurator.ViewModels
 {
     public class FirewallAddressListDetailPageViewModel : BaseDetailViewModel<FirewallAddressList>
     {
-        public FirewallAddressListDetailPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService, Services.IModemSettings modemSettings) 
-            : base(navigationService, pageDialogService, modemSettings)
+        public FirewallAddressListDetailPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService, Services.IModemSettings modemSettings, Shiny.Net.IConnectivity connectivity, IDeviceService deviceService)
+            : base(navigationService, pageDialogService, modemSettings, connectivity, deviceService)
         {
             Title = "Firewall Address List Detail";
         }

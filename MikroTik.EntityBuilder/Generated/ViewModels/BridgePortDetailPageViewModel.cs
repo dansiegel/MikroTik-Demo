@@ -14,8 +14,8 @@ namespace ModemConfigurator.ViewModels
 {
     public class BridgePortDetailPageViewModel : BaseDetailViewModel<BridgePort>
     {
-        public BridgePortDetailPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService, Services.IModemSettings modemSettings) 
-            : base(navigationService, pageDialogService, modemSettings)
+        public BridgePortDetailPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService, Services.IModemSettings modemSettings, Shiny.Net.IConnectivity connectivity, IDeviceService deviceService)
+            : base(navigationService, pageDialogService, modemSettings, connectivity, deviceService)
         {
             Title = "Bridge Port Detail";
         }

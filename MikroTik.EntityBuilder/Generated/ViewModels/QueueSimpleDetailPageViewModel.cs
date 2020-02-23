@@ -14,8 +14,8 @@ namespace ModemConfigurator.ViewModels
 {
     public class QueueSimpleDetailPageViewModel : BaseDetailViewModel<QueueSimple>
     {
-        public QueueSimpleDetailPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService, Services.IModemSettings modemSettings) 
-            : base(navigationService, pageDialogService, modemSettings)
+        public QueueSimpleDetailPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService, Services.IModemSettings modemSettings, Shiny.Net.IConnectivity connectivity, IDeviceService deviceService)
+            : base(navigationService, pageDialogService, modemSettings, connectivity, deviceService)
         {
             Title = "Queue Simple Detail";
         }

@@ -1,9 +1,9 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModemConfigurator", "ModemConfigurator\ModemConfigurator\ModemConfigurator.csproj", "{EC2573EC-6583-420A-AA16-F1A25B6D2B70}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModemConfigurator", "src\ModemConfigurator\ModemConfigurator.csproj", "{EC2573EC-6583-420A-AA16-F1A25B6D2B70}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModemConfigurator.iOS", "ModemConfigurator\ModemConfigurator.iOS\ModemConfigurator.iOS.csproj", "{0F462199-2685-4E47-83AD-201D939E9BDF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModemConfigurator.iOS", "src\ModemConfigurator.iOS\ModemConfigurator.iOS.csproj", "{0F462199-2685-4E47-83AD-201D939E9BDF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

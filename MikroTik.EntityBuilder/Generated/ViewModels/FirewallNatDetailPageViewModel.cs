@@ -14,8 +14,8 @@ namespace ModemConfigurator.ViewModels
 {
     public class FirewallNatDetailPageViewModel : BaseDetailViewModel<FirewallNat>
     {
-        public FirewallNatDetailPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService, Services.IModemSettings modemSettings) 
-            : base(navigationService, pageDialogService, modemSettings)
+        public FirewallNatDetailPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService, Services.IModemSettings modemSettings, Shiny.Net.IConnectivity connectivity, IDeviceService deviceService)
+            : base(navigationService, pageDialogService, modemSettings, connectivity, deviceService)
         {
             Title = "Firewall Nat Detail";
         }

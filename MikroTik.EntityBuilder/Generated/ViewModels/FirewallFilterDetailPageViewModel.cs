@@ -14,8 +14,8 @@ namespace ModemConfigurator.ViewModels
 {
     public class FirewallFilterDetailPageViewModel : BaseDetailViewModel<FirewallFilter>
     {
-        public FirewallFilterDetailPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService, Services.IModemSettings modemSettings) 
-            : base(navigationService, pageDialogService, modemSettings)
+        public FirewallFilterDetailPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService, Services.IModemSettings modemSettings, Shiny.Net.IConnectivity connectivity, IDeviceService deviceService)
+            : base(navigationService, pageDialogService, modemSettings, connectivity, deviceService)
         {
             Title = "Firewall Filter Detail";
         }

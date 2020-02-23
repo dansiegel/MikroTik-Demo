@@ -14,8 +14,8 @@ namespace ModemConfigurator.ViewModels
 {
     public class CapsManRegistrationTablePageViewModel : BaseCollectionViewModel<CapsManRegistrationTable>
     {
-        public CapsManRegistrationTablePageViewModel(INavigationService navigationService, IPageDialogService pageDialogService, Services.IModemSettings modemSettings) 
-            : base(navigationService, pageDialogService, modemSettings)
+        public CapsManRegistrationTablePageViewModel(INavigationService navigationService, IPageDialogService pageDialogService, Services.IModemSettings modemSettings, Shiny.Net.IConnectivity connectivity, IDeviceService deviceService)
+            : base(navigationService, pageDialogService, modemSettings, connectivity, deviceService)
         {
             Title = "Caps Man Registration Table";
         }

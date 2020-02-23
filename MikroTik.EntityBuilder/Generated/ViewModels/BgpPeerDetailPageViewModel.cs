@@ -14,8 +14,8 @@ namespace ModemConfigurator.ViewModels
 {
     public class BgpPeerDetailPageViewModel : BaseDetailViewModel<BgpPeer>
     {
-        public BgpPeerDetailPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService, Services.IModemSettings modemSettings) 
-            : base(navigationService, pageDialogService, modemSettings)
+        public BgpPeerDetailPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService, Services.IModemSettings modemSettings, Shiny.Net.IConnectivity connectivity, IDeviceService deviceService)
+            : base(navigationService, pageDialogService, modemSettings, connectivity, deviceService)
         {
             Title = "Bgp Peer Detail";
         }

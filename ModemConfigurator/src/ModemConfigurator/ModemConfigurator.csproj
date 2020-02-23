@@ -1,0 +1,150 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="tik4net" Version="3.5.0" />
+    <PackageReference Include="Xamarin.Forms" Version="4.4.0.991640" />
+    <PackageReference Include="Prism.Forms.Extended" Version="7.2.0.898" />
+    <PackageReference Include="Shiny.Prism" Version="7.2.0.898" />
+    <PackageReference Include="Humanizer.Core" Version="2.7.9" />
+    <PackageReference Include="Refractored.MvvmHelpers" Version="1.6.1-beta" />
+    <PackageReference Include="Microsoft.AppCenter.Crashes" Version="3.0.0" />
+    <PackageReference Include="Microsoft.AppCenter.Analytics" Version="3.0.0" />
+    <PackageReference Include="Microsoft.AppCenter.Distribute" Version="3.0.0" />
+    <PackageReference Include="Mobile.BuildTools" Version="1.4.0.638" PrivateAssets="all" />
+    <PackageReference Include="Shiny.Notifications" Version="1.0.0.1182" />
+    <PackageReference Include="Shiny.Core" Version="1.0.0.1182" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\GeneratedExtensions.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\BgpPeerDetailPageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\AccountingSnapshotDetailPageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\FirewallMangleDetailPageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\WirelessRegistrationTableDetailPageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\HotspotActiveDetailPageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\WirelessAccessListPageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\SystemRouterboardPageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\UserGroupDetailPageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\DhcpServerLeaseDetailPageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\InterfacePageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\PppAaaDetailPageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\InterfaceBridgeDetailPageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\WirelessRegistrationTablePageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\IpAddressPageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\BridgePortPageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\DhcpServerLeasePageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\IpPoolPageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\FirewallNatDetailPageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\DnsCacheDetailPageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\AccountingSnapshotPageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\ToolPingDetailPageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\IpDhcpClientDetailPageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\DnsCacheAllPageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\FirewallNatPageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\IpDnsDetailPageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\LogDetailPageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\BgpAdvertisementsPageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\WirelessAccessListDetailPageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\InterfaceMonitorTrafficPageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\WirelessSecurityProfileDetailPageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\WirelessSnifferPageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\AccountingWebAccessPageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\DnsCacheAllDetailPageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\DhcpServerNetworkDetailPageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\WirelessSnifferDetailPageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\ToolTorchDetailPageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\InterfaceDetailPageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\HotspotUserDetailPageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\BgpInstanceDetailPageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\DnsCachePageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\BridgePortDetailPageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\DhcpServerOptionDetailPageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\ToolTracerouteDetailPageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\QueueSimpleDetailPageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\InterfaceWirelessPageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\IpAddressDetailPageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\PppSecretDetailPageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\IpDnsPageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\InterfaceEthernetDetailPageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\DhcpServerOptionPageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\IpArpPageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\QueueSimplePageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\IpRouteDetailPageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\UserGroupPageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\SystemIdentityDetailPageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\FirewalServicePortDetailPageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\BgpNetworkDetailPageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\InterfaceBridgePageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\IpAccountingPageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\PppSecretPageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\ToolPingPageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\QueueTreeDetailPageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\UserDetailPageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\UserPageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\DhcpServerNetworkPageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\FirewallConnectionPageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\DnsStaticPageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\AccountingUncountedDetailPageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\SystemResourcePageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\SystemRouterboardDetailPageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\ToolTraceroutePageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\IpDhcpRelayDetailPageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\BgpAdvertisementsDetailPageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\HotspotIpBindingDetailPageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\QueueTypePageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\HotspotIpBindingPageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\ConnectionTrackingDetailPageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\InterfaceEthernetPageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\HotspotUserProfilePageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\BgpInstancePageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\PppAaaPageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\LogPageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\DnsStaticDetailPageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\CapsManRegistrationTablePageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\IpPoolDetailPageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\BridgeFilterPageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\EthernetMonitorPageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\ViewModels\BridgeSettingsPageViewModel.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\Views\FirewallMangleDetailPage.xaml.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\Views\IpDhcpRelayPage.xaml.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\Views\InterfaceWirelessDetailPage.xaml.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\Views\IpAccountingDetailPage.xaml.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\Views\IpPoolDetailPage.xaml.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\Views\BridgeSettingsPage.xaml.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\Views\IpArpDetailPage.xaml.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\Views\IpArpPage.xaml.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\Views\DhcpServerConfigPage.xaml.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\Views\SystemIdentityPage.xaml.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\Views\WirelessChannelsPage.xaml.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\Views\InterfaceBridgePage.xaml.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\Views\PppActiveDetailPage.xaml.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\Views\InterfaceMonitorTrafficDetailPage.xaml.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\Views\PppAaaDetailPage.xaml.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\Views\IpDnsDetailPage.xaml.cs" />
+    <Compile Remove="..\..\..\MikroTik.EntityBuilder\Generated\Views\WirelessRegistrationTableDetailPage.xaml.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Remove="..\..\..\MikroTik.EntityBuilder\Generated\Views\InterfacePage.xaml" />
+    <EmbeddedResource Remove="..\..\..\MikroTik.EntityBuilder\Generated\Views\CapsManRegistrationTablePage.xaml" />
+    <EmbeddedResource Remove="..\..\..\MikroTik.EntityBuilder\Generated\Views\WirelessRegistrationTableDetailPage.xaml" />
+    <EmbeddedResource Remove="..\..\..\MikroTik.EntityBuilder\Generated\Views\BridgePortDetailPage.xaml" />
+    <EmbeddedResource Remove="..\..\..\MikroTik.EntityBuilder\Generated\Views\ToolTorchPage.xaml" />
+    <EmbeddedResource Remove="..\..\..\MikroTik.EntityBuilder\Generated\Views\FirewallManglePage.xaml" />
+    <EmbeddedResource Remove="..\..\..\MikroTik.EntityBuilder\Generated\Views\UserGroupPage.xaml" />
+    <EmbeddedResource Remove="..\..\..\MikroTik.EntityBuilder\Generated\Views\FirewallNatDetailPage.xaml" />
+    <EmbeddedResource Remove="..\..\..\MikroTik.EntityBuilder\Generated\Views\SystemResourceDetailPage.xaml" />
+    <EmbeddedResource Remove="..\..\..\MikroTik.EntityBuilder\Generated\Views\BridgeFilterDetailPage.xaml" />
+    <EmbeddedResource Remove="..\..\..\MikroTik.EntityBuilder\Generated\Views\EthernetMonitorDetailPage.xaml" />
+    <EmbeddedResource Remove="..\..\..\MikroTik.EntityBuilder\Generated\Views\DhcpServerAlertPage.xaml" />
+    <EmbeddedResource Remove="..\..\..\MikroTik.EntityBuilder\Generated\Views\DhcpServerNetworkDetailPage.xaml" />
+    <EmbeddedResource Remove="..\..\..\MikroTik.EntityBuilder\Generated\Views\UserPage.xaml" />
+    <EmbeddedResource Remove="..\..\..\MikroTik.EntityBuilder\Generated\Views\AccountingUncountedDetailPage.xaml" />
+    <EmbeddedResource Remove="..\..\..\MikroTik.EntityBuilder\Generated\Views\DnsCacheDetailPage.xaml" />
+    <EmbeddedResource Remove="..\..\..\MikroTik.EntityBuilder\Generated\Views\SystemRouterboardDetailPage.xaml" />
+    <EmbeddedResource Remove="..\..\..\MikroTik.EntityBuilder\Generated\Views\InterfaceWirelessDetailPage.xaml" />
+  </ItemGroup>
+</Project>

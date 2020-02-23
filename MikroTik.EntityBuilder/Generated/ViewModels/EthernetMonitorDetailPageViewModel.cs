@@ -14,8 +14,8 @@ namespace ModemConfigurator.ViewModels
 {
     public class EthernetMonitorDetailPageViewModel : BaseDetailViewModel<EthernetMonitor>
     {
-        public EthernetMonitorDetailPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService, Services.IModemSettings modemSettings) 
-            : base(navigationService, pageDialogService, modemSettings)
+        public EthernetMonitorDetailPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService, Services.IModemSettings modemSettings, Shiny.Net.IConnectivity connectivity, IDeviceService deviceService)
+            : base(navigationService, pageDialogService, modemSettings, connectivity, deviceService)
         {
             Title = "Ethernet Monitor Detail";
         }

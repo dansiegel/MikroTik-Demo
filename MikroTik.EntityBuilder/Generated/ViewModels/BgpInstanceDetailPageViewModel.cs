@@ -14,8 +14,8 @@ namespace ModemConfigurator.ViewModels
 {
     public class BgpInstanceDetailPageViewModel : BaseDetailViewModel<BgpInstance>
     {
-        public BgpInstanceDetailPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService, Services.IModemSettings modemSettings) 
-            : base(navigationService, pageDialogService, modemSettings)
+        public BgpInstanceDetailPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService, Services.IModemSettings modemSettings, Shiny.Net.IConnectivity connectivity, IDeviceService deviceService)
+            : base(navigationService, pageDialogService, modemSettings, connectivity, deviceService)
         {
             Title = "Bgp Instance Detail";
         }

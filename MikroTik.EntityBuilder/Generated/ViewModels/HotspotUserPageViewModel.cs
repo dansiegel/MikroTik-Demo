@@ -14,8 +14,8 @@ namespace ModemConfigurator.ViewModels
 {
     public class HotspotUserPageViewModel : BaseCollectionViewModel<HotspotUser>
     {
-        public HotspotUserPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService, Services.IModemSettings modemSettings) 
-            : base(navigationService, pageDialogService, modemSettings)
+        public HotspotUserPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService, Services.IModemSettings modemSettings, Shiny.Net.IConnectivity connectivity, IDeviceService deviceService)
+            : base(navigationService, pageDialogService, modemSettings, connectivity, deviceService)
         {
             Title = "Hotspot User";
         }

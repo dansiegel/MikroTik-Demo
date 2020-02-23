@@ -14,8 +14,8 @@ namespace ModemConfigurator.ViewModels
 {
     public class IpDhcpRelayDetailPageViewModel : BaseDetailViewModel<IpDhcpRelay>
     {
-        public IpDhcpRelayDetailPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService, Services.IModemSettings modemSettings) 
-            : base(navigationService, pageDialogService, modemSettings)
+        public IpDhcpRelayDetailPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService, Services.IModemSettings modemSettings, Shiny.Net.IConnectivity connectivity, IDeviceService deviceService)
+            : base(navigationService, pageDialogService, modemSettings, connectivity, deviceService)
         {
             Title = "Ip Dhcp Relay Detail";
         }

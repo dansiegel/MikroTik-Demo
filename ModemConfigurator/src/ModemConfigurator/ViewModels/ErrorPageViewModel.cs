@@ -6,13 +6,14 @@ using Prism.Commands;
 using Prism.Navigation;
 using Prism.Logging;
 using Prism.Services;
+using Shiny.Net;
 
 namespace ModemConfigurator.ViewModels
 {
     public class ErrorPageViewModel : ViewModelBase
     {
-        public ErrorPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService, Services.IModemSettings modemSettings) 
-            : base(navigationService, pageDialogService, modemSettings)
+        public ErrorPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService, Services.IModemSettings modemSettings, IConnectivity connectivity, IDeviceService deviceService) 
+            : base(navigationService, pageDialogService, modemSettings, connectivity, deviceService)
         {
         }
 

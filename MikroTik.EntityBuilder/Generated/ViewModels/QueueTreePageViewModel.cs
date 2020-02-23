@@ -14,8 +14,8 @@ namespace ModemConfigurator.ViewModels
 {
     public class QueueTreePageViewModel : BaseCollectionViewModel<QueueTree>
     {
-        public QueueTreePageViewModel(INavigationService navigationService, IPageDialogService pageDialogService, Services.IModemSettings modemSettings) 
-            : base(navigationService, pageDialogService, modemSettings)
+        public QueueTreePageViewModel(INavigationService navigationService, IPageDialogService pageDialogService, Services.IModemSettings modemSettings, Shiny.Net.IConnectivity connectivity, IDeviceService deviceService)
+            : base(navigationService, pageDialogService, modemSettings, connectivity, deviceService)
         {
             Title = "Queue Tree";
         }

@@ -14,8 +14,8 @@ namespace ModemConfigurator.ViewModels
 {
     public class WirelessRegistrationTablePageViewModel : BaseCollectionViewModel<WirelessRegistrationTable>
     {
-        public WirelessRegistrationTablePageViewModel(INavigationService navigationService, IPageDialogService pageDialogService, Services.IModemSettings modemSettings) 
-            : base(navigationService, pageDialogService, modemSettings)
+        public WirelessRegistrationTablePageViewModel(INavigationService navigationService, IPageDialogService pageDialogService, Services.IModemSettings modemSettings, Shiny.Net.IConnectivity connectivity, IDeviceService deviceService)
+            : base(navigationService, pageDialogService, modemSettings, connectivity, deviceService)
         {
             Title = "Wireless Registration Table";
         }

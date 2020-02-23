@@ -14,8 +14,8 @@ namespace ModemConfigurator.ViewModels
 {
     public class UserGroupPageViewModel : BaseCollectionViewModel<UserGroup>
     {
-        public UserGroupPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService, Services.IModemSettings modemSettings) 
-            : base(navigationService, pageDialogService, modemSettings)
+        public UserGroupPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService, Services.IModemSettings modemSettings, Shiny.Net.IConnectivity connectivity, IDeviceService deviceService)
+            : base(navigationService, pageDialogService, modemSettings, connectivity, deviceService)
         {
             Title = "User Group";
         }

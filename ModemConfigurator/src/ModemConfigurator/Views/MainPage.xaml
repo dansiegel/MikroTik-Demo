@@ -10,16 +10,15 @@
                   x:Class="ModemConfigurator.Views.MainPage">
     <MasterDetailPage.Master>
         <ContentPage Title="Menu"
-                     Icon="hamburger"
-                     ios:Page.UseSafeArea="true">
+                     IconImageSource="hamburger">
             <StackLayout>
-                <StackLayout MinimumHeightRequest="60"
+                <StackLayout MinimumHeightRequest="80"
                              BackgroundColor="{StaticResource PrimaryDark}"
                              Orientation="Horizontal"
-                             Padding="20,0">
+                             Padding="20,20,20,0">
                     <Image Source="Modem"
                            HeightRequest="30"
-                           WidthRequest="30" />
+                           WidthRequest="30"/>
                     <Label Text="Configurator"
                            LineBreakMode="WordWrap"
                            FontSize="Large"
@@ -30,7 +29,41 @@
                 <!--<Frame BackgroundColor="{StaticResource PrimaryDark}"
                        HeightRequest="60">
                 </Frame>-->
-                <ListView ItemsSource="{Binding MenuItems}"
+                <ScrollView>
+                  <StackLayout BindableLayout.ItemsSource="{Binding MenuItems}">
+                    <BindableLayout.ItemTemplate>
+                      <DataTemplate>
+                        <Grid>
+                          <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                          </Grid.RowDefinitions>
+                          <Label Text="{Binding Key}"
+                                 Margin="20,5"
+                                 FontAttributes="Bold"
+                                 FontSize="Subtitle"/>
+                          <StackLayout BindableLayout.ItemsSource="{Binding .}"
+                                       Grid.Row="1">
+                            <BindableLayout.ItemTemplate>
+                              <DataTemplate>
+                                <Label AutomationId="{Binding TypeName}"
+                                       Text="{Binding FriendlyName}"
+                                       Margin="25,0"
+                                       TextColor="DodgerBlue">
+                                  <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding NavigateCommand, Source={x:Reference page}}"
+                                                          CommandParameter="{Binding Uri}" />
+                                  </Label.GestureRecognizers>
+                                </Label>
+                              </DataTemplate>
+                            </BindableLayout.ItemTemplate>
+                          </StackLayout>
+                        </Grid>
+                      </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                  </StackLayout>
+                </ScrollView>
+                <!--<ListView ItemsSource="{Binding MenuItems}"
                           IsGroupingEnabled="true"
                           HasUnevenRows="true">
                     <ListView.Behaviors>
@@ -46,10 +79,11 @@
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <TextCell Text="{Binding FriendlyName}"
-                                      TextColor="DodgerBlue"/>
+                                      TextColor="DodgerBlue"
+                                      />
                         </DataTemplate>
                     </ListView.ItemTemplate>
-                </ListView>
+                </ListView>-->
             </StackLayout>
         </ContentPage>
     </MasterDetailPage.Master>

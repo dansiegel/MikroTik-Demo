@@ -14,8 +14,8 @@ namespace ModemConfigurator.ViewModels
 {
     public class IpAccountingPageViewModel : BaseCollectionViewModel<IpAccounting>
     {
-        public IpAccountingPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService, Services.IModemSettings modemSettings) 
-            : base(navigationService, pageDialogService, modemSettings)
+        public IpAccountingPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService, Services.IModemSettings modemSettings, Shiny.Net.IConnectivity connectivity, IDeviceService deviceService)
+            : base(navigationService, pageDialogService, modemSettings, connectivity, deviceService)
         {
             Title = "Ip Accounting";
         }

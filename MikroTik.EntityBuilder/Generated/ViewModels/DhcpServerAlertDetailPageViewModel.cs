@@ -14,8 +14,8 @@ namespace ModemConfigurator.ViewModels
 {
     public class DhcpServerAlertDetailPageViewModel : BaseDetailViewModel<DhcpServerAlert>
     {
-        public DhcpServerAlertDetailPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService, Services.IModemSettings modemSettings) 
-            : base(navigationService, pageDialogService, modemSettings)
+        public DhcpServerAlertDetailPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService, Services.IModemSettings modemSettings, Shiny.Net.IConnectivity connectivity, IDeviceService deviceService)
+            : base(navigationService, pageDialogService, modemSettings, connectivity, deviceService)
         {
             Title = "Dhcp Server Alert Detail";
         }

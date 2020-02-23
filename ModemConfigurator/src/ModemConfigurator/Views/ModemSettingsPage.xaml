@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="true"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:NavigationPage.PrefersLargeTitles="true"
+             ios:Page.UseSafeArea="true"
+             Title="{Binding Title}"
+             x:Class="ModemConfigurator.Views.ModemSettingsPage">
+  <Grid RowSpacing="0">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="*" />
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="Auto" />
+    </Grid.RowDefinitions>
+    <StackLayout Padding="20">
+      <Label Text="Host" />
+      <Frame HasShadow="True"
+             Padding="0">
+        <Entry Text="{Binding ModemSettings.Host}" />
+      </Frame>
+      <Label Text="User" />
+      <Frame HasShadow="True"
+             Padding="0">
+        <Entry Text="{Binding ModemSettings.User}" />
+      </Frame>
+      <Label Text="Password" />
+      <Frame HasShadow="True"
+             Padding="0">
+        <Entry Text="{Binding ModemSettings.Password}"
+               IsPassword="true" />
+      </Frame>
+    </StackLayout>
+    <Label Text="    Connected"
+            BackgroundColor="Green"
+            TextColor="WhiteSmoke"
+            Grid.Row="1"
+            IsVisible="{Binding IsConnected}"/>
+    <Label Text="    Not Connected"
+            BackgroundColor="Red"
+            TextColor="WhiteSmoke"
+            Grid.Row="2"
+            IsVisible="{Binding IsNotConnected}" />
+  </Grid>
+</ContentPage>

@@ -10,8 +10,8 @@ namespace ModemConfigurator.ViewModels
     public class BaseCollectionViewModel<TEntity> : ViewModelBase
         where TEntity : new()
     {
-        public BaseCollectionViewModel(INavigationService navigationService, IPageDialogService pageDialogService, Services.IModemSettings modemSettings) 
-            : base(navigationService, pageDialogService, modemSettings)
+        public BaseCollectionViewModel(INavigationService navigationService, IPageDialogService pageDialogService, Services.IModemSettings modemSettings, Shiny.Net.IConnectivity connectivity, IDeviceService deviceService) 
+            : base(navigationService, pageDialogService, modemSettings, connectivity, deviceService)
         {
             Items = new ObservableCollection<TEntity>();
             ItemSelectedCommand = new DelegateCommand<TEntity>(OnItemSelectedCommandExecuted);

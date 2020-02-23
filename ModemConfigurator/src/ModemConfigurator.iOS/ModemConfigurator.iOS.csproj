@@ -69,7 +69,9 @@
     <DeviceSpecificBuild>false</DeviceSpecificBuild>
     <OptimizePNGs>true</OptimizePNGs>
     <BuildIpa>true</BuildIpa>
-    <MtouchExtraArgs>-dsym=true</MtouchExtraArgs>
+    <MtouchExtraArgs>
+    </MtouchExtraArgs>
+    <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Ad-Hoc|iPhone' ">
     <DebugType>none</DebugType>

@@ -1,0 +1,5 @@
+<Project>
+  <PropertyGroup>
+    <GeneratedFilesFolder>$(MSBuildThisFileDirectory)MikroTik.EntityBuilder\Generated</GeneratedFilesFolder>
+  </PropertyGroup>
+</Project>

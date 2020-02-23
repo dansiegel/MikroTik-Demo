@@ -1,0 +1,111 @@
+trigger:
+  batch: true
+  branches:
+    include:
+    - master
+    - dev
+  paths:
+    exclude:
+    - README.md
+    - .editorconfig
+    - .gitignore
+
+pr:
+  branches:
+    include:
+    - master
+  paths:
+    exclude:
+    - README.md
+    - .editorconfig
+    - .gitignore
+
+name: $(Build.BuildId)
+
+variables:
+  - name: BuildConfiguration
+    value: 'Release'
+  - name: TargetSolution
+    value: 'ModemConfigurator/src/ModemConfigurator.iOS/ModemConfigurator.csproj'
+  - name: MacImage
+    value: macOS-latest
+  - group: ModemConfigurator
+
+stages:
+  - stage: build
+    displayName: Build
+    jobs:
+      - job: iOSBuild
+        displayName: iOS Build
+        pool:
+          vmImage: $(MacImage)
+          demands:
+            - xcode
+            - Xamarin.iOS
+        steps:
+          - task: InstallAppleCertificate@2
+            displayName: Install Apple Certificate
+            inputs:
+              certSecureFile: $(iOSCertificate)
+              certPwd: $(iOSCertificatePassword)
+          - task: InstallAppleProvisioningProfile@1
+            displayName: Install Apple Provisioning Profile
+            inputs:
+              provProfileSecureFile: $(iOSProvisioningProfile)
+          - task: ios-bundle-version@1
+            displayName: Update Build Version
+            inputs:
+              sourcePath: ModemConfigurator/src/ModemConfigurator.iOS/Info.plist
+              versionCodeOption: 'buildid'
+              versionCode: $(Build.BuildId)
+              versionName: '3.5.0.$(Build.BuildId)'
+              printFile: true
+          - bash: |
+              dotnet tool install --global boots
+              boots --stable Mono
+              boots --stable XamariniOS
+            displayName: Ensure Latest Mono & Xamarin.iOS SDKs
+          - task: NuGetToolInstaller@1
+            displayName: Install Latest NuGet
+            inputs:
+              checkLatest: true
+          - task: NuGetCommand@2
+            displayName: NuGet Restore
+            inputs:
+              command: restore
+              restoreSolution: $(TargetSolution)
+          - task: XamariniOS@2
+            displayName: Build ModemConfigurator
+            inputs:
+              solutionFile: $(TargetSolution)
+              configuration: $(BuildConfiguration)
+              buildForSimulator: false
+              args: '/p:OutputDir=$(Build.ArtifactStagingDirectory)'
+            env:
+              Secret_AppCenterSecret: $(AppCenterSecret)
+          - task: PublishPipelineArtifact@1
+            displayName: Publish Build Artifacts
+            inputs:
+              artifact: ios-app
+              targetPath: $(Build.ArtifactStagingDirectory)
+  - stage: deploy
+    displayName: Deploy
+    jobs:
+      - deployment: iOSDeploy
+        displayName: iOS Deploy
+        environment: 'App Center'
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - task: AppCenterDistribute@3
+                  displayName: Deploy to App Center
+                  inputs:
+                    serverEndpoint: AppCenter
+                    appSlug: $(AppSlug)
+                    appFile: '$(Pipeline.Workspace)/ios-app/ModemConfigurator.iOS.ipa'
+                    symbolsDsymFiles: '$(Pipeline.Workspace)/ios-app/ModemConfigurator.iOS.app.dSYM'
+                    symbolsIncludeParentDirectory: false
+                    releaseNotesOption: input
+                    releaseNotesInput: 'Update for tik4net 3.5.0'
+                    isSilent: false

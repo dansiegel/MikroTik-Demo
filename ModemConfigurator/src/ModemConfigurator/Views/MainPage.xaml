@@ -51,7 +51,7 @@
                                        Margin="25,0"
                                        TextColor="DodgerBlue">
                                   <Label.GestureRecognizers>
-                                    <TapGestureRecognizer Command="{Binding NavigateCommand, Source={x:Reference page}}"
+                                    <TapGestureRecognizer Command="{Binding BindingContext.NavigateCommand, Source={x:Reference page}}"
                                                           CommandParameter="{Binding Uri}" />
                                   </Label.GestureRecognizers>
                                 </Label>

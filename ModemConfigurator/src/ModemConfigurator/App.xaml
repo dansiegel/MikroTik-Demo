@@ -7,7 +7,7 @@
     <ResourceDictionary>
       <Color x:Key="PrimaryDark">#000066</Color>
       <Style TargetType="NavigationPage">
-        <Setter Property="BarBackgroundColor" Value="{StaticResource PrimaryDark}" />
+        <Setter Property="BackgroundColor" Value="{StaticResource PrimaryDark}" />
         <Setter Property="BarTextColor" Value="White" />
       </Style>
       <Style TargetType="Entry">

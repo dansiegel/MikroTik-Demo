@@ -38,7 +38,6 @@ namespace ModemConfigurator.ViewModels
             _modemSettings = modemSettings;
             _pageDialogService = pageDialogService;
             _connectivity = connectivity;
-            IsConnected = _connectivity.IsDirectConnect();
             _connectivity.WhenInternetStatusChanged()
                 .Subscribe(x => deviceService.BeginInvokeOnMainThread(CheckConnection))
                 .DisposedBy(DestroyWith);
@@ -79,7 +78,6 @@ namespace ModemConfigurator.ViewModels
 
         public virtual void OnNavigatedTo(INavigationParameters parameters)
         {
-            CheckConnection();
         }
 
         public virtual void OnNavigatingTo(INavigationParameters parameters)

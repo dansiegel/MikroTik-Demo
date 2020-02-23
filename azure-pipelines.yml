@@ -69,11 +69,6 @@ stages:
             displayName: Install Latest NuGet
             inputs:
               checkLatest: true
-          - task: NuGetCommand@2
-            displayName: NuGet Restore
-            inputs:
-              command: restore
-              restoreSolution: '**\*.sln'
           - task: XamariniOS@2
             displayName: Build ModemConfigurator
             inputs:
@@ -81,6 +76,7 @@ stages:
               configuration: $(BuildConfiguration)
               buildForSimulator: false
               args: '/p:OutputDir=$(Build.ArtifactStagingDirectory)'
+              runNugetRestore: true
             env:
               Secret_AppCenterSecret: $(AppCenterSecret)
           - task: PublishPipelineArtifact@1

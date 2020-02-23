@@ -73,7 +73,6 @@ stages:
             displayName: NuGet Restore
             inputs:
               command: restore
-              restoreSolution: $(TargetSolution)
           - task: XamariniOS@2
             displayName: Build ModemConfigurator
             inputs:

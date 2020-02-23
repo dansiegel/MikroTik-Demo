@@ -69,6 +69,11 @@ stages:
             displayName: Install Latest NuGet
             inputs:
               checkLatest: true
+          - task: NuGetCommand@2
+            displayName: NuGet Restore
+            inputs:
+              command: restore
+              restoreSolution: ModemConfigurator/src/ModemConfigurator/ModemConfigurator.csproj
           - task: XamariniOS@2
             displayName: Build ModemConfigurator
             inputs:

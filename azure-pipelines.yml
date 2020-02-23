@@ -79,8 +79,7 @@ stages:
             inputs:
               solutionFile: $(TargetSolution)
               configuration: $(BuildConfiguration)
-              buildForSimulator: false
-              args: '/p:OutputPath=$(Build.ArtifactStagingDirectory)'
+              args: '/p:OutputPath=$(Build.ArtifactStagingDirectory) /bl:$(BuildArtifactStagingDirectory)/build.binlog'
               runNugetRestore: true
             env:
               Secret_AppCenterSecret: $(AppCenterSecret)

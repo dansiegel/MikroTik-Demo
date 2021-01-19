@@ -7,7 +7,7 @@
 
   <ItemGroup>
     <PackageReference Include="tik4net" Version="3.5.0" />
-    <PackageReference Include="Humanizer.Core" Version="2.7.9" />
+    <PackageReference Include="Humanizer.Core" Version="2.8.26" />
   </ItemGroup>
 
   <ItemGroup>

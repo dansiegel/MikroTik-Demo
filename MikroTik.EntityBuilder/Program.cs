@@ -11,6 +11,9 @@ namespace MikroTik.EntityBuilder
 {
     class Program
     {
+        private static readonly DirectoryInfo GeneratedDirectory = new DirectoryInfo("Generated");
+        private static readonly DirectoryInfo GeneratedViewsDirectory = new DirectoryInfo(Path.Combine("Generated", "Views"));
+        private static readonly DirectoryInfo GeneratedViewModelsDirectory = new DirectoryInfo(Path.Combine("Generated", "ViewModels"));
         private const string XmlNamespace = @"
              xmlns:XMLPREFIX=""clr-namespace:TIK4NETNAMESPACE;assembly=tik4net.objects""";
         private const string GeneratedExtensions = @"using ModemConfigurator.Views;
@@ -55,8 +58,12 @@ Registrations
 
         static void Main(string[] args)
         {
-            Directory.Delete("Generated", true);
-            tik4net.Objects.System.SystemResource resource;
+            if (GeneratedDirectory.Exists)
+                GeneratedDirectory.Delete(true);
+
+            GeneratedViewsDirectory.Create();
+            GeneratedViewModelsDirectory.Create();
+
             var assembly = typeof(tik4net.Objects.MacAddress).Assembly;
 
             string menu = string.Empty;

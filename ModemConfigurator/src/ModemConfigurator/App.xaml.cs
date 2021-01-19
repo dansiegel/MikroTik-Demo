@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using Microsoft.AppCenter;
@@ -15,7 +15,6 @@ using Xamarin.Forms.Xaml;
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace ModemConfigurator
 {
-    [AutoRegisterForNavigation]
     public partial class App : PrismApplication
     {
         /* 
